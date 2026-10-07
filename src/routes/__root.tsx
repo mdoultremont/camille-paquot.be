@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts, useLocation } from "@tanstack/react-router";
 import { Header, Footer } from "../components/Layout";
 import stylesheet from "../styles.css?url";
+import { container, h1 } from "../components/styles";
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -24,9 +25,9 @@ export const Route = createRootRoute({
   }),
   component: RootDocument,
   notFoundComponent: () => (
-    <section className="container not-found">
-      <h1>Page introuvable</h1>
-      <p>Cette page n’existe pas.</p>
+    <section className={`${container} py-[100px]`}>
+      <h1 className={`${h1} text-teal`}>Page introuvable</h1>
+      <p className="my-5">Cette page n’existe pas.</p>
       <a href="/">Retour à l’accueil</a>
     </section>
   ),
@@ -34,12 +35,18 @@ export const Route = createRootRoute({
 function RootDocument() {
   const { pathname } = useLocation();
   return (
-    <html lang="fr">
+    <html
+      lang="fr"
+      className="bg-white font-sans text-base font-normal leading-normal text-body [font-synthesis:none]"
+    >
       <head>
         <HeadContent />
       </head>
-      <body>
-        <a className="skip-link" href="#main-content">
+      <body className="[&_:is(a,button)]:[-webkit-tap-highlight-color:transparent] [&_:is(a,button):focus-visible]:outline-3 [&_:is(a,button):focus-visible]:outline-solid [&_:is(a,button):focus-visible]:outline-[#8aac84] [&_:is(a,button):focus-visible]:outline-offset-[5px] motion-reduce:[&_*]:scroll-auto! motion-reduce:[&_*]:[transition:none]! motion-reduce:[&_*]:animate-none! motion-reduce:[&_*::before]:scroll-auto! motion-reduce:[&_*::before]:[transition:none]! motion-reduce:[&_*::before]:animate-none! motion-reduce:[&_*::after]:scroll-auto! motion-reduce:[&_*::after]:[transition:none]! motion-reduce:[&_*::after]:animate-none!">
+        <a
+          className="fixed -top-[100px] left-[15px] z-[100] bg-teal p-3 text-white focus:top-2.5"
+          href="#main-content"
+        >
           Aller au contenu
         </a>
         <Header />
