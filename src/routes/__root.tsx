@@ -1,10 +1,4 @@
-import {
-  createRootRoute,
-  HeadContent,
-  Outlet,
-  Scripts,
-  useLocation,
-} from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet, Scripts, useLocation } from "@tanstack/react-router";
 import { Header, Footer } from "../components/Layout";
 import stylesheet from "../styles.css?url";
 export const Route = createRootRoute({

@@ -54,8 +54,7 @@ export const services = [
   {
     slug: "soutien-parentalite",
     title: "Cours de Yoga",
-    intro:
-      "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chacun.",
+    intro: "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chacun.",
     paragraphs: [
       "La prise de rendez-vous se fait directement  par mail ou par téléphone.",
       "Durée : 1h",

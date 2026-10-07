@@ -12,18 +12,14 @@ export function HomePage() {
               <div>
                 <h1>Accompagnement thérapeutique bienveillant et sécurisant</h1>
                 <p className="lead">
-                  Une rencontre thérapeutique dans le respect de votre rythme et
-                  de vos objectifs
+                  Une rencontre thérapeutique dans le respect de votre rythme et de vos objectifs
                 </p>
               </div>
               <Link to="/a-propos" className="button button-white">
                 En savoir plus
               </Link>
             </div>
-            <div
-              className="hero-collage"
-              aria-label="Nature, lumière et sérénité"
-            >
+            <div className="hero-collage" aria-label="Nature, lumière et sérénité">
               <div>
                 <img
                   src={image("pEsC21yTuEIvcjctpRjxP8s3njo.jpg")}
@@ -71,18 +67,14 @@ export function HomePage() {
       </section>
       <section className="home-about">
         <div className="container home-about-inner">
-          <img
-            src={image("aRkLXlxz9Gb3W7ozj5hZ1ToYKc.jpg")}
-            alt="Camille Paquot"
-          />
+          <img src={image("aRkLXlxz9Gb3W7ozj5hZ1ToYKc.jpg")} alt="Camille Paquot" />
           <div>
             <h2>Camille Paquot</h2>
             <p className="lead">Psychologue Clinicienne Agréée</p>
             <p className="lead">
-              Passionnée par le contact et la rencontre avec autrui,
-              j’accompagne toute personne désirant réaliser un travail
-              thérapeutique. Nous avançons ensemble, à votre rythme et votre
-              temporalité dans un cadre bienveillant, sécurisant et non-jugeant
+              Passionnée par le contact et la rencontre avec autrui, j’accompagne toute personne
+              désirant réaliser un travail thérapeutique. Nous avançons ensemble, à votre rythme et
+              votre temporalité dans un cadre bienveillant, sécurisant et non-jugeant
             </p>
           </div>
         </div>
@@ -100,10 +92,9 @@ export function AboutPage() {
             <p className="about-name">Camille Paquot</p>
             <p className="about-job">Psychologue Clinicienne Agréée</p>
             <p>
-              Passionnée par la rencontre à l’autre, j’accompagne toute personne
-              désirant réaliser un travail thérapeutique. Nous avançons
-              ensemble, à votre rythme et votre temporalité dans un cadre
-              bienveillant, sécurisant et non-jugeant.
+              Passionnée par la rencontre à l’autre, j’accompagne toute personne désirant réaliser
+              un travail thérapeutique. Nous avançons ensemble, à votre rythme et votre temporalité
+              dans un cadre bienveillant, sécurisant et non-jugeant.
             </p>
           </div>
         </div>
@@ -147,11 +138,7 @@ export function AboutPage() {
     </>
   );
 }
-export function ServiceCard({
-  service,
-}: {
-  service: (typeof services)[number];
-}) {
+export function ServiceCard({ service }: { service: (typeof services)[number] }) {
   return (
     <article className="service-card">
       <Link
@@ -159,28 +146,17 @@ export function ServiceCard({
         params={{ service: service.slug }}
         className="service-image"
       >
-        <img
-          src={image(service.thumbnail)}
-          alt={service.title}
-          loading="lazy"
-        />
+        <img src={image(service.thumbnail)} alt={service.title} loading="lazy" />
       </Link>
       <div className="service-card-copy">
         <h3>
-          <Link
-            to="/accompagnement/$service"
-            params={{ service: service.slug }}
-          >
+          <Link to="/accompagnement/$service" params={{ service: service.slug }}>
             {service.title}
           </Link>
         </h3>
         <p>{service.intro}</p>
       </div>
-      <Link
-        to="/accompagnement/$service"
-        params={{ service: service.slug }}
-        className="learn-link"
-      >
+      <Link to="/accompagnement/$service" params={{ service: service.slug }} className="learn-link">
         En savoir plus <span aria-hidden="true">→</span>
       </Link>
     </article>
@@ -192,8 +168,8 @@ export function ServicesPage() {
       <section className="services-intro container">
         <h1>Accompagnement thérapeutique</h1>
         <p className="lead">
-          Ensemble, explorons le champ des possibles afin de trouver un
-          apaisement psychique et physique
+          Ensemble, explorons le champ des possibles afin de trouver un apaisement psychique et
+          physique
         </p>
       </section>
       <section className="services-benefits container">
@@ -223,14 +199,8 @@ export function ServicesPage() {
     </>
   );
 }
-export function ServicePage({
-  service,
-}: {
-  service: (typeof services)[number];
-}) {
-  const otherServices = services
-    .filter((s) => s.slug !== service.slug)
-    .slice(0, 2);
+export function ServicePage({ service }: { service: (typeof services)[number] }) {
+  const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 2);
   return (
     <>
       <section className="detail-banner">
@@ -264,12 +234,7 @@ export function ServicePage({
               <a href={`mailto:${email}`}>
                 <span aria-hidden="true">✉</span> {email}
               </a>
-              <a
-                href={booking}
-                className="inline-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={booking} className="inline-link" target="_blank" rel="noopener noreferrer">
                 Pour prendre rendez-vous
               </a>
             </div>
@@ -288,10 +253,7 @@ export function ServicePage({
               <ServiceCard key={s.slug} service={s} />
             ))}
           </div>
-          <Link
-            to="/accompagnement"
-            className="button button-dark all-services"
-          >
+          <Link to="/accompagnement" className="button button-dark all-services">
             All Services
           </Link>
         </div>
@@ -300,11 +262,7 @@ export function ServicePage({
   );
 }
 const trainings = [
-  [
-    "Formation — Professeure de Yoga et Yoga-thérapeutique",
-    "Mitra ASBL · 2025–2029",
-    true,
-  ],
+  ["Formation — Professeure de Yoga et Yoga-thérapeutique", "Mitra ASBL · 2025–2029", true],
   [
     "Certificat universitaire — Accompagnement psychologique de la parentalité",
     "2026–2027 · Université Catholique de Louvain-la-Neuve",

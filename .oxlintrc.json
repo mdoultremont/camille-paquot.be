@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "jsx-a11y"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    ".output/**",
+    ".wrangler/**",
+    ".tanstack/**",
+    "coverage/**",
+    "src/routeTree.gen.ts",
+    "worker-configuration.d.ts"
+  ]
+}

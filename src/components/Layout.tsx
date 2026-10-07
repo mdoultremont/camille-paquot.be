@@ -11,13 +11,7 @@ const navigation = [
 ] as const;
 export function PhoneIcon() {
   return (
-    <svg
-      aria-hidden="true"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="m20.5 14.6-3.7-1.6a1 1 0 0 0-1.2.3l-1.6 2a16 16 0 0 1-5.3-5.3l2-1.6a1 1 0 0 0 .3-1.2L9.4 3.5a1 1 0 0 0-1.1-.6l-3.5.8a1 1 0 0 0-.8 1A16.3 16.3 0 0 0 19.3 20a1 1 0 0 0 1-.8l.8-3.5a1 1 0 0 0-.6-1.1Z" />
     </svg>
   );
@@ -26,6 +20,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
+    // oxlint-disable-next-line react/set-state-in-effect -- Close the menu on route changes, including browser back/forward navigation.
     setOpen(false);
   }, [pathname]);
   useEffect(() => {
@@ -54,18 +49,8 @@ export function Header() {
           {open ? (
             <span className="menu-close">×</span>
           ) : (
-            <svg
-              width="28"
-              height="17"
-              viewBox="0 0 28 17"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M0 1h28M0 8.5h28M0 16h28"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
+            <svg width="28" height="17" viewBox="0 0 28 17" fill="none" aria-hidden="true">
+              <path d="M0 1h28M0 8.5h28M0 16h28" stroke="currentColor" strokeWidth="2" />
             </svg>
           )}
         </button>
@@ -114,13 +99,13 @@ export function Footer() {
             <button className="copy-button" onClick={() => void copyEmail()}>
               {copied ? "E-mail copié !" : "Copier l’e-mail"}
             </button>
-            <span className="sr-only" role="status">
+            <output className="sr-only">
               {copied
                 ? "Adresse e-mail copiée"
                 : copyError
                   ? `Vous pouvez copier cette adresse : ${email}`
                   : ""}
-            </span>
+            </output>
           </div>
           <div className="footer-column">
             <h2>
@@ -132,13 +117,10 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>
-            Les rendez-vous qui ne sont pas annulés 48 heures à l’avance seront
-            facturés
-          </p>
+          <p>Les rendez-vous qui ne sont pas annulés 48 heures à l’avance seront facturés</p>
           <p className="mobile-location">
-            Consultations les mercredis au Centre Métamorph'Ose (69, Rue du
-            Loutrier 1170 Watermael-Boitsfort)
+            Consultations les mercredis au Centre Métamorph'Ose (69, Rue du Loutrier 1170
+            Watermael-Boitsfort)
           </p>
         </div>
       </div>

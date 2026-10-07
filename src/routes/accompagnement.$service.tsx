@@ -8,9 +8,7 @@ export const Route = createFileRoute("/accompagnement/$service")({
     return service;
   },
   head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.title ?? "Accompagnement"} - Camille Paquot` },
-    ],
+    meta: [{ title: `${loaderData?.title ?? "Accompagnement"} - Camille Paquot` }],
   }),
   component: () => <ServicePage service={Route.useLoaderData()} />,
 });

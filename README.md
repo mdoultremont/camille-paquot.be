@@ -15,9 +15,13 @@ Open http://localhost:3000.
 
 ```sh
 npm run typecheck
+npm run lint
+npm run format:check
 npm run build
 npm run preview
 ```
+
+`npm run lint:fix` applies safe Oxlint fixes. `npm run format` formats the project with Oxfmt. Both tools exclude generated route and Worker types, build output, and local tooling caches.
 
 `preview` serves the production build through the local Cloudflare Workers runtime. The Cloudflare Vite plugin produces `dist/client` and `dist/server`.
 
