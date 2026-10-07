@@ -7,21 +7,21 @@ Responsive reproduction of [camille-paquot.framer.website](https://camille-paquo
 Use Node.js 22.12 or newer.
 
 ```sh
-npm ci
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open http://localhost:3000.
 
 ```sh
-npm run typecheck
-npm run lint
-npm run format:check
-npm run build
-npm run preview
+pnpm typecheck
+pnpm lint
+pnpm format:check
+pnpm build
+pnpm preview
 ```
 
-`npm run lint:fix` applies safe Oxlint fixes. `npm run format` formats the project with Oxfmt. Both tools exclude generated route and Worker types, build output, and local tooling caches.
+`pnpm lint:fix` applies safe Oxlint fixes. `pnpm format` formats the project with Oxfmt. Both tools exclude generated route and Worker types, build output, and local tooling caches.
 
 `preview` serves the production build through the local Cloudflare Workers runtime. The Cloudflare Vite plugin produces `dist/client` and `dist/server`.
 
@@ -32,11 +32,11 @@ The project is configured for Cloudflare Workers with the native Cloudflare Vite
 When ready to publish:
 
 ```sh
-npx wrangler login
-npm run deploy
+pnpm exec wrangler login
+pnpm run deploy
 ```
 
-Set an account or custom domain in `wrangler.jsonc` when connecting your Cloudflare account. `npm run cf-typegen` regenerates the Worker environment types when bindings change. No secrets or database are required.
+Set an account or custom domain in `wrangler.jsonc` when connecting your Cloudflare account. `pnpm cf-typegen` regenerates the Worker environment types when bindings change. No secrets or database are required.
 
 Setup follows the official [Cloudflare TanStack Start guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) and [TanStack build guide](https://tanstack.com/start/latest/docs/framework/react/build-from-scratch).
 
