@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { aboutParagraphs, services } from "../content";
-import { booking, email, PhoneIcon } from "./Layout";
+import { booking, email, phone } from "../site";
+import { PhoneIcon } from "./Layout";
 import {
   container,
   darkButton,
@@ -22,7 +23,7 @@ export function HomePage() {
             <div className="flex min-w-0 flex-1 flex-col items-start gap-10 xl:gap-[60px] max-xl:flex-[1.4] max-lg:w-full max-lg:max-w-[590px] max-lg:flex-none max-lg:items-center max-lg:text-center">
               <div className="flex flex-col gap-5">
                 <h1
-                  className={`${heading} text-[43px] tracking-[-1px] text-white md:text-[32px] xl:text-[40px] max-xl:max-w-[400px] max-lg:mx-auto`}
+                  className={`${heading} text-[32px] tracking-[-1px] text-white xl:text-[40px] max-xl:max-w-[400px] max-lg:mx-auto`}
                 >
                   Accompagnement thérapeutique bienveillant et sécurisant
                 </h1>
@@ -113,22 +114,22 @@ export function HomePage() {
 export function AboutPage() {
   return (
     <>
-      <section className="relative [background:linear-gradient(#00000080,#00000080),linear-gradient(#163c3d1a,#163c3d1a),url(/images/4QAleyr95FQ6Zs0TRVPpaNgc.jpeg)_left_bottom/100%_100%_no-repeat] py-[120px] text-white max-xl:py-[100px] max-lg:py-20">
+      <section className="relative [background:linear-gradient(#00000080,#00000080),linear-gradient(#163c3d1a,#163c3d1a),url(/images/4QAleyr95FQ6Zs0TRVPpaNgc.jpeg)_center/cover_no-repeat] py-[120px] text-white max-xl:py-[100px] max-lg:py-20">
         <div
           className={`${container} flex items-center gap-20 max-xl:gap-5 max-lg:max-w-[550px] max-lg:flex-col max-lg:items-start`}
         >
           <h1
             className={`${h1} text-white whitespace-nowrap max-xl:max-w-[400px] max-xl:whitespace-normal`}
           >
-            Qui je suis ?
+            Qui suis-je ?
           </h1>
           <div className="flex flex-1 flex-col gap-2.5">
             <p className="text-[24px]">Camille Paquot</p>
             <p className="text-[18px]">Psychologue Clinicienne Agréée</p>
             <p>
-              Passionnée par la rencontre à l’autre, j’accompagne toute personne désirant réaliser
-              un travail thérapeutique. Nous avançons ensemble, à votre rythme et votre temporalité
-              dans un cadre bienveillant, sécurisant et non-jugeant.
+              Passionnée par le contact et la rencontre avec autrui, j’accompagne toute personne
+              désirant réaliser un travail thérapeutique. Nous avançons ensemble, à votre rythme et
+              votre temporalité dans un cadre bienveillant, sécurisant et non-jugeant.
             </p>
           </div>
         </div>
@@ -241,7 +242,7 @@ export function ServicesPage() {
             {[
               "Un accueil chaleureux et humain",
               "Une écoute active et empathique",
-              "Un cadre sécuriant et bienveillant",
+              "Un cadre sécurisant et bienveillant",
               "Une approche adaptée à vos besoins",
               "Une approche intégrative",
               "Une approche psycho-corporelle",
@@ -287,7 +288,7 @@ export function ServicePage({ service }: { service: (typeof services)[number] })
               <p key={p}>{p}</p>
             ))}
             <img
-              className={`mt-[34px] h-auto w-full rounded-xl object-cover ${["therapie-individuelle-enfant", "therapie-individuelle-adulte"].includes(service.slug) ? "aspect-[4/3]" : "aspect-[3/2]"}`}
+              className={`mt-[34px] h-auto w-full rounded-xl object-cover ${["enfants-adolescents", "parentalite"].includes(service.slug) ? "aspect-[4/3]" : "aspect-[3/2]"}`}
               src={image(service.image)}
               alt={service.title}
               loading="lazy"
@@ -296,13 +297,13 @@ export function ServicePage({ service }: { service: (typeof services)[number] })
           <aside className="sticky top-[120px] flex w-[31%] flex-col gap-[30px] max-xl:w-[35%] max-lg:relative max-lg:top-auto max-lg:w-full">
             <div className="flex flex-col gap-[30px] rounded-xl bg-sage p-[30px] max-lg:items-center">
               <h2 className={`${heading} text-[22px] tracking-normal text-teal`}>
-                Questions supplémentaires?
+                Questions supplémentaires ?
               </h2>
               <a
                 className="flex items-center gap-[15px] text-[14px] [overflow-wrap:anywhere] max-lg:text-base [&_svg]:flex-none"
-                href="tel:+32470386155"
+                href={phone.href}
               >
-                <PhoneIcon /> +32 (0) 470/38.61.55
+                <PhoneIcon /> {phone.display}
               </a>
               <a
                 className="flex items-center gap-[15px] text-[14px] [overflow-wrap:anywhere] max-lg:text-base"
@@ -337,7 +338,7 @@ export function ServicePage({ service }: { service: (typeof services)[number] })
             ))}
           </div>
           <Link to="/accompagnement" className={`${darkButton} mt-[60px] max-lg:mt-10`}>
-            All Services
+            Tous les accompagnements
           </Link>
         </div>
       </section>
