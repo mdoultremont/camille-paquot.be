@@ -8,7 +8,7 @@ import {
   trainings,
   type Service,
 } from "../content";
-import { email, phone } from "../site";
+import { email, inami, languages, payment, phone } from "../site";
 import {
   container,
   h1,
@@ -281,7 +281,7 @@ export function PracticalInfoPage() {
     <>
       <section className={`${container} py-12 md:py-16`}>
         <h1 className={h1}>Infos pratiques</h1>
-        <p className={`${lead} mt-5`}>Tarifs, prise de rendez-vous et contact.</p>
+        <p className={`${lead} mt-5`}>Tarifs, paiement, prise de rendez-vous et contact.</p>
       </section>
       <section className={`${container} grid gap-5 pb-16 md:grid-cols-2`}>
         <div className="rounded-3xl bg-mustard-light p-8 md:col-span-2">
@@ -314,6 +314,7 @@ export function PracticalInfoPage() {
               ))}
             </tbody>
           </table>
+          <p className="mt-6 text-lg">{payment}</p>
         </div>
         <div className="rounded-3xl bg-sage p-8">
           <h2 className={`${h3} mb-4`}>Prendre rendez-vous</h2>
@@ -354,6 +355,15 @@ export function PracticalInfoPage() {
         <div className="rounded-3xl p-8 ring-2 ring-ink">
           <h2 className={`${h3} mb-4`}>Cabinets</h2>
           <p className="text-lg">Informations à venir.</p>
+        </div>
+        <div className="rounded-3xl p-8 ring-2 ring-ink">
+          <h2 className={`${h3} mb-4`}>Statut</h2>
+          <p className="text-lg">Psychologue clinicienne agréée, non conventionnée.</p>
+          <p className="mt-2 text-lg">Numéro INAMI : {inami}</p>
+        </div>
+        <div className="rounded-3xl p-8 ring-2 ring-ink">
+          <h2 className={`${h3} mb-4`}>Langues</h2>
+          <p className="text-lg">{languages}</p>
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import type { Service } from "../content";
-import { booking, email, phone } from "../site";
+import { booking, email, payment, phone } from "../site";
 import { container, h2, h3, outlineButton, primaryButton, serviceThemes, shapes } from "./styles";
 
 export function LogoMark({ className = "size-10" }: { className?: string }) {
@@ -95,6 +95,7 @@ export function PracticalInfo({ service }: { service: Service }) {
           </div>
         ))}
       </dl>
+      <p className="mt-4 text-sm text-ink-soft">{payment}</p>
       {service.bookOnline ? (
         <>
           <BookingLink className={`${primaryButton} mt-6 w-full`} />
