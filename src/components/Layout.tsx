@@ -1,9 +1,8 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { booking, email, phone } from "../site";
 import { button, container, heading } from "./styles";
 
-export const email = "camillepaquot.psy@gmail.com";
-export const booking = "https://rosa.be/fr/hp/camille-paquot-1/?searchType=hp";
 const navigation = [
   ["/", "Accueil"],
   ["/a-propos", "À propos"],
@@ -78,9 +77,9 @@ export function Header() {
         </nav>
         <a
           className={`${button} border-sage bg-sage text-teal hover:border-teal hover:bg-teal hover:text-white ${open ? "max-lg:flex" : "max-lg:hidden"}`}
-          href="tel:+32470386155"
+          href={phone.href}
         >
-          <PhoneIcon /> +32 470 38 61 55
+          <PhoneIcon /> {phone.display}
         </a>
       </div>
     </header>
@@ -110,7 +109,7 @@ export function Footer() {
               Des questions ?
             </h2>
             <div className="flex flex-col gap-3 font-medium [&_a:hover]:underline">
-              <a href="tel:+32470386155">+32 470 38 61 55</a>
+              <a href={phone.href}>{phone.display}</a>
               <a href={`mailto:${email}`}>{email}</a>
             </div>
             <button
@@ -145,10 +144,6 @@ export function Footer() {
         </div>
         <div className="border-t border-[#ffffff40] pt-[30px] pb-5 text-center text-[14px]">
           <p>Les rendez-vous qui ne sont pas annulés 48 heures à l’avance seront facturés</p>
-          <p className="hidden max-lg:block">
-            Consultations les mercredis au Centre Métamorph'Ose (69, Rue du Loutrier 1170
-            Watermael-Boitsfort)
-          </p>
         </div>
       </div>
     </footer>

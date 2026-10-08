@@ -2,7 +2,7 @@
 export const container = "mx-auto w-full max-w-[1200px] px-5 xl:px-[15px]";
 export const heading = "font-serif font-normal leading-[1.2]";
 export const h1 = `${heading} text-[42px] tracking-[-2px] md:text-[52px] xl:text-[67px]`;
-export const h2 = `${heading} text-[43px] tracking-[-1px] md:text-[32px] xl:text-[40px]`;
+export const h2 = `${heading} text-[32px] tracking-[-1px] xl:text-[40px]`;
 export const lead = "text-[20px] leading-normal tracking-normal";
 export const inlineLink = "underline hover:opacity-70";
 export const button =

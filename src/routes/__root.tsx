@@ -1,4 +1,4 @@
-import { createRootRoute, HeadContent, Outlet, Scripts, useLocation } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 import { Header, Footer } from "../components/Layout";
 import stylesheet from "../styles.css?url";
 import { container, h1 } from "../components/styles";
@@ -28,12 +28,11 @@ export const Route = createRootRoute({
     <section className={`${container} py-[100px]`}>
       <h1 className={`${h1} text-teal`}>Page introuvable</h1>
       <p className="my-5">Cette page n’existe pas.</p>
-      <a href="/">Retour à l’accueil</a>
+      <Link to="/">Retour à l’accueil</Link>
     </section>
   ),
 });
 function RootDocument() {
-  const { pathname } = useLocation();
   return (
     <html
       lang="fr"
@@ -53,7 +52,7 @@ function RootDocument() {
         <main id="main-content">
           <Outlet />
         </main>
-        {pathname !== "/formation-continue" && <Footer />}
+        <Footer />
         <Scripts />
       </body>
     </html>

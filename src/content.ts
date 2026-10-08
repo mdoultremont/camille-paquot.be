@@ -9,13 +9,13 @@ export const aboutParagraphs = [
 
 export const services = [
   {
-    slug: "therapie-individuelle-enfant",
+    slug: "enfants-adolescents",
     title: "Thérapie enfant - adolescent",
     intro:
       "Un espace thérapeutique dédié aux enfants et adolescents afin de leur permettre d'explorer leurs émotions, leurs besoins, leurs inquiétudes, leurs difficultés ainsi que leurs ressources",
     paragraphs: [
       "J’offre un espace sécurisant aux enfants et adolescents pour qu'ils puissent déployer leur histoire, leurs émotions, leurs inquiétudes et leurs difficultés rencontrées. Pour ce faire, nous utilisons des médias variés tels que le livre, l’art-thérapie, le jeu, les exercices de yoga et de respiration. Les médias choisis s’adaptent aux besoins de l’enfant et des familles.",
-      "Cet accompagnement thérapeutique ne pourra se faire sans l’implication active des parents. Le début de l'accompagnement commence avec les parents sans l'enfant afin d’accueillir la demande et établir des objectifs de travail.",
+      "Cet accompagnement thérapeutique ne pourra se faire sans l’implication active des parents. L'accompagnement commence par une rencontre avec les parents sans l'enfant afin d’accueillir la demande et établir des objectifs de travail.",
       "Durée : 45 minutes à 1h",
       "Tarif : 60 euros",
       "Politique d'annulation : 48 heures à l'avance",
@@ -24,8 +24,8 @@ export const services = [
     image: "e00VvrjSYBhE7myKVzS2NQB21S0.jpeg",
   },
   {
-    slug: "therapie-individuelle-ado",
-    title: "Thérapie inviduelle pour adulte",
+    slug: "adultes",
+    title: "Thérapie individuelle pour adulte",
     intro:
       "Un espace thérapeutique dédié aux adultes afin d'explorer les difficultés rencontrées et rebondir sur leurs ressources",
     paragraphs: [
@@ -38,12 +38,12 @@ export const services = [
     image: "o0UU5EAr2ZX2tysq1iTvBwNSEoM.jpeg",
   },
   {
-    slug: "therapie-individuelle-adulte",
+    slug: "parentalite",
     title: "Soutien à la parentalité",
     intro:
-      "Un espace thérapeutique dédié aux parents qui recontrent des difficultés dans leur rôle parental",
+      "Un espace thérapeutique dédié aux parents qui rencontrent des difficultés dans leur rôle parental",
     paragraphs: [
-      "Le bien-être des parents et le bien-être des enfants sont étroitement liés. Il est important de prendre soin de soi pour pouvoir prendre soin de ses enfants. Quelques soient les difficultés rencontrées dans votre rôle de parent, nous pouvons les aborder afin de développer des stratégies et outils qui vous sont propres.",
+      "Le bien-être des parents et le bien-être des enfants sont étroitement liés. Il est important de prendre soin de soi pour pouvoir prendre soin de ses enfants. Quels que soient les difficultés rencontrées dans votre rôle de parent, nous pouvons les aborder afin de développer des stratégies et outils qui vous sont propres.",
       "Durée : 45 minutes à 1h",
       "Tarif : 60 euros",
       "Politique d'annulation : 48 heures à l'avance",
@@ -52,11 +52,11 @@ export const services = [
     image: "5UgYH7tNFUlCSTx7hPqeLKH0C28.jpg",
   },
   {
-    slug: "soutien-parentalite",
+    slug: "yoga",
     title: "Cours de Yoga",
     intro: "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chacun.",
     paragraphs: [
-      "La prise de rendez-vous se fait directement  par mail ou par téléphone.",
+      "La prise de rendez-vous se fait directement par mail ou par téléphone.",
       "Durée : 1h",
       "Tarif : 15 euros",
       "Politique d'annulation : 48 heures à l'avance",
