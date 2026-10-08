@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BookingBand } from "../components/BookingBand";
-import { BookingLink } from "../components/BookingLink";
-import { Button } from "../components/Button";
-import { Container } from "../components/Container";
-import { EmailLink } from "../components/EmailLink";
-import { Heading } from "../components/Heading";
-import { Portrait } from "../components/Portrait";
-import { Shape } from "../components/Shape";
-import { Strengths } from "../components/Strengths";
-import { introduction, phone } from "../constants";
+import { BookingBand } from "@/components/BookingBand";
+import { BookingLink } from "@/components/BookingLink";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { EmailLink } from "@/components/EmailLink";
+import { Heading } from "@/components/Heading";
+import { Portrait } from "@/components/Portrait";
+import { Shape } from "@/components/Shape";
+import { Strengths } from "@/components/Strengths";
+import { introduction, phone } from "@/constants";
 
 export const Route = createFileRoute("/a-propos")({
   component: AboutPage,

@@ -1,4 +1,4 @@
-import { Shape } from "./Shape";
+import { Shape } from "@/components/Shape";
 
 // Black-and-white portrait cut into an arch, surrounded by paper shapes.
 export function Portrait({ className = "" }: { className?: string }) {

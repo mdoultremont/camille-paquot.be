@@ -1,11 +1,9 @@
-import { Link } from "@tanstack/react-router";
-import { cancellationPolicy, commission, phone, visa } from "../constants";
-import { BookingLink } from "./BookingLink";
-import { Container } from "./Container";
-import { EmailLink } from "./EmailLink";
-import { navigation } from "./Header";
-import { Logo } from "./Logo";
-import { Shape } from "./Shape";
+import { cancellationPolicy, commission, phone, visa } from "@/constants";
+import { BookingLink } from "@/components/BookingLink";
+import { Container } from "@/components/Container";
+import { EmailLink } from "@/components/EmailLink";
+import { Logo } from "@/components/Logo";
+import { Shape } from "@/components/Shape";
 
 export function Footer() {
   return (
@@ -42,16 +40,7 @@ export function Footer() {
         </div>
       </Container>
       <Container className="relative">
-        <div className="flex flex-col gap-4 border-t border-ink/20 py-6 text-sm md:flex-row md:justify-between">
-          <p>{cancellationPolicy}</p>
-          <nav aria-label="Liens du pied de page" className="flex flex-wrap gap-x-5 gap-y-1">
-            {navigation.map(({ path, label, link }) => (
-              <Link key={path} {...link} className="hover:underline">
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </div>
+        <p className="border-t border-ink/20 py-6 text-sm">{cancellationPolicy}</p>
       </Container>
     </footer>
   );

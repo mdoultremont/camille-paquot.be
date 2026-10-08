@@ -1,8 +1,8 @@
-import { email, payment, phone } from "../constants";
-import type { Service } from "../services";
-import { BookingLink } from "./BookingLink";
-import { Button } from "./Button";
-import { Heading } from "./Heading";
+import { email, payment, phone } from "@/constants";
+import type { Service } from "@/services";
+import { BookingLink } from "@/components/BookingLink";
+import { Button } from "@/components/Button";
+import { Heading } from "@/components/Heading";
 
 export function PracticalInfo({ service }: { service: Service }) {
   const rows = [

@@ -1,10 +1,10 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { Container } from "../components/Container";
-import { Heading } from "../components/Heading";
-import { PracticalInfo } from "../components/PracticalInfo";
-import { ServiceCard } from "../components/ServiceCard";
-import { Shape, type ShapeName } from "../components/Shape";
-import { services, type Service } from "../services";
+import { Container } from "@/components/Container";
+import { Heading } from "@/components/Heading";
+import { PracticalInfo } from "@/components/PracticalInfo";
+import { ServiceCard } from "@/components/ServiceCard";
+import { Shape, type ShapeName } from "@/components/Shape";
+import { services, type Service } from "@/services";
 
 export const Route = createFileRoute("/accompagnement/$service")({
   loader: ({ params }) => {

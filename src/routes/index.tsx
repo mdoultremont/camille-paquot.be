@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BookingBand } from "../components/BookingBand";
-import { BookingLink } from "../components/BookingLink";
-import { ButtonLink } from "../components/Button";
-import { Container } from "../components/Container";
-import { Heading } from "../components/Heading";
-import { Portrait } from "../components/Portrait";
-import { ServiceCard } from "../components/ServiceCard";
-import { Strengths } from "../components/Strengths";
-import { TextLink } from "../components/TextLink";
-import { introduction } from "../constants";
-import { services } from "../services";
+import { BookingBand } from "@/components/BookingBand";
+import { BookingLink } from "@/components/BookingLink";
+import { ButtonLink } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { Heading } from "@/components/Heading";
+import { Portrait } from "@/components/Portrait";
+import { ServiceCard } from "@/components/ServiceCard";
+import { Strengths } from "@/components/Strengths";
+import { TextLink } from "@/components/TextLink";
+import { introduction } from "@/constants";
+import { services } from "@/services";
 
 export const Route = createFileRoute("/")({ component: HomePage });
 

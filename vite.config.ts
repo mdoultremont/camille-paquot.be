@@ -11,5 +11,6 @@ export default defineConfig({
     tanstackStart(),
     react(),
   ],
+  resolve: { tsconfigPaths: true },
   server: { host: "0.0.0.0", port: 3000 },
 });

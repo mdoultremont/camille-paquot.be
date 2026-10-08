@@ -1,13 +1,12 @@
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { phone } from "../constants";
-import { BookingLink } from "./BookingLink";
-import { Container } from "./Container";
-import { EmailLink } from "./EmailLink";
-import { Logo } from "./Logo";
+import { phone } from "@/constants";
+import { BookingLink } from "@/components/BookingLink";
+import { Container } from "@/components/Container";
+import { EmailLink } from "@/components/EmailLink";
+import { Logo } from "@/components/Logo";
 
-// Also used by the footer.
-export const navigation = [
+const navigation = [
   {
     path: "/accompagnement",
     label: "Accompagnements",

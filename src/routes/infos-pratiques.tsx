@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookingLink } from "../components/BookingLink";
-import { Container } from "../components/Container";
-import { EmailLink } from "../components/EmailLink";
-import { Heading } from "../components/Heading";
-import { TextAnchor } from "../components/TextLink";
-import { cancellationPolicy, commission, payment, phone, visa } from "../constants";
-import { services } from "../services";
+import { BookingLink } from "@/components/BookingLink";
+import { Container } from "@/components/Container";
+import { EmailLink } from "@/components/EmailLink";
+import { Heading } from "@/components/Heading";
+import { TextAnchor } from "@/components/TextLink";
+import { cancellationPolicy, commission, payment, phone, visa } from "@/constants";
+import { services } from "@/services";
 
 export const Route = createFileRoute("/infos-pratiques")({
   component: PracticalInfoPage,

@@ -1,10 +1,10 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { ButtonLink } from "../components/Button";
-import { Container } from "../components/Container";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-import { Heading } from "../components/Heading";
-import stylesheet from "../styles.css?url";
+import { ButtonLink } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Heading } from "@/components/Heading";
+import stylesheet from "@/styles.css?url";
 export const Route = createRootRoute({
   head: () => ({
     meta: [

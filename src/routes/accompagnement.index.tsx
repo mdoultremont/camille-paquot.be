@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BookingBand } from "../components/BookingBand";
-import { Container } from "../components/Container";
-import { Heading } from "../components/Heading";
-import { ServiceCard } from "../components/ServiceCard";
-import { Strengths } from "../components/Strengths";
-import { services } from "../services";
+import { BookingBand } from "@/components/BookingBand";
+import { Container } from "@/components/Container";
+import { Heading } from "@/components/Heading";
+import { ServiceCard } from "@/components/ServiceCard";
+import { Strengths } from "@/components/Strengths";
+import { services } from "@/services";
 
 export const Route = createFileRoute("/accompagnement/")({
   component: ServicesPage,

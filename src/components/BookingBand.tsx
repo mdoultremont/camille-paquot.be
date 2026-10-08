@@ -1,8 +1,8 @@
-import { phone } from "../constants";
-import { BookingLink } from "./BookingLink";
-import { Container } from "./Container";
-import { Heading } from "./Heading";
-import { Shape } from "./Shape";
+import { phone } from "@/constants";
+import { BookingLink } from "@/components/BookingLink";
+import { Container } from "@/components/Container";
+import { Heading } from "@/components/Heading";
+import { Shape } from "@/components/Shape";
 
 export function BookingBand() {
   return (

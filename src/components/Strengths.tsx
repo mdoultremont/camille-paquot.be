@@ -1,4 +1,4 @@
-import { Shape, type ShapeName } from "./Shape";
+import { Shape, type ShapeName } from "@/components/Shape";
 
 const strengths = [
   "Un accueil chaleureux et humain",

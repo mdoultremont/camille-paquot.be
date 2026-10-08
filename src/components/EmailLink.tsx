@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { email } from "../constants";
-import { TextAnchor } from "./TextLink";
+import { email } from "@/constants";
+import { TextAnchor } from "@/components/TextLink";
 
 // The e-mail address always comes with a copy button.
 export function EmailLink({

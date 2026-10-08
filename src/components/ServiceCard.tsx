@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import type { Service } from "../services";
-import { Heading } from "./Heading";
-import { Shape } from "./Shape";
+import type { Service } from "@/services";
+import { Heading } from "@/components/Heading";
+import { Shape } from "@/components/Shape";
 
 export function ServiceCard({ service }: { service: Service }) {
   const { theme } = service;

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { booking } from "../constants";
-import { Button } from "./Button";
+import { booking } from "@/constants";
+import { Button } from "@/components/Button";
 
 export function BookingLink({
   variant,
