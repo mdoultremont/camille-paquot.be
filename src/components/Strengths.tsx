@@ -5,7 +5,6 @@ const strengths = [
   "Une écoute active et empathique",
   "Un cadre sécurisant et bienveillant",
   "Une approche adaptée à vos besoins",
-  "Une approche intégrative",
   "Une approche psycho-corporelle",
 ];
 

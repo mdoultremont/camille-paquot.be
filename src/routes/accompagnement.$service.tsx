@@ -39,7 +39,7 @@ function ServicePage({ service }: { service: Service }) {
   return (
     <>
       <section className="px-3 md:px-6">
-        <div className={`relative overflow-hidden rounded-[2rem] ${theme.background}`}>
+        <div className={`relative overflow-hidden rounded-4xl ${theme.background}`}>
           <Shape
             shape={theme.shape}
             className={`absolute -right-10 -bottom-10 w-40 md:top-10 md:right-16 md:bottom-auto md:w-56 ${theme.shapeColor}`}

@@ -4,7 +4,15 @@ import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
 import { Heading } from "@/components/Heading";
 import { TextAnchor } from "@/components/TextLink";
-import { cancellationPolicy, commission, payment, phone, visa } from "@/constants";
+import {
+  cancellationPolicy,
+  commission,
+  financialHardship,
+  payment,
+  phone,
+  reimbursement,
+  visa,
+} from "@/constants";
 import { services } from "@/services";
 import { pageHead } from "@/seo";
 
@@ -64,6 +72,8 @@ function PracticalInfoPage() {
             </tbody>
           </table>
           <p className="mt-6 text-lg">{payment}</p>
+          <p className="mt-2 text-lg">{reimbursement}</p>
+          <p className="mt-2 text-lg">{financialHardship}</p>
         </div>
         <div className={`${panel} bg-sage`}>
           <Heading level={3} as="h2" className="mb-4">
