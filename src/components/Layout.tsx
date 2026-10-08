@@ -1,9 +1,9 @@
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { cancellationPolicy } from "../content";
-import { commission, email, phone, visa } from "../site";
+import { commission, phone, visa } from "../site";
 import { container, primaryButton } from "./styles";
-import { BookingLink, LogoMark, Shape } from "./ui";
+import { BookingLink, EmailLink, LogoMark, Shape } from "./ui";
 
 const navigation = [
   {
@@ -122,7 +122,7 @@ export function Header() {
             {links}
             <div className="mt-6 flex flex-col gap-1 px-4 text-lg">
               <a href={phone.href}>{phone.display}</a>
-              <a href={`mailto:${email}`}>{email}</a>
+              <EmailLink />
             </div>
           </div>
         </nav>
@@ -132,18 +132,6 @@ export function Header() {
 }
 
 export function Footer() {
-  const [copied, setCopied] = useState(false);
-  const [copyError, setCopyError] = useState(false);
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(email);
-      setCopied(true);
-      setCopyError(false);
-      window.setTimeout(() => setCopied(false), 2500);
-    } catch {
-      setCopyError(true);
-    }
-  }
   return (
     <footer className="relative overflow-hidden bg-stone-100">
       <Shape shape="circle" className="absolute -top-10 -right-10 w-40 bg-mustard-light" />
@@ -166,36 +154,10 @@ export function Footer() {
                 {phone.display}
               </a>
             </li>
-            <li className="flex items-center gap-2">
-              <a className="break-all hover:underline" href={`mailto:${email}`}>
-                {email}
-              </a>
-              <button
-                type="button"
-                aria-label="Copier l’e-mail"
-                title={copied ? "E-mail copié" : "Copier l’e-mail"}
-                className="flex size-8 flex-none cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-white"
-                onClick={() => void copyEmail()}
-              >
-                <svg aria-hidden="true" className="size-4" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d={copied ? "M5 12.5l4.5 4.5L19 7.5" : "M9 9h10v10H9zM5 15V5h10"}
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+            <li>
+              <EmailLink />
             </li>
           </ul>
-          <output className="sr-only">
-            {copied
-              ? "Adresse e-mail copiée"
-              : copyError
-                ? `Vous pouvez copier cette adresse : ${email}`
-                : ""}
-          </output>
         </div>
         <div>
           <h2 className="mb-3 text-xl font-extrabold">Rendez-vous</h2>

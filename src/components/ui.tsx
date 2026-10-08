@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import type { Service } from "../content";
 import { booking, email, payment, phone } from "../site";
 import { container, h2, h3, outlineButton, primaryButton, serviceThemes, shapes } from "./styles";
@@ -16,6 +16,59 @@ export function LogoMark({ className = "size-10" }: { className?: string }) {
 
 export function Shape({ shape, className }: { shape: keyof typeof shapes; className: string }) {
   return <div aria-hidden="true" className={`${shapes[shape]} ${className}`} />;
+}
+
+// The e-mail address always comes with a copy button.
+export function EmailLink({
+  className = "",
+  linkClassName = "hover:underline",
+}: {
+  className?: string;
+  linkClassName?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setCopyError(false);
+      window.setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopyError(true);
+    }
+  }
+  return (
+    <span className={`inline-flex items-center gap-1 ${className}`}>
+      <a className={`break-all ${linkClassName}`} href={`mailto:${email}`}>
+        {email}
+      </a>
+      <button
+        type="button"
+        aria-label="Copier l’e-mail"
+        title={copied ? "E-mail copié" : "Copier l’e-mail"}
+        className="flex size-8 flex-none cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-ink/10"
+        onClick={() => void copyEmail()}
+      >
+        <svg aria-hidden="true" className="size-4" viewBox="0 0 24 24" fill="none">
+          <path
+            d={copied ? "M5 12.5l4.5 4.5L19 7.5" : "M9 9h10v10H9zM5 15V5h10"}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <output className="sr-only">
+        {copied
+          ? "Adresse e-mail copiée"
+          : copyError
+            ? `Vous pouvez copier cette adresse : ${email}`
+            : ""}
+      </output>
+    </span>
+  );
 }
 
 export function BookingLink({

@@ -8,7 +8,7 @@ import {
   trainings,
   type Service,
 } from "../content";
-import { commission, email, languages, payment, phone, visa } from "../site";
+import { commission, languages, payment, phone, visa } from "../site";
 import {
   container,
   h1,
@@ -22,7 +22,15 @@ import {
   shapes,
   textLink,
 } from "./styles";
-import { BookingBand, BookingLink, PracticalInfo, Portrait, ServiceCard, Shape } from "./ui";
+import {
+  BookingBand,
+  BookingLink,
+  EmailLink,
+  PracticalInfo,
+  Portrait,
+  ServiceCard,
+  Shape,
+} from "./ui";
 
 const introduction =
   "Passionnée par le contact et la rencontre avec autrui, j’accompagne toute personne désirant réaliser un travail thérapeutique. Nous avançons ensemble, à votre rythme et votre temporalité, dans un cadre bienveillant, sécurisant et non-jugeant.";
@@ -216,9 +224,7 @@ export function AboutPage() {
               {phone.display}
             </a>
           </div>
-          <a className={`${textLink} mt-5 inline-block break-all`} href={`mailto:${email}`}>
-            {email}
-          </a>
+          <EmailLink className="mt-4" linkClassName={textLink} />
         </div>
         <Portrait className="mx-auto max-w-sm" />
       </section>
@@ -346,9 +352,7 @@ export function PracticalInfoPage() {
               </a>
             </li>
             <li>
-              <a className={`${textLink} break-all`} href={`mailto:${email}`}>
-                {email}
-              </a>
+              <EmailLink linkClassName={textLink} />
             </li>
           </ul>
         </div>
