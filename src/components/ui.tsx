@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Service } from "../content";
 import { booking, email, payment, phone } from "../site";
 import { container, h2, h3, outlineButton, primaryButton, serviceThemes, shapes } from "./styles";
@@ -28,12 +28,16 @@ export function EmailLink({
 }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+  const resetTimeout = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(resetTimeout.current), []);
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
       setCopyError(false);
-      window.setTimeout(() => setCopied(false), 2500);
+      // Restart the delay on every click so the check mark stays for the full duration.
+      window.clearTimeout(resetTimeout.current);
+      resetTimeout.current = window.setTimeout(() => setCopied(false), 2500);
     } catch {
       setCopyError(true);
     }

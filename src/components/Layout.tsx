@@ -58,10 +58,12 @@ export function Header() {
     const close = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
-    document.body.classList.add("overflow-hidden");
+    // Only lock scrolling while the mobile menu can be visible, so a viewport that grows past
+    // the breakpoint (e.g. a rotated tablet) is never left with a hidden menu and a frozen page.
+    document.body.classList.add("max-lg:overflow-hidden");
     document.addEventListener("keydown", close);
     return () => {
-      document.body.classList.remove("overflow-hidden");
+      document.body.classList.remove("max-lg:overflow-hidden");
       document.removeEventListener("keydown", close);
     };
   }, [open]);
