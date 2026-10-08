@@ -1,12 +1,38 @@
+import type { Service } from "../content";
+
 // Shared utility lists keep the site's repeated typography and controls consistent.
-export const container = "mx-auto w-full max-w-[1200px] px-5 xl:px-[15px]";
-export const heading = "font-serif font-normal leading-[1.2]";
-export const h1 = `${heading} text-[42px] tracking-[-2px] md:text-[52px] xl:text-[67px]`;
-export const h2 = `${heading} text-[32px] tracking-[-1px] xl:text-[40px]`;
-export const lead = "text-[20px] leading-normal tracking-normal";
-export const inlineLink = "underline hover:opacity-70";
-export const button =
-  "inline-flex items-center justify-center gap-2.5 rounded-lg border px-[22px] py-3 text-base font-medium tracking-[-0.16px] whitespace-nowrap transition-[background-color,color] duration-200 ease-[ease]";
-export const whiteButton = `${button} border-white bg-white text-teal hover:border-sage hover:bg-sage`;
-export const darkButton = `${button} border-teal bg-teal text-white hover:bg-[#285456]`;
-export const prose = "tracking-[-0.16px] [&_p+p]:mt-2.5";
+export const container = "mx-auto w-full max-w-6xl px-5 md:px-8";
+export const h1 = "text-4xl leading-none font-extrabold tracking-tight text-balance md:text-6xl";
+export const h2 = "text-3xl font-extrabold tracking-tight text-balance md:text-4xl";
+export const h3 = "text-2xl leading-tight font-extrabold tracking-tight";
+export const lead = "text-lg text-ink-soft md:text-xl";
+export const prose = "max-w-prose space-y-4 text-lg leading-relaxed";
+export const textLink =
+  "font-bold underline decoration-mustard decoration-2 underline-offset-4 transition-colors hover:decoration-ink";
+const button =
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-bold whitespace-nowrap transition-colors";
+export const primaryButton = `${button} bg-ink text-white hover:bg-ink-soft`;
+export const outlineButton = `${button} text-ink ring-2 ring-ink ring-inset hover:bg-ink hover:text-white`;
+
+// Cut-paper shapes, the visual signature of the brand. Size them with a width class.
+export const shapes = {
+  circle: "aspect-square rounded-full",
+  halfMoon: "aspect-[2/1] rounded-t-full",
+  leaf: "aspect-square rounded-tr-full rounded-bl-full",
+  pebble: "aspect-[15/13] rounded-[58%_42%_50%_50%/55%_45%_55%_45%]",
+} as const;
+
+// Each service keeps the same colour and shape across cards and its own page.
+export const serviceThemes: Record<
+  Service["slug"],
+  { background: string; shape: keyof typeof shapes; shapeColor: string }
+> = {
+  "enfants-adolescents": {
+    background: "bg-mustard-light",
+    shape: "circle",
+    shapeColor: "bg-lilac",
+  },
+  adultes: { background: "bg-sage", shape: "halfMoon", shapeColor: "bg-mustard" },
+  parentalite: { background: "bg-lilac", shape: "leaf", shapeColor: "bg-sky" },
+  yoga: { background: "bg-sky", shape: "pebble", shapeColor: "bg-mustard" },
+};

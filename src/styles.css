@@ -1,40 +1,18 @@
 @import "tailwindcss" source("./");
 @font-face {
-  font-family: Castoro;
-  src: url("/fonts/castoro.woff2") format("woff2");
+  font-family: Gabarito;
+  src: url("/fonts/gabarito.woff2") format("woff2");
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: Castoro;
-  src: url("/fonts/castoro-italic.woff2") format("woff2");
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: Lexend;
-  src: url("/fonts/lexend-regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: Lexend;
-  src: url("/fonts/lexend.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 500 900;
+  font-weight: 400 900;
   font-display: swap;
 }
 @theme {
-  --color-teal: #163c3d;
-  --color-sage: #e2eddf;
-  --color-body: #535b53;
-  --font-sans: Lexend, sans-serif;
-  --font-serif: Castoro, serif;
-  --breakpoint-*: initial;
-  --breakpoint-md: 767.01px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1280px;
+  --font-sans: Gabarito, ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #22302a;
+  --color-ink-soft: #4a564e;
+  --color-mustard: #c9952a;
+  --color-mustard-light: #e9c56a;
+  --color-sage: #97b08f;
+  --color-lilac: #d9cbe3;
+  --color-sky: #a8c3db;
 }

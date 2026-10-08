@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
-import { Route as FormationContinueRouteImport } from './routes/formation-continue'
+import { Route as InfosPratiquesRouteImport } from './routes/infos-pratiques'
 import { Route as AccompagnementIndexRouteImport } from './routes/accompagnement.index'
 import { Route as AccompagnementServiceRouteImport } from './routes/accompagnement.$service'
 
@@ -25,9 +25,9 @@ const AProposRoute = AProposRouteImport.update({
   path: '/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FormationContinueRoute = FormationContinueRouteImport.update({
-  id: '/formation-continue',
-  path: '/formation-continue',
+const InfosPratiquesRoute = InfosPratiquesRouteImport.update({
+  id: '/infos-pratiques',
+  path: '/infos-pratiques',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccompagnementIndexRoute = AccompagnementIndexRouteImport.update({
@@ -44,14 +44,14 @@ const AccompagnementServiceRoute = AccompagnementServiceRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/formation-continue': typeof FormationContinueRoute
+  '/infos-pratiques': typeof InfosPratiquesRoute
   '/accompagnement/$service': typeof AccompagnementServiceRoute
   '/accompagnement/': typeof AccompagnementIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/formation-continue': typeof FormationContinueRoute
+  '/infos-pratiques': typeof InfosPratiquesRoute
   '/accompagnement/$service': typeof AccompagnementServiceRoute
   '/accompagnement': typeof AccompagnementIndexRoute
 }
@@ -59,7 +59,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/formation-continue': typeof FormationContinueRoute
+  '/infos-pratiques': typeof InfosPratiquesRoute
   '/accompagnement/$service': typeof AccompagnementServiceRoute
   '/accompagnement/': typeof AccompagnementIndexRoute
 }
@@ -68,21 +68,21 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-propos'
-    | '/formation-continue'
+    | '/infos-pratiques'
     | '/accompagnement/$service'
     | '/accompagnement/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-propos'
-    | '/formation-continue'
+    | '/infos-pratiques'
     | '/accompagnement/$service'
     | '/accompagnement'
   id:
     | '__root__'
     | '/'
     | '/a-propos'
-    | '/formation-continue'
+    | '/infos-pratiques'
     | '/accompagnement/$service'
     | '/accompagnement/'
   fileRoutesById: FileRoutesById
@@ -90,7 +90,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
-  FormationContinueRoute: typeof FormationContinueRoute
+  InfosPratiquesRoute: typeof InfosPratiquesRoute
   AccompagnementServiceRoute: typeof AccompagnementServiceRoute
   AccompagnementIndexRoute: typeof AccompagnementIndexRoute
 }
@@ -111,11 +111,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AProposRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/formation-continue': {
-      id: '/formation-continue'
-      path: '/formation-continue'
-      fullPath: '/formation-continue'
-      preLoaderRoute: typeof FormationContinueRouteImport
+    '/infos-pratiques': {
+      id: '/infos-pratiques'
+      path: '/infos-pratiques'
+      fullPath: '/infos-pratiques'
+      preLoaderRoute: typeof InfosPratiquesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accompagnement/': {
@@ -138,7 +138,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
-  FormationContinueRoute: FormationContinueRoute,
+  InfosPratiquesRoute: InfosPratiquesRoute,
   AccompagnementServiceRoute: AccompagnementServiceRoute,
   AccompagnementIndexRoute: AccompagnementIndexRoute,
 }

@@ -1,7 +1,7 @@
 import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 import { Header, Footer } from "../components/Layout";
 import stylesheet from "../styles.css?url";
-import { container, h1 } from "../components/styles";
+import { container, h1, lead, primaryButton } from "../components/styles";
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -16,34 +16,29 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: stylesheet },
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/images/1ynKL1WtFDMUZr5RG054YQhGegI.png",
-      },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     ],
   }),
   component: RootDocument,
   notFoundComponent: () => (
-    <section className={`${container} py-[100px]`}>
-      <h1 className={`${h1} text-teal`}>Page introuvable</h1>
-      <p className="my-5">Cette page n’existe pas.</p>
-      <Link to="/">Retour à l’accueil</Link>
+    <section className={`${container} py-24`}>
+      <h1 className={h1}>Page introuvable</h1>
+      <p className={`${lead} my-6`}>Cette page n’existe pas ou a été déplacée.</p>
+      <Link to="/" className={primaryButton}>
+        Retour à l’accueil
+      </Link>
     </section>
   ),
 });
 function RootDocument() {
   return (
-    <html
-      lang="fr"
-      className="bg-white font-sans text-base font-normal leading-normal text-body [font-synthesis:none]"
-    >
+    <html lang="fr" className="bg-white font-sans text-ink antialiased [font-synthesis:none]">
       <head>
         <HeadContent />
       </head>
-      <body className="[&_:is(a,button)]:[-webkit-tap-highlight-color:transparent] [&_:is(a,button):focus-visible]:outline-3 [&_:is(a,button):focus-visible]:outline-solid [&_:is(a,button):focus-visible]:outline-[#8aac84] [&_:is(a,button):focus-visible]:outline-offset-[5px] motion-reduce:[&_*]:scroll-auto! motion-reduce:[&_*]:[transition:none]! motion-reduce:[&_*]:animate-none! motion-reduce:[&_*::before]:scroll-auto! motion-reduce:[&_*::before]:[transition:none]! motion-reduce:[&_*::before]:animate-none! motion-reduce:[&_*::after]:scroll-auto! motion-reduce:[&_*::after]:[transition:none]! motion-reduce:[&_*::after]:animate-none!">
+      <body className="[&_:is(a,button)]:[-webkit-tap-highlight-color:transparent] [&_:is(a,button):focus-visible]:outline-3 [&_:is(a,button):focus-visible]:outline-offset-2 [&_:is(a,button):focus-visible]:outline-mustard motion-reduce:[&_*]:scroll-auto! motion-reduce:[&_*]:[transition:none]! motion-reduce:[&_*]:animate-none! motion-reduce:[&_*::before]:scroll-auto! motion-reduce:[&_*::before]:[transition:none]! motion-reduce:[&_*::before]:animate-none! motion-reduce:[&_*::after]:scroll-auto! motion-reduce:[&_*::after]:[transition:none]! motion-reduce:[&_*::after]:animate-none!">
         <a
-          className="fixed -top-[100px] left-[15px] z-[100] bg-teal p-3 text-white focus:top-2.5"
+          className="fixed -top-24 left-4 z-50 rounded-full bg-ink px-4 py-2 text-white focus:top-3"
           href="#main-content"
         >
           Aller au contenu

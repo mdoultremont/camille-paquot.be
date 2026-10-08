@@ -1,21 +1,51 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { booking, email, phone } from "../site";
-import { button, container, heading } from "./styles";
+import { cancellationPolicy } from "../content";
+import { email, phone } from "../site";
+import { container, primaryButton } from "./styles";
+import { BookingLink, LogoMark, Shape } from "./ui";
 
 const navigation = [
-  ["/", "Accueil"],
-  ["/a-propos", "À propos"],
-  ["/accompagnement", "Accompagnement thérapeutique"],
-  ["/formation-continue", "Formation continue"],
-] as const;
-export function PhoneIcon() {
+  {
+    path: "/accompagnement",
+    label: "Accompagnements",
+    link: linkOptions({ to: "/accompagnement" }),
+  },
+  {
+    path: "/accompagnement/yoga",
+    label: "Yoga",
+    link: linkOptions({ to: "/accompagnement/$service", params: { service: "yoga" } }),
+  },
+  { path: "/a-propos", label: "À propos", link: linkOptions({ to: "/a-propos" }) },
+  {
+    path: "/infos-pratiques",
+    label: "Infos pratiques",
+    link: linkOptions({ to: "/infos-pratiques" }),
+  },
+];
+
+// Service pages belong to "Accompagnements", except yoga which has its own entry.
+function isActive(path: string, pathname: string) {
+  if (path === "/accompagnement") {
+    return pathname.startsWith(path) && !pathname.startsWith("/accompagnement/yoga");
+  }
+  return pathname.startsWith(path);
+}
+
+function Logo() {
   return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <path d="m20.5 14.6-3.7-1.6a1 1 0 0 0-1.2.3l-1.6 2a16 16 0 0 1-5.3-5.3l2-1.6a1 1 0 0 0 .3-1.2L9.4 3.5a1 1 0 0 0-1.1-.6l-3.5.8a1 1 0 0 0-.8 1A16.3 16.3 0 0 0 19.3 20a1 1 0 0 0 1-.8l.8-3.5a1 1 0 0 0-.6-1.1Z" />
-    </svg>
+    <Link to="/" className="flex items-center gap-3">
+      <LogoMark className="size-9 flex-none sm:size-10" />
+      <span className="leading-tight">
+        <span className="block text-lg font-extrabold tracking-tight whitespace-nowrap sm:text-xl">
+          Camille Paquot
+        </span>
+        <span className="block text-sm text-ink-soft max-sm:hidden">Psychologue clinicienne</span>
+      </span>
+    </Link>
   );
 }
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
@@ -35,56 +65,72 @@ export function Header() {
       document.removeEventListener("keydown", close);
     };
   }, [open]);
-  return (
-    <header
-      className={`sticky top-0 z-20 bg-white py-5 ${open ? "max-lg:fixed max-lg:inset-0 max-lg:overflow-auto max-lg:pb-10" : ""}`}
-    >
-      <div
-        className={`mx-auto flex w-full max-w-[1460px] items-center justify-between gap-[25px] px-5 xl:px-[30px] max-lg:min-h-[17px] max-lg:justify-end ${open ? "max-lg:min-h-screen max-lg:flex-col max-lg:items-start max-lg:justify-start max-lg:gap-10 max-lg:pb-[100px]" : ""}`}
+  const links = navigation.map(({ path, label, link }) => {
+    const active = isActive(path, pathname);
+    return (
+      <Link
+        key={path}
+        {...link}
+        aria-current={pathname === path ? "page" : active ? "true" : undefined}
+        className={`rounded-full px-4 py-2 font-medium transition-colors ${active ? "bg-mustard-light" : "hover:bg-lilac"}`}
       >
-        <button
-          className={`hidden cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-teal max-lg:flex ${open ? "max-lg:self-end" : ""}`}
-          type="button"
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={open}
-          aria-controls="main-navigation"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? (
-            <span className="h-6 font-sans text-[36px] leading-6">×</span>
-          ) : (
-            <svg width="28" height="17" viewBox="0 0 28 17" fill="none" aria-hidden="true">
-              <path d="M0 1h28M0 8.5h28M0 16h28" stroke="currentColor" strokeWidth="2" />
-            </svg>
-          )}
-        </button>
-        <nav
-          id="main-navigation"
-          aria-label="Navigation principale"
-          className={`flex items-center gap-7 tracking-[-0.16px] text-body xl:gap-[60px] ${open ? "max-lg:flex-col max-lg:items-start" : "max-lg:hidden"}`}
-        >
-          {navigation.map(([to, label]) => (
-            <Link
-              key={to}
-              to={to}
-              className="transition-[color] duration-200 ease-[ease] hover:text-teal"
-              onClick={() => setOpen(false)}
-              aria-current={pathname === to ? "page" : undefined}
-            >
-              {label}
-            </Link>
-          ))}
+        {label}
+      </Link>
+    );
+  });
+  return (
+    <header className="sticky top-0 z-20 bg-white">
+      <div className={`${container} flex items-center justify-between gap-4 py-4`}>
+        <Logo />
+        <nav aria-label="Navigation principale" className="flex items-center gap-1 max-lg:hidden">
+          {links}
         </nav>
-        <a
-          className={`${button} border-sage bg-sage text-teal hover:border-teal hover:bg-teal hover:text-white ${open ? "max-lg:flex" : "max-lg:hidden"}`}
-          href={phone.href}
-        >
-          <PhoneIcon /> {phone.display}
-        </a>
+        <div className="flex items-center gap-3">
+          <BookingLink className={`${primaryButton} max-sm:px-4 max-sm:py-2 max-sm:text-sm`}>
+            <span className="sm:hidden">Rendez-vous</span>
+            <span className="max-sm:hidden">Prendre rendez-vous</span>
+          </BookingLink>
+          <button
+            className="flex size-10 cursor-pointer items-center justify-center rounded-full lg:hidden"
+            type="button"
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen(!open)}
+          >
+            <svg aria-hidden="true" className="size-6" viewBox="0 0 24 24" fill="none">
+              <path
+                d={open ? "M5 5l14 14M19 5L5 19" : "M3 8h18M3 16h18"}
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav
+          id="mobile-navigation"
+          aria-label="Navigation principale"
+          className="h-[calc(100dvh-4.5rem)] overflow-auto border-t border-ink/10 bg-white lg:hidden"
+        >
+          <div className={`${container} flex flex-col items-start gap-2 py-8 text-2xl`}>
+            <Link to="/" className="rounded-full px-4 py-2 font-medium hover:bg-lilac">
+              Accueil
+            </Link>
+            {links}
+            <div className="mt-6 flex flex-col gap-1 px-4 text-lg">
+              <a href={phone.href}>{phone.display}</a>
+              <a href={`mailto:${email}`}>{email}</a>
+            </div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
+
 export function Footer() {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -99,51 +145,71 @@ export function Footer() {
     }
   }
   return (
-    <footer className="bg-teal text-white">
-      <div className={container}>
-        <div className="flex items-start justify-center gap-10 py-[60px] lg:flex-row lg:gap-[60px] max-lg:flex-col">
-          <div className="flex min-w-0 flex-1 flex-col items-center gap-[30px] text-center max-lg:w-full">
-            <h2
-              className={`${heading} text-[33px] tracking-normal text-white lg:text-[32px] lg:tracking-[-1px] xl:text-[40px]`}
-            >
-              Des questions ?
-            </h2>
-            <div className="flex flex-col gap-3 font-medium [&_a:hover]:underline">
-              <a href={phone.href}>{phone.display}</a>
-              <a href={`mailto:${email}`}>{email}</a>
-            </div>
-            <button
-              className="cursor-pointer rounded-lg border-0 bg-sage px-[22px] py-3 tracking-[-0.16px] text-body hover:bg-white"
-              onClick={() => void copyEmail()}
-            >
-              {copied ? "E-mail copié !" : "Copier l’e-mail"}
-            </button>
-            <output className="sr-only">
-              {copied
-                ? "Adresse e-mail copiée"
-                : copyError
-                  ? `Vous pouvez copier cette adresse : ${email}`
-                  : ""}
-            </output>
-          </div>
-          <div className="flex min-w-0 flex-1 flex-col items-center gap-[30px] text-center max-lg:w-full">
-            <h2
-              className={`${heading} text-[33px] tracking-normal text-white lg:text-[32px] lg:tracking-[-1px] xl:text-[40px]`}
-            >
-              <a
-                className="hover:underline"
-                href={booking}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Prendre un rendez-vous
-              </a>
-            </h2>
-            <p>Adresse des cabinets : informations à venir</p>
-          </div>
+    <footer className="relative overflow-hidden bg-stone-100">
+      <Shape shape="circle" className="absolute -top-10 -right-10 w-40 bg-mustard-light" />
+      <div className={`${container} relative grid gap-10 py-16 md:grid-cols-3`}>
+        <div>
+          <Logo />
+          <p className="mt-4 max-w-xs">
+            Psychologue clinicienne agréée. Accompagnement des enfants, des adolescents, des adultes
+            et des parents.
+          </p>
         </div>
-        <div className="border-t border-[#ffffff40] pt-[30px] pb-5 text-center text-[14px]">
-          <p>Les rendez-vous qui ne sont pas annulés 48 heures à l’avance seront facturés</p>
+        <div>
+          <h2 className="mb-3 text-xl font-extrabold">Contact</h2>
+          <ul className="space-y-1">
+            <li>
+              <a className="hover:underline" href={phone.href}>
+                {phone.display}
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <a className="break-all hover:underline" href={`mailto:${email}`}>
+                {email}
+              </a>
+              <button
+                type="button"
+                aria-label="Copier l’e-mail"
+                title={copied ? "E-mail copié" : "Copier l’e-mail"}
+                className="flex size-8 flex-none cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-white"
+                onClick={() => void copyEmail()}
+              >
+                <svg aria-hidden="true" className="size-4" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d={copied ? "M5 12.5l4.5 4.5L19 7.5" : "M9 9h10v10H9zM5 15V5h10"}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <output className="sr-only">
+            {copied
+              ? "Adresse e-mail copiée"
+              : copyError
+                ? `Vous pouvez copier cette adresse : ${email}`
+                : ""}
+          </output>
+        </div>
+        <div>
+          <h2 className="mb-3 text-xl font-extrabold">Rendez-vous</h2>
+          <p>Adresse des cabinets : informations à venir.</p>
+          <BookingLink className={`${primaryButton} mt-4`} />
+        </div>
+      </div>
+      <div className={`${container} relative`}>
+        <div className="flex flex-col gap-4 border-t border-ink/20 py-6 text-sm md:flex-row md:justify-between">
+          <p>{cancellationPolicy}</p>
+          <nav aria-label="Liens du pied de page" className="flex flex-wrap gap-x-5 gap-y-1">
+            {navigation.map(({ path, label, link }) => (
+              <Link key={path} {...link} className="hover:underline">
+                {label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
