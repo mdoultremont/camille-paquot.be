@@ -23,7 +23,7 @@ function HomePage() {
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
             J’accompagne enfants, adolescents, adultes et parents pour mettre des mots sur ce qui se
-            vit et retrouver ses ressources.
+            vit et retrouver leurs ressources.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
@@ -46,7 +46,7 @@ function HomePage() {
       </Container>
       <Container as="section" className="grid gap-10 py-16 lg:grid-cols-2">
         <div>
-          <Heading level={2}>À propos de moi ?</Heading>
+          <Heading level={2}>À propos de moi</Heading>
           <p className="mt-2 font-semibold text-ink-soft">
             Camille Paquot, psychologue clinicienne agréée
           </p>
