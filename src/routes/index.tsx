@@ -19,7 +19,7 @@ function HomePage() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1} className="md:text-7xl">
-            Un espace pour dire, dessiner, respirer.
+            Un espace bienveillant pour s'exprimer.
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
             Psychologue clinicienne, j’accompagne les enfants, les adolescents, les adultes et les

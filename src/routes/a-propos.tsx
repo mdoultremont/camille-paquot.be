@@ -21,7 +21,6 @@ const aboutParagraphs = [
   "Je vous accompagne dans la mise en mots de vos émotions, l’exploration de votre vécu et l’ouverture vers de nouvelles possibilités. Mon rôle est de cheminer à vos côtés, dans le respect de votre singularité et de votre rythme.",
   "Lorsque cela est pertinent et souhaité, j’intègre une dimension psycho-corporelle à l’accompagnement. Le Yoga invite à prendre en compte les liens entre le corps, les émotions et la vie psychique, afin de favoriser un mieux-être global.",
   "En fonction de l’âge, des besoins et des demandes de chacun, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs, Yoga. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots.",
-  "Mon parcours",
   "Diplômée en psychologie clinique de l’enfant, de l’adolescent et de la famille à l’Université Catholique de Louvain-la-Neuve, j’ai progressivement construit mon parcours autour de l’accompagnement des personnes, des enfants et des familles à différents moments de leur vie.",
   "Après mes études, je suis partie à La Réunion, où j’ai travaillé comme psychologue au sein d’un centre médico-psychologique pour enfants et adolescents. J’y ai accompagné des enfants et des adolescents en entretiens individuels, ainsi que leurs familles, ce qui a renforcé mon intérêt pour les liens entre le vécu de l’enfant et son environnement familial.",
   "De retour à Bruxelles, j’ai rejoint pendant un an une équipe mobile de soins en santé mentale, une expérience qui m’a permis d’accompagner des situations diverses, au plus près des réalités de vie des personnes et de leur entourage.",
@@ -113,7 +112,7 @@ function AboutPage() {
       <Container as="section" id="formations" className="scroll-mt-24 py-16">
         <Heading level={2}>Formations</Heading>
         <p className="mt-3 text-lg text-ink-soft md:text-xl">
-          Me former en continu est une priorité.
+          La formation continue accompagne l’évolution de ma pratique.
         </p>
         <ol className="relative mt-10 space-y-8">
           <span
