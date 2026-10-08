@@ -4,22 +4,54 @@ import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Heading } from "@/components/Heading";
+import { email, introduction, phone, siteUrl } from "@/constants";
 import stylesheet from "@/styles.css?url";
+
+const description =
+  "Accompagnement thérapeutique bienveillant et sécurisant. Camille Paquot, Psychologue Clinicienne Agréée.";
+
+// schema.org has no psychologist type; MedicalBusiness is the closest local business.
+// Add `address` once the practice addresses are known.
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Camille Paquot, psychologue clinicienne",
+  description: introduction,
+  url: siteUrl,
+  image: `${siteUrl}/images/camille-paquot.jpg`,
+  telephone: phone.href.replace("tel:", ""),
+  email,
+  knowsLanguage: ["fr", "en"],
+  founder: { "@type": "Person", name: "Camille Paquot", jobTitle: "Psychologue clinicienne" },
+};
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#ffffff" },
+      // Defaults for pages without their own `pageHead`, such as the 404 page.
       { title: "Camille Paquot - Psychologue" },
-      {
-        name: "description",
-        content:
-          "Accompagnement thérapeutique bienveillant et sécurisant. Camille Paquot, Psychologue Clinicienne Agréée.",
-      },
+      { name: "description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Camille Paquot" },
+      { property: "og:locale", content: "fr_BE" },
+      { property: "og:image", content: `${siteUrl}/images/camille-paquot.jpg` },
+      { property: "og:image:alt", content: "Portrait de Camille Paquot" },
+      { "script:ld+json": structuredData },
     ],
     links: [
+      // Preload the font so it downloads alongside the stylesheet instead of after it.
+      {
+        rel: "preload",
+        href: "/fonts/gabarito.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
       { rel: "stylesheet", href: stylesheet },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   component: RootDocument,
@@ -39,7 +71,7 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body className="[&_:is(a,button)]:[-webkit-tap-highlight-color:transparent] [&_:is(a,button):focus-visible]:outline-3 [&_:is(a,button):focus-visible]:outline-offset-2 [&_:is(a,button):focus-visible]:outline-mustard motion-reduce:[&_*]:scroll-auto! motion-reduce:[&_*]:[transition:none]! motion-reduce:[&_*]:animate-none! motion-reduce:[&_*::before]:scroll-auto! motion-reduce:[&_*::before]:[transition:none]! motion-reduce:[&_*::before]:animate-none! motion-reduce:[&_*::after]:scroll-auto! motion-reduce:[&_*::after]:[transition:none]! motion-reduce:[&_*::after]:animate-none!">
+      <body>
         <a
           className="fixed -top-24 left-4 z-50 rounded-full bg-ink px-4 py-2 text-white focus:top-3"
           href="#main-content"

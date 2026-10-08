@@ -5,12 +5,17 @@ import { Heading } from "@/components/Heading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Strengths } from "@/components/Strengths";
 import { services } from "@/services";
+import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/accompagnement/")({
   component: ServicesPage,
-  head: () => ({
-    meta: [{ title: "Accompagnements - Camille Paquot" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Accompagnements - Camille Paquot",
+      description:
+        "Thérapie pour enfants, adolescents et adultes, soutien à la parentalité et cours de yoga : découvrez les accompagnements proposés.",
+      path: "/accompagnement",
+    }),
 });
 
 function ServicesPage() {

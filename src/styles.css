@@ -16,3 +16,21 @@
   --color-lilac: #d9cbe3;
   --color-sky: #a8c3db;
 }
+@layer base {
+  :is(a, button) {
+    -webkit-tap-highlight-color: transparent;
+  }
+  :is(a, button):focus-visible {
+    outline: 3px solid var(--color-mustard);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
