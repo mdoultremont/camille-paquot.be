@@ -1,7 +1,7 @@
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { cancellationPolicy } from "../content";
-import { email, inami, phone } from "../site";
+import { commission, email, phone, visa } from "../site";
 import { container, primaryButton } from "./styles";
 import { BookingLink, LogoMark, Shape } from "./ui";
 
@@ -154,7 +154,9 @@ export function Footer() {
             Psychologue clinicienne agréée. Accompagnement des enfants, des adolescents, des adultes
             et des parents.
           </p>
-          <p className="mt-2 text-sm text-ink-soft">INAMI {inami}</p>
+          <p className="mt-2 text-sm text-ink-soft">
+            Visa {visa}, Commission des Psychologues {commission}
+          </p>
         </div>
         <div>
           <h2 className="mb-3 text-xl font-extrabold">Contact</h2>

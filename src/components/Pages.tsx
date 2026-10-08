@@ -8,7 +8,7 @@ import {
   trainings,
   type Service,
 } from "../content";
-import { email, inami, languages, payment, phone } from "../site";
+import { commission, email, languages, payment, phone, visa } from "../site";
 import {
   container,
   h1,
@@ -359,7 +359,8 @@ export function PracticalInfoPage() {
         <div className="rounded-3xl p-8 ring-2 ring-ink">
           <h2 className={`${h3} mb-4`}>Statut</h2>
           <p className="text-lg">Psychologue clinicienne agréée, non conventionnée.</p>
-          <p className="mt-2 text-lg">Numéro INAMI : {inami}</p>
+          <p className="mt-2 text-lg">Numéro de visa : {visa}</p>
+          <p className="text-lg">Commission des Psychologues : {commission}</p>
         </div>
         <div className="rounded-3xl p-8 ring-2 ring-ink">
           <h2 className={`${h3} mb-4`}>Langues</h2>
