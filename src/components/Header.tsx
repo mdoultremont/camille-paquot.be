@@ -12,11 +12,6 @@ const navigation = [
     label: "Accompagnements",
     link: linkOptions({ to: "/accompagnement" }),
   },
-  {
-    path: "/accompagnement/yoga",
-    label: "Yoga",
-    link: linkOptions({ to: "/accompagnement/$service", params: { service: "yoga" } }),
-  },
   { path: "/a-propos", label: "À propos", link: linkOptions({ to: "/a-propos" }) },
   {
     path: "/infos-pratiques",
@@ -24,14 +19,6 @@ const navigation = [
     link: linkOptions({ to: "/infos-pratiques" }),
   },
 ];
-
-// Service pages belong to "Accompagnements", except yoga which has its own entry.
-function isActive(path: string, pathname: string) {
-  if (path === "/accompagnement") {
-    return pathname.startsWith(path) && !pathname.startsWith("/accompagnement/yoga");
-  }
-  return pathname.startsWith(path);
-}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -55,7 +42,7 @@ export function Header() {
     };
   }, [open]);
   const links = navigation.map(({ path, label, link }) => {
-    const active = isActive(path, pathname);
+    const active = pathname.startsWith(path);
     return (
       <Link
         key={path}
