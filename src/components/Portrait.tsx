@@ -17,7 +17,6 @@ export function Portrait({ className = "" }: { className?: string }) {
         alt="Portrait de Camille Paquot"
         width={1200}
         height={1600}
-        // The portrait is the LCP element on every page that shows it.
         fetchPriority="high"
         className="absolute top-[9%] left-[16%] h-[82%] w-[68%] rounded-t-full rounded-b-3xl object-cover object-top grayscale"
       />

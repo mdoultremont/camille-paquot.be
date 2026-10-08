@@ -10,7 +10,6 @@ import stylesheet from "@/styles.css?url";
 const description =
   "Accompagnement thérapeutique bienveillant et sécurisant. Camille Paquot, Psychologue Clinicienne Agréée.";
 
-// schema.org has no psychologist type; MedicalBusiness is the closest local business.
 // Add `address` once the practice addresses are known.
 const structuredData = {
   "@context": "https://schema.org",
@@ -30,7 +29,6 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#ffffff" },
-      // Defaults for pages without their own `pageHead`, such as the 404 page.
       { title: "Camille Paquot - Psychologue" },
       { name: "description", content: description },
       { property: "og:type", content: "website" },
@@ -41,7 +39,6 @@ export const Route = createRootRoute({
       { "script:ld+json": structuredData },
     ],
     links: [
-      // Preload the font so it downloads alongside the stylesheet instead of after it.
       {
         rel: "preload",
         href: "/fonts/gabarito.woff2",

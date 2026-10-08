@@ -10,11 +10,6 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
     tanstackStart({
-      // Every page is static: render them at build time so Cloudflare serves plain HTML
-      // without invoking the Worker. Pages are found by crawling links from the home page;
-      // route discovery is off because it adds `/accompagnement/`, which redirects.
-      // `autoSubfolderIndex: false` writes `a-propos.html`, served at `/a-propos` without a
-      // trailing-slash redirect.
       prerender: {
         enabled: true,
         crawlLinks: true,
