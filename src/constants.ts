@@ -12,4 +12,4 @@ export const financialHardship =
 export const cancellationPolicy =
   "Les rendez-vous qui ne sont pas annulés 48 h à l’avance seront facturés.";
 export const introduction =
-  "Passionnée par le contact et la rencontre avec autrui, j’accompagne toute personne désirant réaliser un travail thérapeutique. Nous avançons ensemble, à votre rythme et votre temporalité, dans un cadre bienveillant, sécurisant et non-jugeant.";
+  "J’accompagne toute personne souhaitant entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.";

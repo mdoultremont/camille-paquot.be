@@ -19,11 +19,11 @@ function HomePage() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1} className="md:text-7xl">
-            Un espace bienveillant pour s'exprimer.
+            Un espace bienveillant pour s’exprimer.
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
-            Psychologue clinicienne, j’accompagne les enfants, les adolescents, les adultes et les
-            parents, avec des mots et parfois avec d’autres outils.
+            J’accompagne enfants, adolescents, adultes et parents pour mettre des mots sur ce qui se
+            vit et retrouver ses ressources.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
@@ -46,7 +46,7 @@ function HomePage() {
       </Container>
       <Container as="section" className="grid gap-10 py-16 lg:grid-cols-2">
         <div>
-          <Heading level={2}>Qui suis-je ?</Heading>
+          <Heading level={2}>À propos de moi ?</Heading>
           <p className="mt-2 font-semibold text-ink-soft">
             Camille Paquot, psychologue clinicienne agréée
           </p>

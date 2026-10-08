@@ -70,7 +70,7 @@ function AboutPage() {
     <>
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
-          <Heading level={1}>Qui suis-je ?</Heading>
+          <Heading level={1}>À propos de moi ?</Heading>
           <p className="mt-6 text-2xl font-extrabold">Camille Paquot</p>
           <p className="text-lg text-ink-soft">Psychologue clinicienne agréée</p>
           <p className="mt-6 max-w-prose text-lg leading-relaxed">{introduction}</p>
