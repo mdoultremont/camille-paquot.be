@@ -1,11 +1,13 @@
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { cancellationPolicy } from "../content";
-import { commission, phone, visa } from "../site";
-import { container, primaryButton } from "./styles";
-import { BookingLink, EmailLink, LogoMark, Shape } from "./ui";
+import { phone } from "../constants";
+import { BookingLink } from "./BookingLink";
+import { Container } from "./Container";
+import { EmailLink } from "./EmailLink";
+import { Logo } from "./Logo";
 
-const navigation = [
+// Also used by the footer.
+export const navigation = [
   {
     path: "/accompagnement",
     label: "Accompagnements",
@@ -30,20 +32,6 @@ function isActive(path: string, pathname: string) {
     return pathname.startsWith(path) && !pathname.startsWith("/accompagnement/yoga");
   }
   return pathname.startsWith(path);
-}
-
-function Logo() {
-  return (
-    <Link to="/" className="flex items-center gap-3">
-      <LogoMark className="size-9 flex-none sm:size-10" />
-      <span className="leading-tight">
-        <span className="block text-lg font-extrabold tracking-tight whitespace-nowrap sm:text-xl">
-          Camille Paquot
-        </span>
-        <span className="block text-sm text-ink-soft max-sm:hidden">Psychologue clinicienne</span>
-      </span>
-    </Link>
-  );
 }
 
 export function Header() {
@@ -82,13 +70,13 @@ export function Header() {
   });
   return (
     <header className="sticky top-0 z-20 bg-white">
-      <div className={`${container} flex items-center justify-between gap-4 py-4`}>
+      <Container className="flex items-center justify-between gap-4 py-4">
         <Logo />
         <nav aria-label="Navigation principale" className="flex items-center gap-1 max-lg:hidden">
           {links}
         </nav>
         <div className="flex items-center gap-3">
-          <BookingLink className={`${primaryButton} max-sm:px-4 max-sm:py-2 max-sm:text-sm`}>
+          <BookingLink className="max-sm:px-4 max-sm:py-2 max-sm:text-sm">
             <span className="sm:hidden">Rendez-vous</span>
             <span className="max-sm:hidden">Prendre rendez-vous</span>
           </BookingLink>
@@ -110,14 +98,14 @@ export function Header() {
             </svg>
           </button>
         </div>
-      </div>
+      </Container>
       {open && (
         <nav
           id="mobile-navigation"
           aria-label="Navigation principale"
           className="h-[calc(100dvh-4.5rem)] overflow-auto border-t border-ink/10 bg-white lg:hidden"
         >
-          <div className={`${container} flex flex-col items-start gap-2 py-8 text-2xl`}>
+          <Container className="flex flex-col items-start gap-2 py-8 text-2xl">
             <Link to="/" className="rounded-full px-4 py-2 font-medium hover:bg-lilac">
               Accueil
             </Link>
@@ -126,59 +114,9 @@ export function Header() {
               <a href={phone.href}>{phone.display}</a>
               <EmailLink />
             </div>
-          </div>
+          </Container>
         </nav>
       )}
     </header>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="relative overflow-hidden bg-stone-100">
-      <Shape shape="circle" className="absolute -top-10 -right-10 w-40 bg-mustard-light" />
-      <div className={`${container} relative grid gap-10 py-16 md:grid-cols-3`}>
-        <div>
-          <Logo />
-          <p className="mt-4 max-w-xs">
-            Psychologue clinicienne agréée. Accompagnement des enfants, des adolescents, des adultes
-            et des parents.
-          </p>
-          <p className="mt-2 text-sm text-ink-soft">
-            Visa {visa}, Commission des Psychologues {commission}
-          </p>
-        </div>
-        <div>
-          <h2 className="mb-3 text-xl font-extrabold">Contact</h2>
-          <ul className="space-y-1">
-            <li>
-              <a className="hover:underline" href={phone.href}>
-                {phone.display}
-              </a>
-            </li>
-            <li>
-              <EmailLink />
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="mb-3 text-xl font-extrabold">Rendez-vous</h2>
-          <p>Adresse des cabinets : informations à venir.</p>
-          <BookingLink className={`${primaryButton} mt-4`} />
-        </div>
-      </div>
-      <div className={`${container} relative`}>
-        <div className="flex flex-col gap-4 border-t border-ink/20 py-6 text-sm md:flex-row md:justify-between">
-          <p>{cancellationPolicy}</p>
-          <nav aria-label="Liens du pied de page" className="flex flex-wrap gap-x-5 gap-y-1">
-            {navigation.map(({ path, label, link }) => (
-              <Link key={path} {...link} className="hover:underline">
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </div>
-    </footer>
   );
 }

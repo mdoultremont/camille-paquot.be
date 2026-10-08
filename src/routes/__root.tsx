@@ -1,7 +1,10 @@
-import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
-import { Header, Footer } from "../components/Layout";
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { ButtonLink } from "../components/Button";
+import { Container } from "../components/Container";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { Heading } from "../components/Heading";
 import stylesheet from "../styles.css?url";
-import { container, h1, lead, primaryButton } from "../components/styles";
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -21,13 +24,13 @@ export const Route = createRootRoute({
   }),
   component: RootDocument,
   notFoundComponent: () => (
-    <section className={`${container} py-24`}>
-      <h1 className={h1}>Page introuvable</h1>
-      <p className={`${lead} my-6`}>Cette page n’existe pas ou a été déplacée.</p>
-      <Link to="/" className={primaryButton}>
-        Retour à l’accueil
-      </Link>
-    </section>
+    <Container as="section" className="py-24">
+      <Heading level={1}>Page introuvable</Heading>
+      <p className="my-6 text-lg text-ink-soft md:text-xl">
+        Cette page n’existe pas ou a été déplacée.
+      </p>
+      <ButtonLink to="/">Retour à l’accueil</ButtonLink>
+    </Container>
   ),
 });
 function RootDocument() {
