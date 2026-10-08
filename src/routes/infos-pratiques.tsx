@@ -6,10 +6,17 @@ import { Heading } from "@/components/Heading";
 import { TextAnchor } from "@/components/TextLink";
 import { cancellationPolicy, commission, payment, phone, visa } from "@/constants";
 import { services } from "@/services";
+import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/infos-pratiques")({
   component: PracticalInfoPage,
-  head: () => ({ meta: [{ title: "Infos pratiques - Camille Paquot" }] }),
+  head: () =>
+    pageHead({
+      title: "Infos pratiques - Camille Paquot",
+      description:
+        "Tarifs, paiement, prise de rendez-vous, annulation et contact pour les consultations et les cours de yoga.",
+      path: "/infos-pratiques",
+    }),
 });
 
 const panel = "rounded-3xl p-8";

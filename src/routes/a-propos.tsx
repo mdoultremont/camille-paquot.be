@@ -9,10 +9,17 @@ import { Portrait } from "@/components/Portrait";
 import { Shape } from "@/components/Shape";
 import { Strengths } from "@/components/Strengths";
 import { introduction, phone } from "@/constants";
+import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/a-propos")({
   component: AboutPage,
-  head: () => ({ meta: [{ title: "À propos - Camille Paquot" }] }),
+  head: () =>
+    pageHead({
+      title: "À propos - Camille Paquot",
+      description:
+        "Mon parcours, mon approche et mes formations : psychologue clinicienne agréée, diplômée de l’UCLouvain, en formation de professeure de yoga.",
+      path: "/a-propos",
+    }),
 });
 
 const aboutParagraphs = [

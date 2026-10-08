@@ -5,6 +5,7 @@ import { PracticalInfo } from "@/components/PracticalInfo";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Shape, type ShapeName } from "@/components/Shape";
 import { services, type Service } from "@/services";
+import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/accompagnement/$service")({
   loader: ({ params }) => {
@@ -12,9 +13,14 @@ export const Route = createFileRoute("/accompagnement/$service")({
     if (!service) throw notFound();
     return service;
   },
-  head: ({ loaderData }) => ({
-    meta: [{ title: `${loaderData?.title ?? "Accompagnement"} - Camille Paquot` }],
-  }),
+  head: ({ loaderData }) =>
+    loaderData
+      ? pageHead({
+          title: `${loaderData.title} - Camille Paquot`,
+          description: loaderData.intro,
+          path: `/accompagnement/${loaderData.slug}`,
+        })
+      : {},
   component: () => <ServicePage service={Route.useLoaderData()} />,
 });
 

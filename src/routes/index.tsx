@@ -10,8 +10,18 @@ import { Strengths } from "@/components/Strengths";
 import { TextLink } from "@/components/TextLink";
 import { introduction } from "@/constants";
 import { services } from "@/services";
+import { pageHead } from "@/seo";
 
-export const Route = createFileRoute("/")({ component: HomePage });
+export const Route = createFileRoute("/")({
+  component: HomePage,
+  head: () =>
+    pageHead({
+      title: "Camille Paquot - Psychologue clinicienne",
+      description:
+        "Psychologue clinicienne agréée, j’accompagne les enfants, les adolescents, les adultes et les parents dans un cadre bienveillant. Cours de yoga.",
+      path: "/",
+    }),
+});
 
 function HomePage() {
   return (
