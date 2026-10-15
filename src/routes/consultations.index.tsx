@@ -7,14 +7,14 @@ import { Strengths } from "@/components/Strengths";
 import { services } from "@/services";
 import { pageHead } from "@/seo";
 
-export const Route = createFileRoute("/accompagnement/")({
+export const Route = createFileRoute("/consultations/")({
   component: ServicesPage,
   head: () =>
     pageHead({
-      title: "Accompagnements - Camille Paquot",
+      title: "Consultations - Camille Paquot",
       description:
-        "Thérapie pour enfants, adolescents et adultes, soutien à la parentalité et cours de yoga : découvrez les accompagnements proposés.",
-      path: "/accompagnement",
+        "Thérapie pour enfants, adolescents et adultes et soutien à la parentalité : découvrez les consultations proposées à Bruxelles.",
+      path: "/consultations",
     }),
 });
 
@@ -22,13 +22,13 @@ function ServicesPage() {
   return (
     <>
       <Container as="section" className="py-12 md:py-16">
-        <Heading level={1}>Accompagnements</Heading>
+        <Heading level={1}>Consultations</Heading>
         <p className="mt-5 max-w-2xl text-lg text-ink-soft md:text-xl">
           Ensemble, explorons le champ des possibles afin de trouver un apaisement psychique et
           physique.
         </p>
       </Container>
-      <Container as="section" className="grid gap-5 sm:grid-cols-2">
+      <Container as="section" className="grid gap-5 md:grid-cols-3">
         {services.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}

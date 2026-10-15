@@ -14,6 +14,7 @@ import {
   visa,
 } from "@/constants";
 import { services } from "@/services";
+import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/infos-pratiques")({
@@ -46,7 +47,7 @@ function PracticalInfoPage() {
           <table className="w-full text-left text-lg">
             <thead className="sr-only">
               <tr>
-                <th>Accompagnement</th>
+                <th>Consultation</th>
                 <th>Durée</th>
                 <th>Tarif</th>
               </tr>
@@ -56,7 +57,7 @@ function PracticalInfoPage() {
                 <tr key={service.slug}>
                   <th scope="row" className="py-3 pr-4 font-semibold">
                     <Link
-                      to="/accompagnement/$service"
+                      to="/consultations/$service"
                       params={{ service: service.slug }}
                       className="underline-offset-4 hover:underline"
                     >
@@ -69,6 +70,17 @@ function PracticalInfoPage() {
                   </td>
                 </tr>
               ))}
+              <tr>
+                <th scope="row" className="py-3 pr-4 font-semibold">
+                  <Link to="/yoga" className="underline-offset-4 hover:underline">
+                    {yoga.title}
+                  </Link>
+                </th>
+                <td className="py-3 pr-4 whitespace-nowrap">{yoga.duration}</td>
+                <td className="py-3 text-right text-xl font-extrabold whitespace-nowrap">
+                  {yoga.price}
+                </td>
+              </tr>
             </tbody>
           </table>
           <p className="mt-6 text-lg">{payment}</p>

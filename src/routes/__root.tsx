@@ -8,7 +8,7 @@ import { email, introduction, phone, siteUrl } from "@/constants";
 import stylesheet from "@/styles.css?url";
 
 const description =
-  "Accompagnement thérapeutique bienveillant et sécurisant. Camille Paquot, Psychologue Clinicienne Agréée.";
+  "Consultations psychologiques à Bruxelles pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.";
 
 // Add `address` once the practice addresses are known.
 const structuredData = {
@@ -17,7 +17,7 @@ const structuredData = {
   name: "Camille Paquot, psychologue clinicienne",
   description: introduction,
   url: siteUrl,
-  image: `${siteUrl}/images/camille-paquot.jpg`,
+  image: `${siteUrl}/images/cpaquot-1200.jpg`,
   telephone: phone.href.replace("tel:", ""),
   email,
   knowsLanguage: ["fr", "en"],
@@ -34,7 +34,7 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Camille Paquot" },
       { property: "og:locale", content: "fr_BE" },
-      { property: "og:image", content: `${siteUrl}/images/camille-paquot.jpg` },
+      { property: "og:image", content: `${siteUrl}/images/cpaquot-1200.jpg` },
       { property: "og:image:alt", content: "Portrait de Camille Paquot" },
       { "script:ld+json": structuredData },
     ],
@@ -64,7 +64,10 @@ export const Route = createRootRoute({
 });
 function RootDocument() {
   return (
-    <html lang="fr" className="bg-white font-sans text-ink antialiased [font-synthesis:none]">
+    <html
+      lang="fr"
+      className="scroll-smooth bg-white font-sans text-ink antialiased [font-synthesis:none]"
+    >
       <head>
         <HeadContent />
       </head>

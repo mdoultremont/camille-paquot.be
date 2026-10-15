@@ -7,7 +7,7 @@ import { Shape, type ShapeName } from "@/components/Shape";
 import { services, type Service } from "@/services";
 import { pageHead } from "@/seo";
 
-export const Route = createFileRoute("/accompagnement/$service")({
+export const Route = createFileRoute("/consultations/$service")({
   loader: ({ params }) => {
     const service = services.find((s) => s.slug === params.service);
     if (!service) throw notFound();
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/accompagnement/$service")({
       ? pageHead({
           title: `${loaderData.title} - Camille Paquot`,
           description: loaderData.intro,
-          path: `/accompagnement/${loaderData.slug}`,
+          path: `/consultations/${loaderData.slug}`,
         })
       : {},
   component: () => <ServicePage service={Route.useLoaderData()} />,
@@ -42,7 +42,7 @@ function ServicePage({ service }: { service: Service }) {
         <div className={`relative overflow-hidden rounded-4xl ${theme.background}`}>
           <Shape
             shape={theme.shape}
-            className={`absolute -right-10 -bottom-10 w-40 md:top-10 md:right-16 md:bottom-auto md:w-56 ${theme.shapeColor}`}
+            className={`absolute top-10 right-16 hidden w-56 lg:block ${theme.shapeColor}`}
           />
           <Container className="relative py-10 md:py-16">
             <Heading level={1} className="max-w-2xl">
@@ -62,6 +62,30 @@ function ServicePage({ service }: { service: Service }) {
               <p key={p}>{p}</p>
             ))}
           </div>
+          {service.reasons.length > 0 && (
+            <>
+              <Heading level={3} as="h2" className="mt-10 mb-2">
+                Motifs de consultation
+              </Heading>
+              <p className="mb-5 max-w-prose text-base leading-relaxed text-ink-soft">
+                Voici quelques exemples de motifs de consultation. Cette liste n’est pas exhaustive.
+              </p>
+              <ul className="max-w-prose columns-1 gap-x-8 space-y-2 text-lg sm:columns-2">
+                {service.reasons.map((item, index) => {
+                  const [shape, color] = mediaBullets[index % mediaBullets.length];
+                  return (
+                    <li key={item} className="flex gap-3 break-inside-avoid">
+                      <Shape shape={shape} className={`mt-2 w-3.5 flex-none self-start ${color}`} />
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+          {service.closing && (
+            <p className="mt-8 max-w-prose text-lg leading-relaxed">{service.closing}</p>
+          )}
           {service.media.length > 0 && (
             <>
               <Heading level={3} as="h2" className="mt-10 mb-4">
@@ -90,9 +114,9 @@ function ServicePage({ service }: { service: Service }) {
       </Container>
       <Container as="section" className="pb-16">
         <Heading level={2} className="mb-8">
-          D’autres accompagnements
+          D’autres consultations
         </Heading>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {otherServices.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}

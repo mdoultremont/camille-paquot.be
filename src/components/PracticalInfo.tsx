@@ -1,10 +1,16 @@
 import { email, payment, phone } from "@/constants";
-import type { Service } from "@/services";
 import { BookingLink } from "@/components/BookingLink";
 import { Button } from "@/components/Button";
 import { Heading } from "@/components/Heading";
 
-export function PracticalInfo({ service }: { service: Service }) {
+export type PracticalDetails = {
+  duration: string;
+  price: string;
+  cancellation: string;
+  bookOnline: boolean;
+};
+
+export function PracticalInfo({ service }: { service: PracticalDetails }) {
   const rows = [
     ["Durée", service.duration],
     ["Tarif", service.price],

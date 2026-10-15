@@ -5,11 +5,13 @@ import { ButtonLink } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { Portrait } from "@/components/Portrait";
+import { Shape } from "@/components/Shape";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Strengths } from "@/components/Strengths";
 import { TextLink } from "@/components/TextLink";
 import { introduction } from "@/constants";
 import { services } from "@/services";
+import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/")({
@@ -29,16 +31,17 @@ function HomePage() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1} className="md:text-7xl">
-            Un espace bienveillant pour s’exprimer.
+            Un espace thérapeutique pour s’exprimer.
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
-            J’accompagne enfants, adolescents, adultes et parents pour mettre des mots sur ce qui se
-            vit et retrouver leurs ressources.
+            Je propose des consultations pour les enfants, adolescents, adultes et parents qui
+            souhaitent débuter un travail thérapeutique afin de mettre des mots sur ce qui pèse au
+            quotidien.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
-            <ButtonLink variant="outline" to="/accompagnement">
-              Les accompagnements
+            <ButtonLink variant="outline" to="/consultations">
+              Les consultations
             </ButtonLink>
           </div>
         </div>
@@ -46,12 +49,29 @@ function HomePage() {
       </Container>
       <Container as="section" className="py-16">
         <Heading level={2} className="mb-8">
-          Accompagnements
+          Consultations
         </Heading>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
+        </div>
+      </Container>
+      <Container as="section" className="pb-16">
+        <div
+          className={`relative flex flex-col items-start gap-6 overflow-hidden rounded-[2rem] p-8 md:flex-row md:items-center md:justify-between md:p-12 ${yoga.theme.background}`}
+        >
+          <Shape
+            shape={yoga.theme.shape}
+            className={`absolute -bottom-28 left-1/2 w-40 ${yoga.theme.shapeColor}`}
+          />
+          <div className="relative max-w-xl">
+            <Heading level={2}>{yoga.title}</Heading>
+            <p className="mt-3 text-lg">{yoga.intro}</p>
+          </div>
+          <ButtonLink to="/yoga" className="relative">
+            Découvrir les cours
+          </ButtonLink>
         </div>
       </Container>
       <Container as="section" className="grid gap-10 py-16 lg:grid-cols-2">
