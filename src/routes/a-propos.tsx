@@ -8,7 +8,6 @@ import { Heading } from "@/components/Heading";
 import { Portrait } from "@/components/Portrait";
 import { Shape } from "@/components/Shape";
 import { Strengths } from "@/components/Strengths";
-import { introduction, phone } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/a-propos")({
@@ -22,25 +21,29 @@ export const Route = createFileRoute("/a-propos")({
     }),
 });
 
-const aboutParagraphs = [
+const approachParagraphs = [
   "À travers des entretiens individuels et familiaux, j’accompagne les enfants, les adolescents et les adultes qui traversent, ponctuellement ou plus durablement, des difficultés dans leur vie.",
   "Je tiens à offrir un espace bienveillant, sécurisant, chaleureux et sans jugement, où chacun peut se sentir accueilli tel qu’il est. Ensemble, nous prenons le temps de comprendre ce qui se joue, de démêler les nœuds auxquels vous êtes confrontés et de nous appuyer sur vos ressources pour avancer à votre rythme.",
   "Je vous accompagne dans la mise en mots de vos émotions, l’exploration de votre vécu et l’ouverture vers de nouvelles possibilités. Mon rôle est de cheminer à vos côtés, dans le respect de votre singularité et de votre rythme.",
-  "Lorsque cela est pertinent et souhaité, j’intègre une dimension psycho-corporelle à l’accompagnement. Le Yoga invite à prendre en compte les liens entre le corps, les émotions et la vie psychique, afin de favoriser un mieux-être global.",
-  "En fonction de l’âge, des besoins et des demandes de chacun, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs, Yoga. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots.",
-  "Diplômée en psychologie clinique de l’enfant, de l’adolescent et de la famille à l’Université Catholique de Louvain-la-Neuve, j’ai progressivement construit mon parcours autour de l’accompagnement des personnes, des enfants et des familles à différents moments de leur vie.",
-  "Après mes études, je suis partie à La Réunion, où j’ai travaillé comme psychologue au sein d’un centre médico-psychologique pour enfants et adolescents. J’y ai accompagné des enfants et des adolescents en entretiens individuels, ainsi que leurs familles, ce qui a renforcé mon intérêt pour les liens entre le vécu de l’enfant et son environnement familial.",
-  "De retour à Bruxelles, j’ai rejoint pendant un an une équipe mobile de soins en santé mentale, une expérience qui m’a permis d’accompagner des situations diverses, au plus près des réalités de vie des personnes et de leur entourage.",
-  "J’exerce aujourd’hui en planning familial, où j’accompagne notamment des femmes dans le cadre d’une interruption volontaire de grossesse. Cette expérience m’a particulièrement sensibilisée aux questions liées au corps, à la sexualité, à la parentalité, au désir ou au non-désir d’enfant, ainsi qu’aux différents bouleversements qui peuvent entourer ces moments de vie.",
-  "Ces expériences ont progressivement nourri mon intérêt pour la parentalité et la périnatalité, et l’importance que j’accorde à l’accompagnement des parents et des familles dans ces périodes de transition, de questionnement et de transformation.",
-  "J’ai à cœur de continuer à me former tout au long de mon parcours afin d’enrichir mes connaissances et mes compétences, et de proposer un accompagnement toujours au plus près des besoins de chacun.",
+  "En fonction de l’âge, des besoins et des demandes de chacun, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots. De plus, lorsque cela est pertinent et souhaité, j’intègre également une dimension psycho-corporelle à l’accompagnement thérapeutique. Je peux vous proposer des postures de Yoga et des exercices de respiration en séance et des pratiques à réaliser chez vous.",
 ];
 
+const journeyParagraphs = [
+  "Diplômée en psychologie clinique de l’enfant, de l’adolescent et de la famille à l’UCLouvain, j’ai progressivement construit mon parcours autour de l’accompagnement des personnes, des enfants et des familles à différents moments de leur vie.",
+  "Après mes études, je suis partie à La Réunion, où j’ai travaillé comme psychologue au sein d’un centre médico-psychologique pour enfants et adolescents. J’y ai accompagné des jeunes en entretiens individuels, ainsi que leurs familles, ce qui a renforcé mon intérêt pour les liens entre le vécu de l’enfant et son environnement familial.",
+  "De retour à Bruxelles, j’ai rejoint pendant un an une équipe mobile en santé mentale, une expérience qui m’a permis d’accompagner des situations diverses, au plus près des réalités de vie des personnes et de leur entourage.",
+  "J’exerce aujourd’hui en planning familial, où j’accompagne notamment des femmes dans le cadre d’une interruption volontaire de grossesse. Cette expérience m’a particulièrement sensibilisée aux questions liées au corps, à la sexualité, à la parentalité, au désir ou au non-désir d’enfant, ainsi qu’aux différents bouleversements qui peuvent entourer ces moments de vie.",
+  "Ces expériences ont progressivement nourri mon intérêt pour la parentalité et la périnatalité, et l’importance que j’accorde à l’accompagnement des parents et des familles dans ces périodes de transition, de questionnement et de transformation.",
+  "J’ai à cœur de continuer à me former afin d’enrichir mes connaissances et mes compétences, et de proposer un accompagnement toujours au plus près des besoins de chacun.",
+];
+
+// Shown in the side panel under the strengths list.
 const commitments = [
-  "Membre de la Commission Belge des Psychologues",
+  "Membre de la Commission des Psychologues",
   "Titulaire du visa et de l’agrément",
   "Respect du code de déontologie",
   "Respect du secret professionnel",
+  "Expérience en centre médico-psychologique, en équipe mobile et en planning familial",
 ];
 
 // Most recent first; `ongoing` marks trainings still in progress.
@@ -52,7 +55,7 @@ const trainings = [
   },
   {
     title: "Certificat universitaire en accompagnement psychologique de la parentalité",
-    details: "Université Catholique de Louvain-la-Neuve, 2026 à 2027",
+    details: "UCLouvain, 2026 à 2027",
     ongoing: true,
   },
   {
@@ -67,7 +70,7 @@ const trainings = [
   },
   {
     title: "Master en psychologie clinique de l’enfant, de l’adolescent et de la famille",
-    details: "Université Catholique de Louvain-la-Neuve, juin 2021",
+    details: "UCLouvain, juin 2021",
     ongoing: false,
   },
 ] as const;
@@ -78,13 +81,14 @@ function AboutPage() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1}>À propos de moi</Heading>
-          <p className="mt-6 text-2xl font-extrabold">Camille Paquot</p>
-          <p className="text-lg text-ink-soft">Psychologue clinicienne agréée</p>
-          <p className="mt-6 max-w-prose text-lg leading-relaxed">{introduction}</p>
+          <p className="mt-6 max-w-prose text-lg leading-relaxed">
+            Psychologue clinicienne agréée à Bruxelles, j’accompagne toute personne souhaitant
+            entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
-            <Button variant="outline" href={phone.href}>
-              {phone.display}
+            <Button variant="outline" href="#formations">
+              Mes formations
             </Button>
           </div>
           <EmailLink emphasis className="mt-4" />
@@ -92,29 +96,41 @@ function AboutPage() {
         <Portrait className="mx-auto max-w-sm" />
       </Container>
       <Container as="section" className="grid items-start gap-12 py-12 lg:grid-cols-[1fr_22rem]">
-        <div className="max-w-prose space-y-4 text-lg leading-relaxed">
-          {aboutParagraphs.map((p) => (
-            <p key={p}>{p}</p>
-          ))}
+        <div className="max-w-prose text-lg leading-relaxed">
+          <Heading level={2} className="mb-5">
+            Mon approche
+          </Heading>
+          <div className="space-y-4">
+            {approachParagraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+          <Heading level={2} className="mt-12 mb-5">
+            Mon parcours
+          </Heading>
+          <div className="space-y-4">
+            {journeyParagraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
         </div>
-        <aside className="rounded-3xl bg-sage p-8">
+        <aside className="rounded-3xl bg-sage p-8 lg:sticky lg:top-28">
           <Heading level={3} as="h2" className="mb-5">
             Ce que j’apporte
           </Heading>
           <Strengths />
+          <Heading level={3} as="h2" className="mt-8 mb-4 border-t-2 border-ink/15 pt-6">
+            Mon cadre professionnel
+          </Heading>
+          <ul className="space-y-2">
+            {commitments.map((item) => (
+              <li key={item} className="flex gap-3">
+                <Shape shape="circle" className="mt-2 w-2.5 flex-none self-start bg-ink" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </aside>
-      </Container>
-      <Container as="section" className="py-12">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {commitments.map((item, index) => (
-            <li
-              key={item}
-              className={`rounded-2xl p-5 text-lg font-semibold ring-2 ring-ink ${index % 2 ? "rotate-1" : "-rotate-1"}`}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
       </Container>
       <Container as="section" id="formations" className="scroll-mt-24 py-16">
         <Heading level={2}>Formations</Heading>

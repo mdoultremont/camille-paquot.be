@@ -64,7 +64,10 @@ export const Route = createRootRoute({
 });
 function RootDocument() {
   return (
-    <html lang="fr" className="bg-white font-sans text-ink antialiased [font-synthesis:none]">
+    <html
+      lang="fr"
+      className="scroll-smooth bg-white font-sans text-ink antialiased [font-synthesis:none]"
+    >
       <head>
         <HeadContent />
       </head>

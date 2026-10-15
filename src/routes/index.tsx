@@ -29,16 +29,17 @@ function HomePage() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1} className="md:text-7xl">
-            Un espace bienveillant pour s’exprimer.
+            Un espace thérapeutique pour s’exprimer.
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
-            J’accompagne enfants, adolescents, adultes et parents pour mettre des mots sur ce qui se
-            vit et retrouver leurs ressources.
+            Je propose des consultations pour les enfants, adolescents, adultes et parents qui
+            souhaitent débuter un travail thérapeutique afin de mettre des mots sur ce qui pèse au
+            quotidien.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
             <ButtonLink variant="outline" to="/accompagnement">
-              Les accompagnements
+              Les consultations
             </ButtonLink>
           </div>
         </div>
@@ -46,7 +47,7 @@ function HomePage() {
       </Container>
       <Container as="section" className="py-16">
         <Heading level={2} className="mb-8">
-          Accompagnements
+          Consultations
         </Heading>
         <div className="grid gap-5 sm:grid-cols-2">
           {services.map((service) => (

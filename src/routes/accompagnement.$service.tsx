@@ -62,6 +62,27 @@ function ServicePage({ service }: { service: Service }) {
               <p key={p}>{p}</p>
             ))}
           </div>
+          {service.reasons.length > 0 && (
+            <>
+              <Heading level={3} as="h2" className="mt-10 mb-4">
+                Motifs de consultation
+              </Heading>
+              <ul className="max-w-prose columns-1 gap-x-8 space-y-2 text-lg sm:columns-2">
+                {service.reasons.map((item, index) => {
+                  const [shape, color] = mediaBullets[index % mediaBullets.length];
+                  return (
+                    <li key={item} className="flex gap-3 break-inside-avoid">
+                      <Shape shape={shape} className={`mt-2 w-3.5 flex-none self-start ${color}`} />
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+          {service.closing && (
+            <p className="mt-8 max-w-prose text-lg leading-relaxed">{service.closing}</p>
+          )}
           {service.media.length > 0 && (
             <>
               <Heading level={3} as="h2" className="mt-10 mb-4">

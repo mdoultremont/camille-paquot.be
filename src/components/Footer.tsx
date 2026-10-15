@@ -13,8 +13,8 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-xs">
-            Psychologue clinicienne agréée. Accompagnement des enfants, des adolescents, des adultes
-            et des parents.
+            Psychologue clinicienne agréée à Bruxelles. Consultations pour enfants, adolescents,
+            adultes et parents.
           </p>
           <p className="mt-2 text-sm text-ink-soft">
             Visa {visa}, Commission des Psychologues {commission}
