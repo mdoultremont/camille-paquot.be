@@ -16,9 +16,9 @@ export const services = [
     summary: "Explorer ses émotions et ses ressources avec le livre, le jeu ou l’art-thérapie.",
     paragraphs: [
       "L’accompagnement psychologique des enfants et des adolescents vise à les aider à retrouver davantage d’apaisement dans le quotidien, en collaboration avec leurs parents.",
-      "Je propose aux enfants et aux adolescents un espace sécurisant où ils peuvent, à leur rythme, déposer ce qu’ils vivent, mettre des mots sur leurs émotions, leurs inquiétudes ou leurs difficultés. La parole peut s’accompagner de différents supports, choisis et adaptés à l’âge, aux besoins et à la sensibilité de chaque enfant.",
+      "Je propose aux enfants et aux adolescents un espace sécurisant pour déposer, à leur rythme, leur vécu et mettre des mots sur leurs émotions, leurs inquiétudes ou leurs difficultés. La parole peut s’accompagner de différents supports, choisis et adaptés à l’âge, aux besoins et à la sensibilité de chaque enfant.",
       "L’accompagnement se construit également avec les parents, qui occupent une place essentielle dans le processus thérapeutique. Dans un premier temps, je rencontre les parents pour comprendre la situation et définir ensemble les objectifs thérapeutiques.",
-      "Au fil des rencontres, l’objectif est de permettre à l’enfant ou à l’adolescent de mieux comprendre ce qu’il traverse, de trouver ses propres ressources et de retrouver progressivement un quotidien plus serein.",
+      "Au fil des rencontres, l’objectif est d’aider les enfants et les adolescents à mieux comprendre leur vécu, à trouver leurs propres ressources et à retrouver progressivement un quotidien plus serein.",
     ],
     reasons: [
       "Difficultés de comportement",
@@ -26,14 +26,14 @@ export const services = [
       "Changement d’appétit",
       "Repli sur soi",
       "Anxiété et stress",
-      "Difficultés à se faire des ami·e·s",
+      "Difficultés à nouer des amitiés",
       "Harcèlement scolaire",
       "Maux de ventre, maux de tête",
       "Énurésie, encoprésie",
       "Perte d’intérêt pour des activités habituelles",
       "Pleurs fréquents",
       "Gestion des émotions",
-      "Évènements de vie difficiles : deuil, séparation parentale, déménagement, changement d’école, arrivée d’une petite sœur ou d’un petit frère, etc.",
+      "Évènements de vie difficiles : deuil, séparation parentale, déménagement, changement d’école, arrivée d’un nouvel enfant dans la famille, etc.",
     ],
     closing: noFixedRhythm,
     mediaTitle: "Ce qu’on utilise en séance",
@@ -85,7 +85,7 @@ export const services = [
     summary: "Prendre soin de soi pour prendre soin de ses enfants.",
     paragraphs: [
       "Être parent peut être un chemin vertigineux, parfois difficile et semé d’embûches. Il n’est pas toujours simple de naviguer en mer inconnue, au milieu d’informations, de conseils et d’injonctions parfois contradictoires, incohérentes ou angoissantes.",
-      "Être parent, c’est aussi pouvoir prendre soin de soi afin de prendre soin de son enfant. En tant que parent, il est important de s’entourer de professionnels ainsi que de notre entourage pour nous aider dans le quotidien. « Il faut tout un village pour élever un enfant. »",
+      "Être parent, c’est aussi pouvoir prendre soin de soi afin de prendre soin de son enfant. En tant que parent, il est important de pouvoir compter sur un soutien professionnel et sur son entourage au quotidien. « Il faut tout un village pour élever un enfant. »",
       "Si vous rencontrez des difficultés dans votre parentalité, si vous ne savez plus comment faire, si vous avez l’impression de crouler sous la charge mentale ou simplement besoin d’y voir plus clair, je vous propose un espace pour déposer ce que vous vivez, réfléchir ensemble et trouver vos propres repères. J’offre un espace sans jugement, pour vous accompagner dans ce chemin singulier qu’est la parentalité.",
     ],
     reasons: [

@@ -23,9 +23,9 @@ export const Route = createFileRoute("/a-propos")({
 
 const approachParagraphs = [
   "À travers des entretiens individuels et familiaux, j’accompagne les enfants, les adolescents et les adultes qui traversent, ponctuellement ou plus durablement, des difficultés dans leur vie.",
-  "Je tiens à offrir un espace bienveillant, sécurisant, chaleureux et sans jugement, où chacun peut se sentir accueilli tel qu’il est. Ensemble, nous prenons le temps de comprendre ce qui se joue, de démêler les nœuds auxquels vous êtes confrontés et de nous appuyer sur vos ressources pour avancer à votre rythme.",
+  "Je tiens à offrir un espace bienveillant, sécurisant, chaleureux et sans jugement, où chaque personne peut se sentir accueillie telle qu’elle est. Ensemble, nous prenons le temps de comprendre ce qui se joue, de démêler les nœuds auxquels vous faites face et de nous appuyer sur vos ressources pour avancer à votre rythme.",
   "Je vous accompagne dans la mise en mots de vos émotions, l’exploration de votre vécu et l’ouverture vers de nouvelles possibilités. Mon rôle est de cheminer à vos côtés, dans le respect de votre singularité et de votre rythme.",
-  "En fonction de l’âge, des besoins et des demandes de chacun, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots. De plus, lorsque cela est pertinent et souhaité, j’intègre également une dimension psycho-corporelle à l’accompagnement thérapeutique. Je peux vous proposer des postures de Yoga et des exercices de respiration en séance et des pratiques à réaliser chez vous.",
+  "En fonction de l’âge, des besoins et des demandes de chaque personne, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots. De plus, lorsque cela est pertinent et souhaité, j’intègre également une dimension psycho-corporelle à l’accompagnement thérapeutique. Je peux vous proposer des postures de Yoga et des exercices de respiration en séance et des pratiques à réaliser chez vous.",
 ];
 
 const journeyParagraphs = [
@@ -34,7 +34,7 @@ const journeyParagraphs = [
   "De retour à Bruxelles, j’ai rejoint pendant un an une équipe mobile en santé mentale, une expérience qui m’a permis d’accompagner des situations diverses, au plus près des réalités de vie des personnes et de leur entourage.",
   "J’exerce aujourd’hui en planning familial, où j’accompagne notamment des femmes dans le cadre d’une interruption volontaire de grossesse. Cette expérience m’a particulièrement sensibilisée aux questions liées au corps, à la sexualité, à la parentalité, au désir ou au non-désir d’enfant, ainsi qu’aux différents bouleversements qui peuvent entourer ces moments de vie.",
   "Ces expériences ont progressivement nourri mon intérêt pour la parentalité et la périnatalité, et l’importance que j’accorde à l’accompagnement des parents et des familles dans ces périodes de transition, de questionnement et de transformation.",
-  "J’ai à cœur de continuer à me former afin d’enrichir mes connaissances et mes compétences, et de proposer un accompagnement toujours au plus près des besoins de chacun.",
+  "J’ai à cœur de continuer à me former afin d’enrichir mes connaissances et mes compétences, et de proposer un accompagnement toujours au plus près des besoins de chaque personne.",
 ];
 
 // Shown in the side panel under the strengths list.

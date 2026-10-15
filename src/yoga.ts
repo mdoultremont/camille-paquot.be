@@ -2,7 +2,8 @@
 export const yoga = {
   theme: { background: "bg-sky", shape: "pebble", shapeColor: "bg-mustard" },
   title: "Cours de yoga",
-  intro: "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chacun.",
+  intro:
+    "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chaque personne.",
   // Placeholder copy describing Viniyoga, to be validated by Camille.
   paragraphs: [
     "Le Viniyoga est issu de l’enseignement de T. Krishnamacharya, transmis par son fils T.K.V. Desikachar. Plutôt que d’imposer une forme unique, il adapte la pratique à chaque personne : son âge, sa condition physique, son état du moment et ses objectifs.",

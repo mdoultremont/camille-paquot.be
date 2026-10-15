@@ -64,9 +64,12 @@ function ServicePage({ service }: { service: Service }) {
           </div>
           {service.reasons.length > 0 && (
             <>
-              <Heading level={3} as="h2" className="mt-10 mb-4">
+              <Heading level={3} as="h2" className="mt-10 mb-2">
                 Motifs de consultation
               </Heading>
+              <p className="mb-5 max-w-prose text-base leading-relaxed text-ink-soft">
+                Voici quelques exemples de motifs de consultation. Cette liste n’est pas exhaustive.
+              </p>
               <ul className="max-w-prose columns-1 gap-x-8 space-y-2 text-lg sm:columns-2">
                 {service.reasons.map((item, index) => {
                   const [shape, color] = mediaBullets[index % mediaBullets.length];
