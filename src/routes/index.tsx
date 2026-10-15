@@ -5,11 +5,13 @@ import { ButtonLink } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { Portrait } from "@/components/Portrait";
+import { Shape } from "@/components/Shape";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Strengths } from "@/components/Strengths";
 import { TextLink } from "@/components/TextLink";
 import { introduction } from "@/constants";
 import { services } from "@/services";
+import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/")({
@@ -38,7 +40,7 @@ function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
-            <ButtonLink variant="outline" to="/accompagnement">
+            <ButtonLink variant="outline" to="/consultations">
               Les consultations
             </ButtonLink>
           </div>
@@ -49,10 +51,27 @@ function HomePage() {
         <Heading level={2} className="mb-8">
           Consultations
         </Heading>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
+        </div>
+      </Container>
+      <Container as="section" className="pb-16">
+        <div
+          className={`relative flex flex-col items-start gap-6 overflow-hidden rounded-[2rem] p-8 md:flex-row md:items-center md:justify-between md:p-12 ${yoga.theme.background}`}
+        >
+          <Shape
+            shape={yoga.theme.shape}
+            className={`absolute -bottom-28 left-1/2 w-40 ${yoga.theme.shapeColor}`}
+          />
+          <div className="relative max-w-xl">
+            <Heading level={2}>{yoga.title}</Heading>
+            <p className="mt-3 text-lg">{yoga.intro}</p>
+          </div>
+          <ButtonLink to="/yoga" className="relative">
+            Découvrir les cours
+          </ButtonLink>
         </div>
       </Container>
       <Container as="section" className="grid gap-10 py-16 lg:grid-cols-2">

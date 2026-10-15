@@ -1,7 +1,7 @@
-// Services appear on the home page, the services index, each service page and the
-// practical info page. `theme` keeps the same colour and shape everywhere.
+// Consultations appear on the home page, the consultations index, each consultation page
+// and the practical info page. `theme` keeps the same colour and shape everywhere.
+// Yoga classes live in `yoga.ts`.
 
-// Shared closing note on the therapy pages; yoga classes have a fixed format.
 const noFixedRhythm =
   "Il n’y a pas de rythme ni de durée type, cela dépend de vous et de vos envies. Nous en discuterons dès notre première rencontre.";
 
@@ -104,29 +104,6 @@ export const services = [
     price: "60 €",
     cancellation: "48 h à l’avance",
     bookOnline: true,
-  },
-  {
-    slug: "yoga",
-    theme: { background: "bg-sky", shape: "pebble", shapeColor: "bg-mustard" },
-    name: "Cours de yoga",
-    title: "Cours de yoga",
-    intro: "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chacun.",
-    summary: "Cours collectifs de Viniyoga, adaptés à chacun.",
-    // Placeholder copy describing Viniyoga, to be validated by Camille.
-    paragraphs: [
-      "Le Viniyoga est issu de l’enseignement de T. Krishnamacharya, transmis par son fils T.K.V. Desikachar. Plutôt que d’imposer une forme unique, il adapte la pratique à chaque personne : son âge, sa condition physique, son état du moment et ses objectifs.",
-      "Chaque cours suit une progression construite pas à pas. Le mouvement est relié au souffle : on entre et on sort des postures au rythme de l’inspiration et de l’expiration, sans forcer.",
-      "Les cours associent postures, exercices de respiration et temps de relaxation. Ils sont accessibles sans prérequis de souplesse ou d’expérience.",
-    ],
-    reasons: [],
-    closing: "",
-    mediaTitle: "Au programme des cours",
-    media: ["Postures", "Respiration", "Relaxation", "Concentration"],
-    duration: "1 h",
-    price: "15 €",
-    cancellation: "24 h à l’avance",
-    // Yoga classes are booked by e-mail or phone, not through Rosa.
-    bookOnline: false,
   },
 ] as const;
 

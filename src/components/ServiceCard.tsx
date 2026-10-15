@@ -7,7 +7,7 @@ export function ServiceCard({ service }: { service: Service }) {
   const { theme } = service;
   return (
     <Link
-      to="/accompagnement/$service"
+      to="/consultations/$service"
       params={{ service: service.slug }}
       className={`group relative flex min-h-56 flex-col overflow-hidden rounded-3xl p-7 transition-transform hover:-translate-y-1 ${theme.background}`}
     >

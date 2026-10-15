@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as InfosPratiquesRouteImport } from './routes/infos-pratiques'
-import { Route as AccompagnementIndexRouteImport } from './routes/accompagnement.index'
-import { Route as AccompagnementServiceRouteImport } from './routes/accompagnement.$service'
+import { Route as YogaRouteImport } from './routes/yoga'
+import { Route as AccompagnementSplatRouteImport } from './routes/accompagnement.$'
+import { Route as ConsultationsIndexRouteImport } from './routes/consultations.index'
+import { Route as ConsultationsServiceRouteImport } from './routes/consultations.$service'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,14 +32,24 @@ const InfosPratiquesRoute = InfosPratiquesRouteImport.update({
   path: '/infos-pratiques',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AccompagnementIndexRoute = AccompagnementIndexRouteImport.update({
-  id: '/accompagnement/',
-  path: '/accompagnement/',
+const YogaRoute = YogaRouteImport.update({
+  id: '/yoga',
+  path: '/yoga',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AccompagnementServiceRoute = AccompagnementServiceRouteImport.update({
-  id: '/accompagnement/$service',
-  path: '/accompagnement/$service',
+const AccompagnementSplatRoute = AccompagnementSplatRouteImport.update({
+  id: '/accompagnement/$',
+  path: '/accompagnement/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultationsIndexRoute = ConsultationsIndexRouteImport.update({
+  id: '/consultations/',
+  path: '/consultations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultationsServiceRoute = ConsultationsServiceRouteImport.update({
+  id: '/consultations/$service',
+  path: '/consultations/$service',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -45,23 +57,29 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
-  '/accompagnement/$service': typeof AccompagnementServiceRoute
-  '/accompagnement/': typeof AccompagnementIndexRoute
+  '/yoga': typeof YogaRoute
+  '/accompagnement/$': typeof AccompagnementSplatRoute
+  '/consultations/$service': typeof ConsultationsServiceRoute
+  '/consultations/': typeof ConsultationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
-  '/accompagnement/$service': typeof AccompagnementServiceRoute
-  '/accompagnement': typeof AccompagnementIndexRoute
+  '/yoga': typeof YogaRoute
+  '/accompagnement/$': typeof AccompagnementSplatRoute
+  '/consultations/$service': typeof ConsultationsServiceRoute
+  '/consultations': typeof ConsultationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
-  '/accompagnement/$service': typeof AccompagnementServiceRoute
-  '/accompagnement/': typeof AccompagnementIndexRoute
+  '/yoga': typeof YogaRoute
+  '/accompagnement/$': typeof AccompagnementSplatRoute
+  '/consultations/$service': typeof ConsultationsServiceRoute
+  '/consultations/': typeof ConsultationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -69,30 +87,38 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/infos-pratiques'
-    | '/accompagnement/$service'
-    | '/accompagnement/'
+    | '/yoga'
+    | '/accompagnement/$'
+    | '/consultations/$service'
+    | '/consultations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-propos'
     | '/infos-pratiques'
-    | '/accompagnement/$service'
-    | '/accompagnement'
+    | '/yoga'
+    | '/accompagnement/$'
+    | '/consultations/$service'
+    | '/consultations'
   id:
     | '__root__'
     | '/'
     | '/a-propos'
     | '/infos-pratiques'
-    | '/accompagnement/$service'
-    | '/accompagnement/'
+    | '/yoga'
+    | '/accompagnement/$'
+    | '/consultations/$service'
+    | '/consultations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   InfosPratiquesRoute: typeof InfosPratiquesRoute
-  AccompagnementServiceRoute: typeof AccompagnementServiceRoute
-  AccompagnementIndexRoute: typeof AccompagnementIndexRoute
+  YogaRoute: typeof YogaRoute
+  AccompagnementSplatRoute: typeof AccompagnementSplatRoute
+  ConsultationsServiceRoute: typeof ConsultationsServiceRoute
+  ConsultationsIndexRoute: typeof ConsultationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -118,18 +144,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InfosPratiquesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/accompagnement/': {
-      id: '/accompagnement/'
-      path: '/accompagnement'
-      fullPath: '/accompagnement/'
-      preLoaderRoute: typeof AccompagnementIndexRouteImport
+    '/yoga': {
+      id: '/yoga'
+      path: '/yoga'
+      fullPath: '/yoga'
+      preLoaderRoute: typeof YogaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/accompagnement/$service': {
-      id: '/accompagnement/$service'
-      path: '/accompagnement/$service'
-      fullPath: '/accompagnement/$service'
-      preLoaderRoute: typeof AccompagnementServiceRouteImport
+    '/accompagnement/$': {
+      id: '/accompagnement/$'
+      path: '/accompagnement/$'
+      fullPath: '/accompagnement/$'
+      preLoaderRoute: typeof AccompagnementSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultations/': {
+      id: '/consultations/'
+      path: '/consultations'
+      fullPath: '/consultations/'
+      preLoaderRoute: typeof ConsultationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultations/$service': {
+      id: '/consultations/$service'
+      path: '/consultations/$service'
+      fullPath: '/consultations/$service'
+      preLoaderRoute: typeof ConsultationsServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -139,8 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   InfosPratiquesRoute: InfosPratiquesRoute,
-  AccompagnementServiceRoute: AccompagnementServiceRoute,
-  AccompagnementIndexRoute: AccompagnementIndexRoute,
+  YogaRoute: YogaRoute,
+  AccompagnementSplatRoute: AccompagnementSplatRoute,
+  ConsultationsServiceRoute: ConsultationsServiceRoute,
+  ConsultationsIndexRoute: ConsultationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

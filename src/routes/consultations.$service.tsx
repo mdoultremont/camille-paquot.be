@@ -7,7 +7,7 @@ import { Shape, type ShapeName } from "@/components/Shape";
 import { services, type Service } from "@/services";
 import { pageHead } from "@/seo";
 
-export const Route = createFileRoute("/accompagnement/$service")({
+export const Route = createFileRoute("/consultations/$service")({
   loader: ({ params }) => {
     const service = services.find((s) => s.slug === params.service);
     if (!service) throw notFound();
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/accompagnement/$service")({
       ? pageHead({
           title: `${loaderData.title} - Camille Paquot`,
           description: loaderData.intro,
-          path: `/accompagnement/${loaderData.slug}`,
+          path: `/consultations/${loaderData.slug}`,
         })
       : {},
   component: () => <ServicePage service={Route.useLoaderData()} />,
@@ -42,7 +42,7 @@ function ServicePage({ service }: { service: Service }) {
         <div className={`relative overflow-hidden rounded-4xl ${theme.background}`}>
           <Shape
             shape={theme.shape}
-            className={`absolute -right-10 -bottom-10 w-40 md:top-10 md:right-16 md:bottom-auto md:w-56 ${theme.shapeColor}`}
+            className={`absolute top-10 right-16 hidden w-56 lg:block ${theme.shapeColor}`}
           />
           <Container className="relative py-10 md:py-16">
             <Heading level={1} className="max-w-2xl">
@@ -111,9 +111,9 @@ function ServicePage({ service }: { service: Service }) {
       </Container>
       <Container as="section" className="pb-16">
         <Heading level={2} className="mb-8">
-          D’autres accompagnements
+          D’autres consultations
         </Heading>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2">
           {otherServices.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}

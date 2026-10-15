@@ -8,7 +8,7 @@ import { email, introduction, phone, siteUrl } from "@/constants";
 import stylesheet from "@/styles.css?url";
 
 const description =
-  "Accompagnement thérapeutique bienveillant et sécurisant. Camille Paquot, Psychologue Clinicienne Agréée.";
+  "Consultations psychologiques à Bruxelles pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.";
 
 // Add `address` once the practice addresses are known.
 const structuredData = {

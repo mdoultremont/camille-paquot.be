@@ -8,10 +8,11 @@ import { Logo } from "@/components/Logo";
 
 const navigation = [
   {
-    path: "/accompagnement",
-    label: "Accompagnements",
-    link: linkOptions({ to: "/accompagnement" }),
+    path: "/consultations",
+    label: "Consultations",
+    link: linkOptions({ to: "/consultations" }),
   },
+  { path: "/yoga", label: "Yoga", link: linkOptions({ to: "/yoga" }) },
   { path: "/a-propos", label: "À propos", link: linkOptions({ to: "/a-propos" }) },
   {
     path: "/infos-pratiques",
