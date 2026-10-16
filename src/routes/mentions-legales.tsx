@@ -29,8 +29,8 @@ function LegalNoticePage() {
           E-mail : <EmailLink />
         </p>
         <ul className="list-disc space-y-2 pl-6">
-          <li>Adresse professionnelle légale : à compléter.</li>
-          <li>Numéro d’entreprise (BCE) : à compléter.</li>
+          <li>Adresse professionnelle : à venir.</li>
+          <li>Numéro d’entreprise (BCE) : 1006.262.558 (personne physique).</li>
           <li>Statut TVA et numéro de TVA, si applicable : à compléter.</li>
         </ul>
       </LegalSection>
@@ -52,8 +52,8 @@ function LegalNoticePage() {
       </LegalSection>
       <LegalSection title="Hébergement">
         <p>
-          Le site est configuré pour être hébergé sur Cloudflare Workers. L’entité contractante, ses
-          coordonnées et les modalités d’hébergement sont à confirmer avant publication.
+          Le site est hébergé sur Cloudflare Workers. Les coordonnées complètes de l’hébergeur
+          seront ajoutées à cette page.
         </p>
       </LegalSection>
       <LegalSection title="Signaler une erreur">

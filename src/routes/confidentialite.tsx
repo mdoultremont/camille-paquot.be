@@ -35,21 +35,17 @@ function PrivacyPage() {
       </LegalSection>
       <LegalSection title="Consultation du site">
         <p>
-          Même pour un site statique, l’hébergeur traite des données techniques liées aux requêtes,
-          notamment l’adresse IP, la date de connexion et les pages demandées. Certaines peuvent
-          être conservées dans des journaux pour le fonctionnement et la sécurité du site. La base
-          juridique envisagée est l’intérêt légitime à assurer la disponibilité et la sécurité du
-          site. Les données effectivement enregistrées, cette base juridique et les durées de
-          conservation restent à vérifier avec l’hébergeur.
+          L’hébergeur traite les données techniques nécessaires pour vous transmettre les pages et
+          assurer le fonctionnement et la sécurité du site, notamment l’adresse IP, la date de
+          connexion et les pages demandées. Certaines de ces données peuvent être conservées dans
+          des journaux techniques.
         </p>
       </LegalSection>
       <LegalSection title="Prise de contact">
         <p>
           Lorsque vous contactez Camille Paquot par e-mail ou téléphone, vos coordonnées et les
           informations que vous transmettez servent à répondre à votre demande et, le cas échéant, à
-          préparer un rendez-vous. Selon la demande, le traitement peut reposer sur des démarches
-          précontractuelles réalisées à votre initiative ou sur l’intérêt légitime de répondre aux
-          demandes. Les bases juridiques applicables sont à confirmer avant publication.
+          préparer un rendez-vous.
         </p>
         <p>
           Pour une première prise de contact, indiquez uniquement les informations utiles pour vous
@@ -58,43 +54,31 @@ function PrivacyPage() {
       </LegalSection>
       <LegalSection title="Prestataires et réservation">
         <p>
-          Les données techniques peuvent être traitées par l’hébergeur Cloudflare et les messages
-          par le prestataire de messagerie utilisé pour les échanges. Les accès et engagements de
-          ces prestataires doivent être vérifiés.
+          Les données techniques sont traitées par l’hébergeur Cloudflare et les messages par le
+          prestataire de messagerie utilisé pour les échanges.
         </p>
         <p>
-          Le bouton de réservation est un lien vers Rosa. Le site n’intègre pas de formulaire Rosa :
-          c’est lorsque vous ouvrez ce lien que vous accédez à son service, soumis à ses propres
+          Le bouton de réservation vous mène vers Rosa, un service externe soumis à ses propres
           informations de confidentialité.
         </p>
       </LegalSection>
-      <LegalSection title="Statistiques de fréquentation et cookies">
+      <LegalSection title="Statistiques de fréquentation">
         <p>
-          Une mesure simple de la fréquentation est active pour consulter des statistiques globales,
-          comme le nombre de visites et les pages consultées. Le service Cloudflare utilisé, les
-          données traitées, leur conservation et les éventuels cookies ou autres traceurs restent à
-          confirmer avant publication.
+          Cloudflare Web Analytics fournit des statistiques globales, comme le nombre de visites et
+          les pages consultées. Selon Cloudflare, ce service n’utilise ni cookies, ni stockage
+          local, ni empreinte du navigateur pour suivre les visiteurs. Vous pouvez consulter les{" "}
+          <TextAnchor href="https://www.cloudflare.com/trust-hub/gdpr/">
+            informations de Cloudflare sur la protection des données
+          </TextAnchor>
+          .
         </p>
       </LegalSection>
-      <LegalSection title="Informations à compléter avant publication">
-        <ul className="list-disc space-y-2 pl-6">
-          <li>
-            Les durées de conservation des messages et des journaux techniques, ou les critères
-            permettant de les déterminer.
-          </li>
-          <li>
-            Les bases juridiques retenues pour chaque usage, les destinataires et les garanties
-            contractuelles des prestataires.
-          </li>
-          <li>
-            Les éventuels transferts de données hors de l’Espace économique européen et les
-            garanties qui les encadrent.
-          </li>
-          <li>
-            L’adresse professionnelle du responsable et les informations propres aux données
-            traitées dans le cadre des consultations.
-          </li>
-        </ul>
+      <LegalSection title="Informations complémentaires à venir">
+        <p>
+          Cette page sera complétée avec l’adresse professionnelle, les durées de conservation, les
+          bases juridiques des traitements et les garanties applicables aux prestataires et aux
+          éventuels transferts de données hors de l’Espace économique européen.
+        </p>
       </LegalSection>
       <LegalSection title="Vos droits">
         <p>
