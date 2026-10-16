@@ -1,5 +1,5 @@
 import { email, payment, phone } from "@/constants";
-import { ConsultationOpening } from "@/components/ConsultationOpening";
+import { BookingLink } from "@/components/BookingLink";
 import { Button } from "@/components/Button";
 import { Heading } from "@/components/Heading";
 
@@ -35,13 +35,13 @@ export function PracticalInfo({ service }: { service: PracticalDetails }) {
       <p className="mt-4 text-sm text-ink-soft">{payment}</p>
       {service.bookOnline ? (
         <>
-          <ConsultationOpening className="mt-6 w-full" />
+          <BookingLink className="mt-6 w-full" />
           <p className="mt-3 text-sm text-ink-soft">
-            Pour toute question :{" "}
+            Par téléphone au{" "}
             <a className="underline" href={phone.href}>
               {phone.display}
             </a>
-            .
+            , ou en ligne.
           </p>
         </>
       ) : (

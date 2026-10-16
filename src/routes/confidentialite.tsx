@@ -52,10 +52,14 @@ function PrivacyPage() {
           répondre. Évitez de détailler votre santé ou votre situation personnelle par e-mail.
         </p>
       </LegalSection>
-      <LegalSection title="Prestataires">
+      <LegalSection title="Prestataires et réservation">
         <p>
           Les données techniques sont traitées par l’hébergeur Cloudflare et les messages par le
           prestataire de messagerie utilisé pour les échanges.
+        </p>
+        <p>
+          Le bouton de réservation vous mène vers Rosa, un service externe soumis à ses propres
+          informations de confidentialité.
         </p>
       </LegalSection>
       <LegalSection title="Statistiques de fréquentation">

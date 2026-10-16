@@ -46,10 +46,11 @@ function TermsPage() {
           site et ne remplacent pas les accords relatifs à votre accompagnement.
         </p>
       </LegalSection>
-      <LegalSection title="Ouverture des consultations">
+      <LegalSection title="Liens vers d’autres sites">
         <p>
-          Les consultations ne sont pas encore ouvertes à la réservation. La prise de rendez-vous
-          sera proposée lorsque l’adresse du cabinet sera confirmée.
+          La réservation en ligne mène vers Rosa, un service externe. Son utilisation relève de ses
+          propres conditions et de sa politique de confidentialité. Les contenus et le
+          fonctionnement de ces services restent sous la responsabilité de leurs éditeurs.
         </p>
       </LegalSection>
       <LegalSection title="Utilisation des contenus">

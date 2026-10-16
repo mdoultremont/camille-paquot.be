@@ -1,6 +1,7 @@
 import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { phone } from "@/constants";
+import { BookingLink } from "@/components/BookingLink";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
 import { Logo } from "@/components/Logo";
@@ -62,6 +63,10 @@ export function Header() {
           {links}
         </nav>
         <div className="flex items-center gap-3">
+          <BookingLink className="max-sm:px-4 max-sm:py-2 max-sm:text-sm">
+            <span className="sm:hidden">Rendez-vous</span>
+            <span className="max-sm:hidden">Prendre rendez-vous</span>
+          </BookingLink>
           <button
             className="flex size-10 cursor-pointer items-center justify-center rounded-full lg:hidden"
             type="button"
