@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as ConditionsUtilisationRouteImport } from './routes/conditions-utilisation'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as InfosPratiquesRouteImport } from './routes/infos-pratiques'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as AccompagnementSplatRouteImport } from './routes/accompagnement.$'
 import { Route as ConsultationsIndexRouteImport } from './routes/consultations.index'
@@ -27,9 +30,24 @@ const AProposRoute = AProposRouteImport.update({
   path: '/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConditionsUtilisationRoute = ConditionsUtilisationRouteImport.update({
+  id: '/conditions-utilisation',
+  path: '/conditions-utilisation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InfosPratiquesRoute = InfosPratiquesRouteImport.update({
   id: '/infos-pratiques',
   path: '/infos-pratiques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const YogaRoute = YogaRouteImport.update({
@@ -56,7 +74,10 @@ const ConsultationsServiceRoute = ConsultationsServiceRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/conditions-utilisation': typeof ConditionsUtilisationRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
@@ -65,7 +86,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/conditions-utilisation': typeof ConditionsUtilisationRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
@@ -75,7 +99,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/conditions-utilisation': typeof ConditionsUtilisationRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
@@ -86,7 +113,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-propos'
+    | '/conditions-utilisation'
+    | '/confidentialite'
     | '/infos-pratiques'
+    | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
@@ -95,7 +125,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/a-propos'
+    | '/conditions-utilisation'
+    | '/confidentialite'
     | '/infos-pratiques'
+    | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
@@ -104,7 +137,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/a-propos'
+    | '/conditions-utilisation'
+    | '/confidentialite'
     | '/infos-pratiques'
+    | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
@@ -114,7 +150,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  ConditionsUtilisationRoute: typeof ConditionsUtilisationRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
   InfosPratiquesRoute: typeof InfosPratiquesRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
   YogaRoute: typeof YogaRoute
   AccompagnementSplatRoute: typeof AccompagnementSplatRoute
   ConsultationsServiceRoute: typeof ConsultationsServiceRoute
@@ -137,11 +176,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AProposRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conditions-utilisation': {
+      id: '/conditions-utilisation'
+      path: '/conditions-utilisation'
+      fullPath: '/conditions-utilisation'
+      preLoaderRoute: typeof ConditionsUtilisationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/infos-pratiques': {
       id: '/infos-pratiques'
       path: '/infos-pratiques'
       fullPath: '/infos-pratiques'
       preLoaderRoute: typeof InfosPratiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/yoga': {
@@ -178,7 +238,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  ConditionsUtilisationRoute: ConditionsUtilisationRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
   InfosPratiquesRoute: InfosPratiquesRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
   YogaRoute: YogaRoute,
   AccompagnementSplatRoute: AccompagnementSplatRoute,
   ConsultationsServiceRoute: ConsultationsServiceRoute,
