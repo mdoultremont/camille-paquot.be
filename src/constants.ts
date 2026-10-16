@@ -2,6 +2,8 @@
 export const siteUrl = "https://camille-paquot.be";
 export const phone = { display: "+32 470 38 61 55", href: "tel:+32470386155" };
 export const email = "camillepaquot.psy@gmail.com";
+// Receives reports about the website itself (typos, broken pages).
+export const websiteEmail = "hello@camille-paquot.be";
 export const booking = "https://rosa.be/fr/hp/camille-paquot-1/";
 export const visa = "343006";
 export const commission = "962237745";

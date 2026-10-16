@@ -71,20 +71,12 @@ function Page() {
           .
         </p>
       </LegalSection>
-      <LegalSection title="Informations complémentaires à venir">
-        <p>
-          Cette page sera complétée avec l’adresse professionnelle, les durées de conservation, les
-          bases juridiques des traitements et les garanties applicables aux prestataires et aux
-          éventuels transferts de données hors de l’Espace économique européen.
-        </p>
-      </LegalSection>
       <LegalSection title="Vos droits">
         <p>
-          Selon les conditions prévues par le RGPD, vous pouvez demander l’accès à vos données, leur
-          rectification ou leur effacement, la limitation du traitement et leur portabilité. Vous
-          pouvez également vous opposer à certains traitements, notamment ceux fondés sur l’intérêt
-          légitime, selon les conditions applicables. Pour exercer ces droits, contactez Camille
-          Paquot aux coordonnées indiquées plus haut.
+          Le site ne comporte ni formulaire ni compte utilisateur. Les seules informations que
+          Camille Paquot détient sont celles que vous lui transmettez par e-mail ou par téléphone.
+          Vous pouvez demander à les consulter, à les corriger ou à les faire supprimer en la
+          contactant aux coordonnées indiquées plus haut.
         </p>
         <p>
           Vous pouvez introduire une réclamation auprès de l’
