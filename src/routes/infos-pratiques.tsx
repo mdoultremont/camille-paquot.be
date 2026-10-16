@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookingLink } from "@/components/BookingLink";
+import { ConsultationOpening } from "@/components/ConsultationOpening";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
 import { Heading } from "@/components/Heading";
@@ -89,13 +89,14 @@ function PracticalInfoPage() {
         </div>
         <div className={`${panel} bg-sage`}>
           <Heading level={3} as="h2" className="mb-4">
-            Prendre rendez-vous
+            Consultations et contact
           </Heading>
           <p className="text-lg">
-            Les consultations se réservent en ligne, ou par téléphone au{" "}
+            La prise de rendez-vous ouvrira lorsque l’adresse du cabinet sera confirmée. Pour toute
+            question, vous pouvez appeler le{" "}
             <TextAnchor href={phone.href}>{phone.display}</TextAnchor>.
           </p>
-          <BookingLink className="mt-5" />
+          <ConsultationOpening className="mt-5" />
           <p className="mt-6 text-lg">
             Pour les cours de yoga, la prise de rendez-vous se fait directement par mail ou par
             téléphone.
@@ -124,7 +125,9 @@ function PracticalInfoPage() {
           <Heading level={3} as="h2" className="mb-4">
             Cabinets
           </Heading>
-          <p className="text-lg">Informations à venir.</p>
+          <p className="text-lg">
+            L’adresse du cabinet sera communiquée à l’ouverture des consultations.
+          </p>
         </div>
         <div className={`${panel} ring-2 ring-ink`}>
           <Heading level={3} as="h2" className="mb-4">

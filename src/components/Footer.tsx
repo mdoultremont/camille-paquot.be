@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { cancellationPolicy, commission, phone, visa } from "@/constants";
-import { BookingLink } from "@/components/BookingLink";
+import { ConsultationOpening } from "@/components/ConsultationOpening";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
 import { Logo } from "@/components/Logo";
@@ -35,9 +35,9 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-3 text-xl font-extrabold">Rendez-vous</h2>
-          <p>Adresse des cabinets : informations à venir.</p>
-          <BookingLink className="mt-4" />
+          <h2 className="mb-3 text-xl font-extrabold">Consultations</h2>
+          <p>L’adresse du cabinet sera communiquée à l’ouverture des consultations.</p>
+          <ConsultationOpening className="mt-4" />
         </div>
       </Container>
       <Container className="relative">

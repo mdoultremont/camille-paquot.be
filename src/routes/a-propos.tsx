@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookingBand } from "@/components/BookingBand";
-import { BookingLink } from "@/components/BookingLink";
+import { ConsultationOpening } from "@/components/ConsultationOpening";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
@@ -86,7 +86,7 @@ function AboutPage() {
             entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <BookingLink />
+            <ConsultationOpening />
             <Button variant="outline" href="#formations">
               Mes formations
             </Button>

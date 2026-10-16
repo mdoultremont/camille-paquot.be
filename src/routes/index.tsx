@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookingBand } from "@/components/BookingBand";
-import { BookingLink } from "@/components/BookingLink";
+import { ConsultationOpening } from "@/components/ConsultationOpening";
 import { ButtonLink } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
@@ -39,7 +39,7 @@ function HomePage() {
             quotidien.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <BookingLink />
+            <ConsultationOpening />
             <ButtonLink variant="outline" to="/consultations">
               Les consultations
             </ButtonLink>

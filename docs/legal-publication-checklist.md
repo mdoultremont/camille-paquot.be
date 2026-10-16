@@ -2,6 +2,8 @@
 
 The three French legal pages remain incomplete and use `noindex`. Generic draft banners and the visitor-facing preparation checklist have been removed; keep `noindex` until the missing identity and processing details are confirmed. These pages do not replace a patient privacy notice.
 
+The site opens before consultations. Online consultation booking is unavailable; the Rosa link has been removed. The practitioner will confirm the practice address before opening appointment booking. Yoga contact/booking remains unchanged. Review the legal and privacy information when booking becomes available.
+
 Before publication:
 
 - Confirm the legal professional address, VAT treatment, exact qualification and country that granted the professional title. BCE 1006.262.558 is verified in Public Search and its identity was confirmed by the owner on 16 October 2026. The register identifies an active natural person, Paquot, Camille, with psychology activity (NACE 86.931). Its TVA registration does not establish the VAT treatment of each service. No register address has been published.
@@ -12,7 +14,7 @@ Before publication:
 
 Static hosting still processes technical request data, separately from aggregate audience statistics. Do not infer zero logging, zero personal data, anonymity or a consent exemption from the site's static nature or the intended simplicity of the analytics.
 
-Repository evidence: `src/constants.ts` holds known contact and registration numbers; `src/components/BookingLink.tsx` uses an external Rosa link; `src/routes/__root.tsx` and `src/styles.css` load local assets; `wrangler.jsonc` enables Workers observability with `head_sampling_rate: 1`. This setting does not identify the audience analytics service; active Cloudflare Web Analytics is recorded on the owner's confirmation. No Web Analytics beacon or deployment injection configuration was found in the repository. Professional addresses are still missing from the existing practical information page.
+Repository evidence: `src/constants.ts` holds known contact and registration numbers; `src/components/ConsultationOpening.tsx` presents a noninteractive preopening notice; `src/routes/__root.tsx` and `src/styles.css` load local assets; `wrangler.jsonc` enables Workers observability with `head_sampling_rate: 1`. This setting does not identify the audience analytics service; active Cloudflare Web Analytics is recorded on the owner's confirmation. No Web Analytics beacon or deployment injection configuration was found in the repository. Professional addresses are still missing from the existing practical information page.
 
 Primary references for review:
 
