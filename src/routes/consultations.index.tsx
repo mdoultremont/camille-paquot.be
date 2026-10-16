@@ -8,7 +8,6 @@ import { services } from "@/services";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/consultations/")({
-  component: ServicesPage,
   head: () =>
     pageHead({
       title: "Consultations - Camille Paquot",
@@ -16,9 +15,10 @@ export const Route = createFileRoute("/consultations/")({
         "Thérapie pour enfants, adolescents et adultes et soutien à la parentalité : découvrez les consultations proposées à Bruxelles.",
       path: "/consultations",
     }),
+  component: Page,
 });
 
-function ServicesPage() {
+function Page() {
   return (
     <>
       <Container as="section" className="py-12 md:py-16">

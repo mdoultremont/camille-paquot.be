@@ -7,7 +7,6 @@ import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/yoga")({
-  component: YogaPage,
   head: () =>
     pageHead({
       title: "Cours de yoga - Camille Paquot",
@@ -15,6 +14,7 @@ export const Route = createFileRoute("/yoga")({
         "Cours collectifs de Viniyoga à Bruxelles : postures, respiration et relaxation, accessibles sans prérequis.",
       path: "/yoga",
     }),
+  component: Page,
 });
 
 // Chips sit on white, so they can use the whole palette.
@@ -25,7 +25,7 @@ const chipBullets: [ShapeName, string][] = [
   ["leaf", "bg-sky"],
 ];
 
-function YogaPage() {
+function Page() {
   const { theme } = yoga;
   return (
     <>

@@ -15,7 +15,6 @@ import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/")({
-  component: HomePage,
   head: () =>
     pageHead({
       title: "Camille Paquot - Psychologue clinicienne",
@@ -23,9 +22,10 @@ export const Route = createFileRoute("/")({
         "Psychologue clinicienne agréée, j’accompagne les enfants, les adolescents, les adultes et les parents dans un cadre bienveillant. Cours de yoga.",
       path: "/",
     }),
+  component: Page,
 });
 
-function HomePage() {
+function Page() {
   return (
     <>
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">

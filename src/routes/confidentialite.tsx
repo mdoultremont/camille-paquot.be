@@ -6,7 +6,6 @@ import { phone } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/confidentialite")({
-  component: PrivacyPage,
   head: () =>
     pageHead({
       title: "Confidentialité - Camille Paquot",
@@ -14,9 +13,10 @@ export const Route = createFileRoute("/confidentialite")({
         "Informations sur les données personnelles liées au site et aux prises de contact.",
       path: "/confidentialite",
     }),
+  component: Page,
 });
 
-function PrivacyPage() {
+function Page() {
   return (
     <LegalPage title="Confidentialité">
       <LegalSection title="Périmètre et contact">

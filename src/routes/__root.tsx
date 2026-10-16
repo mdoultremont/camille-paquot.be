@@ -51,7 +51,7 @@ export const Route = createRootRoute({
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
-  component: RootDocument,
+  component: Page,
   notFoundComponent: () => (
     <Container as="section" className="py-24">
       <Heading level={1}>Page introuvable</Heading>
@@ -62,7 +62,7 @@ export const Route = createRootRoute({
     </Container>
   ),
 });
-function RootDocument() {
+function Page() {
   return (
     <html
       lang="fr"

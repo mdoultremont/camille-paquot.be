@@ -4,16 +4,16 @@ import { TextLink } from "@/components/TextLink";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/conditions-utilisation")({
-  component: TermsPage,
   head: () =>
     pageHead({
       title: "Conditions d’utilisation - Camille Paquot",
       description: "Conditions d’utilisation du site de Camille Paquot, psychologue clinicienne.",
       path: "/conditions-utilisation",
     }),
+  component: Page,
 });
 
-function TermsPage() {
+function Page() {
   return (
     <LegalPage title="Conditions d’utilisation">
       <LegalSection title="Objet du site">

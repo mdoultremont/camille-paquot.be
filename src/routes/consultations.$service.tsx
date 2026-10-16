@@ -4,7 +4,7 @@ import { Heading } from "@/components/Heading";
 import { PracticalInfo } from "@/components/PracticalInfo";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Shape, type ShapeName } from "@/components/Shape";
-import { services, type Service } from "@/services";
+import { services } from "@/services";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/consultations/$service")({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/consultations/$service")({
           path: `/consultations/${loaderData.slug}`,
         })
       : {},
-  component: () => <ServicePage service={Route.useLoaderData()} />,
+  component: Page,
 });
 
 // Media chips sit on white, so they can use the whole palette.
@@ -33,7 +33,8 @@ const mediaBullets: [ShapeName, string][] = [
   ["circle", "bg-ink"],
 ];
 
-function ServicePage({ service }: { service: Service }) {
+function Page() {
+  const service = Route.useLoaderData();
   const { theme } = service;
   const otherServices = services.filter((s) => s.slug !== service.slug);
   return (

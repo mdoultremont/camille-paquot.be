@@ -18,7 +18,6 @@ import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/infos-pratiques")({
-  component: PracticalInfoPage,
   head: () =>
     pageHead({
       title: "Infos pratiques - Camille Paquot",
@@ -26,11 +25,12 @@ export const Route = createFileRoute("/infos-pratiques")({
         "Tarifs, paiement, prise de rendez-vous, annulation et contact pour les consultations et les cours de yoga.",
       path: "/infos-pratiques",
     }),
+  component: Page,
 });
 
 const panel = "rounded-3xl p-8";
 
-function PracticalInfoPage() {
+function Page() {
   return (
     <>
       <Container as="section" className="py-12 md:py-16">

@@ -6,16 +6,16 @@ import { commission, phone, siteUrl, visa } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
-  component: LegalNoticePage,
   head: () =>
     pageHead({
       title: "Mentions légales - Camille Paquot",
       description: "Identification et coordonnées de l’éditrice du site de Camille Paquot.",
       path: "/mentions-legales",
     }),
+  component: Page,
 });
 
-function LegalNoticePage() {
+function Page() {
   return (
     <LegalPage title="Mentions légales">
       <LegalSection title="Éditrice du site">
