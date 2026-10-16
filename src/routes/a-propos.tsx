@@ -11,7 +11,6 @@ import { Strengths } from "@/components/Strengths";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/a-propos")({
-  component: AboutPage,
   head: () =>
     pageHead({
       title: "À propos - Camille Paquot",
@@ -19,6 +18,7 @@ export const Route = createFileRoute("/a-propos")({
         "Mon parcours, mon approche et mes formations : psychologue clinicienne agréée, diplômée de l’UCLouvain, en formation de professeure de yoga.",
       path: "/a-propos",
     }),
+  component: Page,
 });
 
 const approachParagraphs = [
@@ -75,7 +75,7 @@ const trainings = [
   },
 ] as const;
 
-function AboutPage() {
+function Page() {
   return (
     <>
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
