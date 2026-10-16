@@ -4,9 +4,11 @@ import { TextAnchor } from "@/components/TextLink";
 
 // The e-mail address always comes with a copy button.
 export function EmailLink({
+  address = email,
   emphasis = false,
   className = "",
 }: {
+  address?: string;
   emphasis?: boolean;
   className?: string;
 }) {
@@ -16,7 +18,7 @@ export function EmailLink({
   useEffect(() => () => window.clearTimeout(resetTimeout.current), []);
   async function copyEmail() {
     try {
-      await navigator.clipboard.writeText(email);
+      await navigator.clipboard.writeText(address);
       setCopied(true);
       setCopyError(false);
       // Restart the delay on every click so the check mark stays for the full duration.
@@ -26,16 +28,16 @@ export function EmailLink({
       setCopyError(true);
     }
   }
-  const href = `mailto:${email}`;
+  const href = `mailto:${address}`;
   return (
     <span className={`inline-flex items-center gap-1 ${className}`}>
       {emphasis ? (
         <TextAnchor className="break-all" href={href}>
-          {email}
+          {address}
         </TextAnchor>
       ) : (
         <a className="break-all hover:underline" href={href}>
-          {email}
+          {address}
         </a>
       )}
       <button
@@ -59,7 +61,7 @@ export function EmailLink({
         {copied
           ? "Adresse e-mail copiée"
           : copyError
-            ? `Vous pouvez copier cette adresse : ${email}`
+            ? `Vous pouvez copier cette adresse : ${address}`
             : ""}
       </output>
     </span>

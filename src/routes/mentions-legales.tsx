@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EmailLink } from "@/components/EmailLink";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { TextAnchor } from "@/components/TextLink";
-import { commission, phone, siteUrl, visa } from "@/constants";
+import { commission, phone, siteUrl, visa, websiteEmail } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
@@ -20,7 +20,9 @@ function Page() {
     <LegalPage title="Mentions légales">
       <LegalSection title="Éditrice du site">
         <p>Camille Paquot, psychologue clinicienne agréée à Bruxelles.</p>
-        <p>Site : {siteUrl}</p>
+        <p>
+          Site : <TextAnchor href={siteUrl}>{siteUrl}</TextAnchor>
+        </p>
         <p>
           Téléphone : <TextAnchor href={phone.href}>{phone.display}</TextAnchor>
           <br />
@@ -29,7 +31,6 @@ function Page() {
         <ul className="list-disc space-y-2 pl-6">
           <li>Adresse professionnelle : à venir.</li>
           <li>Numéro d’entreprise (BCE) : 1006.262.558 (personne physique).</li>
-          <li>Statut TVA et numéro de TVA, si applicable : à compléter.</li>
         </ul>
       </LegalSection>
       <LegalSection title="Profession réglementée">
@@ -57,7 +58,7 @@ function Page() {
       <LegalSection title="Signaler une erreur">
         <p>
           Vous pouvez signaler une information inexacte ou un problème de fonctionnement par e-mail
-          à Camille Paquot, à l’adresse indiquée ci-dessus.
+          : <EmailLink address={websiteEmail} />
         </p>
       </LegalSection>
     </LegalPage>
