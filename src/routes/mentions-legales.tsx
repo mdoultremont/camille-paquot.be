@@ -7,14 +7,12 @@ import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
   component: LegalNoticePage,
-  head: () => {
-    const head = pageHead({
+  head: () =>
+    pageHead({
       title: "Mentions légales - Camille Paquot",
       description: "Identification et coordonnées de l’éditrice du site de Camille Paquot.",
       path: "/mentions-legales",
-    });
-    return { ...head, meta: [...head.meta, { name: "robots", content: "noindex" }] };
-  },
+    }),
 });
 
 function LegalNoticePage() {

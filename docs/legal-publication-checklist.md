@@ -1,6 +1,6 @@
 # Legal publication checklist
 
-The three French legal pages remain incomplete and use `noindex`. Generic draft banners and the visitor-facing preparation checklist have been removed; keep `noindex` until the missing identity and processing details are confirmed. These pages do not replace a patient privacy notice.
+The three French legal pages use the same indexing metadata as the rest of the site, as requested by the owner. Generic draft banners and the visitor-facing preparation checklist have been removed. The outstanding identity and processing details below still need confirmation. These pages do not replace a patient privacy notice.
 
 Before publication:
 

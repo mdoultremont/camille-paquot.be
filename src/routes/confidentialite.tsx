@@ -7,15 +7,13 @@ import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/confidentialite")({
   component: PrivacyPage,
-  head: () => {
-    const head = pageHead({
+  head: () =>
+    pageHead({
       title: "Confidentialité - Camille Paquot",
       description:
         "Informations sur les données personnelles liées au site et aux prises de contact.",
       path: "/confidentialite",
-    });
-    return { ...head, meta: [...head.meta, { name: "robots", content: "noindex" }] };
-  },
+    }),
 });
 
 function PrivacyPage() {

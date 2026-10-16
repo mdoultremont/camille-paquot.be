@@ -5,14 +5,12 @@ import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/conditions-utilisation")({
   component: TermsPage,
-  head: () => {
-    const head = pageHead({
+  head: () =>
+    pageHead({
       title: "Conditions d’utilisation - Camille Paquot",
       description: "Conditions d’utilisation du site de Camille Paquot, psychologue clinicienne.",
       path: "/conditions-utilisation",
-    });
-    return { ...head, meta: [...head.meta, { name: "robots", content: "noindex" }] };
-  },
+    }),
 });
 
 function TermsPage() {
