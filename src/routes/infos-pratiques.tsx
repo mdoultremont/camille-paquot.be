@@ -97,7 +97,7 @@ function Page() {
           </p>
           <BookingLink className="mt-5" />
           <p className="mt-6 text-lg">
-            Pour les cours de yoga, la prise de rendez-vous se fait directement par mail ou par
+            Pour les cours de Yoga, la prise de rendez-vous se fait directement par mail ou par
             téléphone.
           </p>
         </div>

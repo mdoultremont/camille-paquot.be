@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { PracticalInfo } from "@/components/PracticalInfo";
-import { Shape, type ShapeName } from "@/components/Shape";
+import { Shape } from "@/components/Shape";
 import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
 
@@ -16,14 +16,6 @@ export const Route = createFileRoute("/yoga")({
     }),
   component: Page,
 });
-
-// Chips sit on white, so they can use the whole palette.
-const chipBullets: [ShapeName, string][] = [
-  ["circle", "bg-mustard"],
-  ["pebble", "bg-lilac"],
-  ["halfMoon", "bg-sage"],
-  ["leaf", "bg-sky"],
-];
 
 function Page() {
   const { theme } = yoga;
@@ -54,22 +46,9 @@ function Page() {
             ))}
           </div>
           <Heading level={3} as="h2" className="mt-10 mb-4">
-            {yoga.mediaTitle}
+            {yoga.training.title}
           </Heading>
-          <ul className="flex flex-wrap gap-2">
-            {yoga.media.map((item, index) => {
-              const [shape, color] = chipBullets[index % chipBullets.length];
-              return (
-                <li
-                  key={item}
-                  className="flex items-center gap-2 rounded-full py-1.5 pr-4 pl-2 font-semibold ring-2 ring-ink"
-                >
-                  <Shape shape={shape} className={`w-4 ${color}`} />
-                  {item}
-                </li>
-              );
-            })}
-          </ul>
+          <p className="max-w-prose text-lg leading-relaxed">{yoga.training.text}</p>
         </div>
         <aside className="w-full max-w-md lg:sticky lg:top-28">
           <PracticalInfo service={yoga} />
