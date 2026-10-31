@@ -5,6 +5,7 @@ import { Heading } from "@/components/Heading";
 import {
   DEFAULT_CONTENT,
   DEFAULT_PHOTO,
+  PHOTO_ASPECT_RATIO,
   FLYER_BACKGROUNDS,
   FLYER_FORMATS,
   FLYER_PRESETS,
@@ -79,7 +80,7 @@ export function FlyerTool() {
       const url = new URL(/^[a-z][a-z0-9+.-]*:/i.test(value) ? value : `https://${value}`);
       if (!["https:", "http:"].includes(url.protocol) || !url.hostname.includes("."))
         throw new Error("url");
-      return { qr: encode(url.href, { ecc: "M", border: 4 }).data, qrError: "" };
+      return { qr: encode(url.href, { ecc: "M", border: 0 }).data, qrError: "" };
     } catch {
       return {
         qr: null,
@@ -132,7 +133,7 @@ export function FlyerTool() {
     format.print &&
     Math.min(
       photo.width / (format.width * format.layout.photo[2]),
-      photo.height / (format.height * format.layout.photo[3]),
+      photo.height / ((format.width * format.layout.photo[2]) / PHOTO_ASPECT_RATIO),
     ) *
       300 <
       150;
@@ -152,16 +153,16 @@ export function FlyerTool() {
     }
   }
   return (
-    <Container className="py-10 md:py-16">
+    <Container className="py-6 md:py-16">
       <p className="mb-3 text-sm font-semibold tracking-widest uppercase text-ink-soft">
         L’atelier de Camille
       </p>
       <Heading level={1}>Votre affiche de Viniyoga</Heading>
-      <p className="mt-4 max-w-2xl text-lg text-ink-soft">
+      <p className="mt-3 max-w-2xl text-base text-ink-soft md:mt-4 md:text-lg">
         Un lieu, un horaire, une invitation. Adaptez votre affiche puis téléchargez-la, prête à
         partager ou à imprimer.
       </p>
-      <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+      <div className="mt-6 grid items-start gap-6 lg:mt-10 lg:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         <form className="min-w-0 space-y-8" onSubmit={(event) => event.preventDefault()}>
           <fieldset>
             <legend className="mb-3 text-xl font-bold">Partir d’un cours</legend>
@@ -209,20 +210,30 @@ export function FlyerTool() {
                 </button>
               ))}
             </fieldset>
-            <label className="block">
-              Photo
-              <input
-                ref={upload}
-                type="file"
-                accept="image/jpeg,image/png,image/webp"
-                className={`${inputClass} file:mr-3 file:rounded-full file:border-0 file:bg-sage/30 file:px-3 file:py-1`}
-                onChange={(event) => {
-                  setPhoto(null);
-                  setError("");
-                  setFile(event.target.files?.[0] ?? null);
-                }}
-              />
-            </label>
+            <div>
+              <p className="mb-2">Photo</p>
+              <label
+                htmlFor="flyer-photo"
+                className={`${controlClass} inline-block cursor-pointer bg-white focus-within:outline-2 focus-within:outline-mustard`}
+              >
+                Choisir une photo
+                <input
+                  ref={upload}
+                  id="flyer-photo"
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  className="sr-only"
+                  onChange={(event) => {
+                    setPhoto(null);
+                    setError("");
+                    setFile(event.target.files?.[0] ?? null);
+                  }}
+                />
+              </label>
+              <p className="mt-2 break-words text-sm text-ink-soft">
+                {file?.name ?? "Photo par défaut"}
+              </p>
+            </div>
             {file && (
               <button
                 type="button"
@@ -309,34 +320,36 @@ export function FlyerTool() {
           ))}
         </form>
         <section
-          className="sticky top-20 z-10 order-first min-w-0 rounded-3xl bg-[#f0f2e9] p-3 lg:top-24 lg:order-last md:p-6"
+          className="sticky top-[72px] sm:top-20 z-10 order-first -mx-5 grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 border-b border-ink/20 bg-[#f0f2e9] px-5 py-3 md:-mx-8 md:px-8 lg:top-24 lg:order-last lg:mx-0 lg:block lg:rounded-3xl lg:border-0 lg:p-6"
           aria-label="Aperçu de l’affiche"
         >
-          <div className="mb-4 flex items-center justify-between gap-3">
+          <div className="mb-4 hidden items-center justify-between gap-3 lg:flex">
             <h2 className="font-bold">Votre affiche</h2>
           </div>
           <canvas
             ref={canvas}
-            className="mx-auto block h-auto max-h-[38svh] lg:max-h-[calc(100svh-288px)] w-auto max-w-full shadow-lg"
+            className="mx-auto block h-auto max-h-[26svh] lg:max-h-[calc(100svh-288px)] w-auto max-w-full shadow-lg"
             aria-label="Aperçu de votre affiche de Viniyoga"
           />
           {!photo && !error && (
             <output className="mt-3 text-sm">Préparation de votre affiche…</output>
           )}
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="flex flex-col gap-2 lg:mt-3 lg:flex-row lg:flex-wrap">
             {(["pdf", "jpg"] as const).map((extension) => (
               <button
                 key={extension}
                 type="button"
                 disabled={!ready || busy || !!qrError}
                 className="rounded-full bg-ink px-4 py-2 text-sm font-bold text-white disabled:opacity-50"
+                aria-label={`Télécharger en ${extension.toUpperCase()}`}
                 onClick={() => void exportFile(extension)}
               >
-                Télécharger en {extension.toUpperCase()}
+                <span className="hidden lg:inline">Télécharger en </span>
+                {extension.toUpperCase()}
               </button>
             ))}
           </div>
-          <output className="mt-2 text-sm">
+          <output className="col-span-2 text-sm empty:hidden lg:mt-2">
             {busy ? "Préparation du téléchargement…" : error}
           </output>
         </section>

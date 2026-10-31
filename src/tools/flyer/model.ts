@@ -1,3 +1,5 @@
+import { phone } from "@/constants";
+
 export type FlyerContent = {
   title: [string, string];
   place: string;
@@ -17,7 +19,8 @@ export type Box = [number, number, number, number];
 export type FlyerLayout = {
   title: Box;
   place: Box;
-  photo: Box;
+  photo: [x: number, y: number, width: number];
+  leaf: Box;
   schedule: Box;
   highlight: Box;
   note: Box;
@@ -25,6 +28,8 @@ export type FlyerLayout = {
   qr: Box;
   qrLabel: Box;
   signature: Box;
+  signatureWithoutQr: Box;
+  qrArrow: Box;
   band: number;
   titleSize: number;
   lilac: Box;
@@ -43,43 +48,50 @@ const standard: FlyerLayout = {
   titleSize: 0.144,
   lilac: [0.025, 0.81, 0.13, 0.075],
   place: [0.095, 0.283, 0.77, 0.071],
-  photo: [0, 0.35, 0.63, 0.43],
+  photo: [0, 0.35, 0.625],
+  leaf: [0.64, 0, 0.15, 0.085],
   schedule: [0.565, 0.345, 0.42, 0.104],
   highlight: [0.65, 0.51, 0.31, 0.04],
   note: [0.67, 0.56, 0.28, 0.06],
   contact: [0.64, 0.642, 0.34, 0.12],
   qr: [0.17, 0.843, 0.16, 0.114],
   qrLabel: [0.37, 0.85, 0.24, 0.05],
-  signature: [0.48, 0.89, 0.49, 0.078],
+  signature: [0.56, 0.895, 0.41, 0.075],
+  signatureWithoutQr: [0.2, 0.895, 0.6, 0.075],
+  qrArrow: [0.49, 0.92, 0.14, 0.02],
   band: 0.81,
 };
 const tall: FlyerLayout = {
   title: [0.09, 0.04, 0.83, 0.19],
-  titleSize: 0.175,
-  lilac: [0.015, 0.683, 0.13, 0.055],
+  titleSize: 0.16,
+  leaf: [0.69, 0, 0.14, 0.07],
+  lilac: [0.015, 0.745, 0.13, 0.055],
   place: [0.095, 0.265, 0.7, 0.06],
-  photo: [0, 0.335, 0.58, 0.335],
-  schedule: [0.49, 0.33, 0.49, 0.075],
-  highlight: [0.59, 0.46, 0.37, 0.03],
-  note: [0.61, 0.495, 0.34, 0.05],
-  contact: [0.53, 0.58, 0.45, 0.102],
-  qr: [0.14, 0.745, 0.23, 0.11],
-  qrLabel: [0.4, 0.75, 0.27, 0.055],
-  signature: [0.5, 0.815, 0.48, 0.065],
-  band: 0.7,
+  photo: [0, 0.39, 0.61],
+  schedule: [0.55, 0.33, 0.43, 0.075],
+  highlight: [0.64, 0.48, 0.33, 0.03],
+  note: [0.65, 0.52, 0.31, 0.05],
+  contact: [0.64, 0.62, 0.34, 0.102],
+  qr: [0.17, 0.785, 0.2, 0.1],
+  qrLabel: [0.43, 0.79, 0.4, 0.055],
+  signature: [0.2, 0.9, 0.6, 0.07],
+  signatureWithoutQr: [0.2, 0.855, 0.6, 0.09],
+  qrArrow: [0.51, 0.832, 0.14, 0.003],
+  band: 0.74,
 };
 const compact: FlyerLayout = {
   ...standard,
   title: [0.09, 0.04, 0.75, 0.22],
   place: [0.09, 0.293, 0.8, 0.075],
-  photo: [0, 0.39, 0.61, 0.41],
+  photo: [0, 0.385, 0.54],
   schedule: [0.55, 0.395, 0.43, 0.11],
-  highlight: [0.6, 0.545, 0.36, 0.04],
-  note: [0.62, 0.595, 0.32, 0.065],
-  contact: [0.61, 0.672, 0.37, 0.12],
+  highlight: [0.6, 0.565, 0.36, 0.03],
+  note: [0.62, 0.61, 0.32, 0.05],
+  contact: [0.61, 0.69, 0.37, 0.1],
   qr: [0.17, 0.835, 0.15, 0.13],
   qrLabel: [0.36, 0.84, 0.23, 0.065],
-  signature: [0.48, 0.89, 0.49, 0.078],
+  signature: [0.56, 0.895, 0.41, 0.075],
+  signatureWithoutQr: [0.2, 0.895, 0.6, 0.075],
   band: 0.8,
 };
 const printFormat = (
@@ -99,7 +111,10 @@ const printFormat = (
 export const FLYER_FORMATS: FlyerFormat[] = [
   printFormat("a4", "A4 · 210 × 297 mm", [210, 297], standard),
   printFormat("a5", "Flyer A5 · 148 × 210 mm", [148, 210], standard),
-  printFormat("dl", "Flyer étroit · 99 × 210 mm", [99, 210], tall),
+  printFormat("dl", "Flyer étroit · 99 × 210 mm", [99, 210], {
+    ...tall,
+    photo: [0, 0.445, 0.61],
+  }),
   {
     id: "instagram-post",
     label: "Instagram · publication",
@@ -119,6 +134,10 @@ export const FLYER_FORMATS: FlyerFormat[] = [
     layout: tall,
   },
 ];
+export const PHOTO_ASPECT_RATIO = 644 / 716;
+export const PHOTO_MASK =
+  "M -.04 0 C .36 .028 .69 .074 .87 .27 C 1 .41 1.025 .56 .99 .73 C .96 .86 .88 .94 .79 1 H -.04 Z";
+
 export const INK = "#22302a";
 export const MUSTARD = "#dcae4e";
 export const FLYER_BACKGROUNDS = [
@@ -180,7 +199,7 @@ export const DEFAULT_CONTENT: FlyerContent = {
   note: "Pas de prérequis\nnécessaire.",
   contactLabel: "Info et inscription",
   contactName: "Camille Paquot",
-  contactPhone: "0471 38 61 55",
+  contactPhone: phone.display,
   qrUrl: "https://camille-paquot.be/yoga",
   qrLabel: "Plus d’informations\nvia ce lien :",
   signatureName: "Camille Paquot",
