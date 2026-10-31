@@ -19,6 +19,8 @@ import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as AccompagnementSplatRouteImport } from './routes/accompagnement.$'
 import { Route as ConsultationsIndexRouteImport } from './routes/consultations.index'
 import { Route as ConsultationsServiceRouteImport } from './routes/consultations.$service'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
+import { Route as ToolsFlyerRouteImport } from './routes/tools.flyer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +72,16 @@ const ConsultationsServiceRoute = ConsultationsServiceRouteImport.update({
   path: '/consultations/$service',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsFlyerRoute = ToolsFlyerRouteImport.update({
+  id: '/tools/flyer',
+  path: '/tools/flyer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,7 +93,9 @@ export interface FileRoutesByFullPath {
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
+  '/tools/flyer': typeof ToolsFlyerRoute
   '/consultations/': typeof ConsultationsIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -93,7 +107,9 @@ export interface FileRoutesByTo {
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
+  '/tools/flyer': typeof ToolsFlyerRoute
   '/consultations': typeof ConsultationsIndexRoute
+  '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -106,7 +122,9 @@ export interface FileRoutesById {
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
   '/consultations/$service': typeof ConsultationsServiceRoute
+  '/tools/flyer': typeof ToolsFlyerRoute
   '/consultations/': typeof ConsultationsIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -120,7 +138,9 @@ export interface FileRouteTypes {
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
+    | '/tools/flyer'
     | '/consultations/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -132,7 +152,9 @@ export interface FileRouteTypes {
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
+    | '/tools/flyer'
     | '/consultations'
+    | '/tools'
   id:
     | '__root__'
     | '/'
@@ -144,7 +166,9 @@ export interface FileRouteTypes {
     | '/yoga'
     | '/accompagnement/$'
     | '/consultations/$service'
+    | '/tools/flyer'
     | '/consultations/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -157,7 +181,9 @@ export interface RootRouteChildren {
   YogaRoute: typeof YogaRoute
   AccompagnementSplatRoute: typeof AccompagnementSplatRoute
   ConsultationsServiceRoute: typeof ConsultationsServiceRoute
+  ToolsFlyerRoute: typeof ToolsFlyerRoute
   ConsultationsIndexRoute: typeof ConsultationsIndexRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +258,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsultationsServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/flyer': {
+      id: '/tools/flyer'
+      path: '/tools/flyer'
+      fullPath: '/tools/flyer'
+      preLoaderRoute: typeof ToolsFlyerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -245,7 +285,9 @@ const rootRouteChildren: RootRouteChildren = {
   YogaRoute: YogaRoute,
   AccompagnementSplatRoute: AccompagnementSplatRoute,
   ConsultationsServiceRoute: ConsultationsServiceRoute,
+  ToolsFlyerRoute: ToolsFlyerRoute,
   ConsultationsIndexRoute: ConsultationsIndexRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
