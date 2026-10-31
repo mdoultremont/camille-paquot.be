@@ -4,11 +4,13 @@ export const yoga = {
   title: "Cours de yoga",
   intro:
     "En cours de formation de Viniyoga, je propose des cours collectifs adaptés à chaque personne.",
-  // Placeholder copy describing Viniyoga, to be validated by Camille.
+  homeIntro:
+    "Je propose des cours collectifs de Viniyoga à travers une pratique douce et progressive, respectueuse des possibilités de chaque personne.",
   paragraphs: [
-    "Le Viniyoga est issu de l’enseignement de T. Krishnamacharya, transmis par son fils T.K.V. Desikachar. Plutôt que d’imposer une forme unique, il adapte la pratique à chaque personne : son âge, sa condition physique, son état du moment et ses objectifs.",
-    "Chaque cours suit une progression construite pas à pas. Le mouvement est relié au souffle : on entre et on sort des postures au rythme de l’inspiration et de l’expiration, sans forcer.",
-    "Les cours associent postures, exercices de respiration et temps de relaxation. Ils sont accessibles sans prérequis de souplesse ou d’expérience.",
+    "Le Viniyoga est issu de l’enseignement de T. Krishnamacharya, transmis notamment par son fils T.K.V. Desikachar.",
+    "Sa particularité est que la pratique s’adapte à chaque personne et non l’inverse. Les postures, les exercices de respiration et parfois le chant sont proposés en fonction de l’âge, des besoins, des possibilités et de la condition physique.",
+    "Chaque séance suit une progression construite pas à pas, dans laquelle le mouvement est étroitement relié au souffle. L’attention est portée sur les sensations, l’écoute de soi et le respect de ses propres limites.",
+    "Les cours associent des postures (asanas), des exercices de respiration (pranayama) et des temps de relaxation.",
   ],
   mediaTitle: "Au programme des cours",
   media: ["Postures", "Respiration", "Relaxation", "Concentration"],
