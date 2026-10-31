@@ -31,12 +31,12 @@ function Page() {
       <Container as="section" className="grid items-center gap-10 py-10 md:py-16 lg:grid-cols-2">
         <div>
           <Heading level={1} className="md:text-7xl">
-            Un espace thérapeutique pour s’exprimer.
+            Écouter, comprendre, accompagner.
           </Heading>
           <p className="mt-6 max-w-lg text-lg text-ink-soft md:text-xl">
             Je propose des consultations pour les enfants, adolescents, adultes et parents qui
-            souhaitent débuter un travail thérapeutique afin de mettre des mots sur ce qui pèse au
-            quotidien.
+            souhaitent entreprendre un accompagnement thérapeutique afin de mettre des mots sur ce
+            qui pèse au quotidien.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
@@ -67,7 +67,7 @@ function Page() {
           />
           <div className="relative max-w-xl">
             <Heading level={2}>{yoga.title}</Heading>
-            <p className="mt-3 text-lg">{yoga.intro}</p>
+            <p className="mt-3 text-lg">{yoga.homeIntro}</p>
           </div>
           <ButtonLink to="/yoga" className="relative">
             Découvrir les cours
