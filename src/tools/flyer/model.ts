@@ -57,7 +57,7 @@ const standard: FlyerLayout = {
   qr: [0.17, 0.843, 0.16, 0.114],
   qrLabel: [0.37, 0.85, 0.24, 0.05],
   signature: [0.56, 0.895, 0.41, 0.075],
-  signatureWithoutQr: [0.2, 0.895, 0.6, 0.075],
+  signatureWithoutQr: [0.2, 0.91, 0.6, 0.06],
   qrArrow: [0.49, 0.92, 0.14, 0.02],
   band: 0.81,
 };
@@ -76,7 +76,7 @@ const tall: FlyerLayout = {
   qrLabel: [0.43, 0.79, 0.4, 0.055],
   signature: [0.2, 0.9, 0.6, 0.07],
   signatureWithoutQr: [0.2, 0.855, 0.6, 0.09],
-  qrArrow: [0.51, 0.832, 0.14, 0.003],
+  qrArrow: [0.525, 0.832, 0.14, 0.003],
   band: 0.74,
 };
 const compact: FlyerLayout = {
@@ -91,7 +91,7 @@ const compact: FlyerLayout = {
   qr: [0.17, 0.835, 0.15, 0.13],
   qrLabel: [0.36, 0.84, 0.23, 0.065],
   signature: [0.56, 0.895, 0.41, 0.075],
-  signatureWithoutQr: [0.2, 0.895, 0.6, 0.075],
+  signatureWithoutQr: [0.2, 0.91, 0.6, 0.06],
   band: 0.8,
 };
 const printFormat = (
