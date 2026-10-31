@@ -1,6 +1,8 @@
 import {
   INK,
   MUSTARD,
+  PHOTO_ASPECT_RATIO,
+  PHOTO_MASK,
   type Box,
   type FlyerBackground,
   type FlyerContent,
@@ -95,9 +97,9 @@ export function renderFlyer(
     while (
       (lines.length * fontSize * 1.13 > bh ||
         lines.some((line) => ctx.measureText(line).width > bw)) &&
-      fontSize > size * w * 0.6
+      fontSize > 1
     ) {
-      fontSize = Math.max(size * w * 0.6, fontSize * 0.94);
+      fontSize *= 0.94;
       wrap();
     }
     ctx.save();
@@ -106,14 +108,22 @@ export function renderFlyer(
     ctx.clip();
     ctx.fillStyle = color;
     ctx.textAlign = align;
-    ctx.textBaseline = "top";
+    ctx.textBaseline = "alphabetic";
     lines.forEach((line, i) =>
-      ctx.fillText(line, x + (align === "center" ? bw / 2 : 0), y + i * fontSize * 1.13),
+      ctx.fillText(
+        line,
+        x + (align === "center" ? bw / 2 : 0),
+        y + fontSize * 0.82 + i * fontSize * 1.13,
+      ),
     );
     ctx.restore();
     return fontSize;
   };
-  path("M .56 0 C .70 0 .77 .06 .79 .137 C .65 .13 .57 .08 .56 0", background.leaf);
+  const [leafX, leafY, leafW, leafH] = l.leaf;
+  path(
+    `M ${leafX} ${leafY} Q ${leafX + leafW} ${leafY} ${leafX + leafW} ${leafY + leafH} Q ${leafX} ${leafY + leafH} ${leafX} ${leafY}`,
+    background.leaf,
+  );
   ellipse(1.015, 0.105, 0.215, 0.12, MUSTARD);
   const [tx, ty, tw, th] = l.title;
   const titleSize = text(
@@ -134,19 +144,26 @@ export function renderFlyer(
     0.0035,
   );
   text(content.place, l.place, 0.049);
-  const [px, py, pw, ph] = l.photo;
-  const scale = Math.min((pw * w) / photo.width, (ph * h) / photo.height);
+  const [px, py, pw] = l.photo;
+  const maskW = pw * w;
+  const maskH = maskW / PHOTO_ASPECT_RATIO;
+  const scale = Math.max(maskW / photo.width, maskH / photo.height);
   const imageW = photo.width * scale;
   const imageH = photo.height * scale;
-  const imageY = py * h + (ph * h - imageH) / 2;
   ctx.save();
   const mask = new Path2D();
   mask.addPath(
-    new Path2D("M 0 0 C .57 .045 .94 .19 .985 .54 C 1 .76 .97 .91 .94 1 H 0 Z"),
-    new DOMMatrix().translate(px * w, imageY).scale(imageW, imageH),
+    new Path2D(PHOTO_MASK),
+    new DOMMatrix().translate(px * w, py * h).scale(maskW, maskH),
   );
   ctx.clip(mask);
-  ctx.drawImage(photo, px * w, imageY, imageW, imageH);
+  ctx.drawImage(
+    photo,
+    px * w + (maskW - imageW) / 2,
+    py * h + (maskH - imageH) / 2,
+    imageW,
+    imageH,
+  );
   ctx.restore();
   ellipse(...l.lilac, background.lilac);
   rounded(l.schedule, 0.09, background.pill);
@@ -172,12 +189,18 @@ export function renderFlyer(
   ctx.restore();
   text(content.schedule, [sx + 0.15, sy + sh * 0.28, sw - 0.17, sh * 0.58], 0.036, 400, "center");
   const [hx, hy, hw] = l.highlight;
-  path(
-    `M ${hx + hw * 0.35} ${hy - 0.025} l -.018 -.013 M ${hx + hw * 0.5} ${hy - 0.029} l -.002 -.018 M ${hx + hw * 0.65} ${hy - 0.025} l .018 -.014`,
-    MUSTARD,
-    true,
-    0.0045,
-  );
+  ctx.save();
+  ctx.translate((hx + hw / 2) * w, hy * h - w * 0.045);
+  ctx.scale(w * 0.024, w * 0.024);
+  ctx.fillStyle = MUSTARD;
+  ctx.beginPath();
+  ctx.arc(-1.8, 0, 0.6, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = "#cbd2b8";
+  ctx.fill(new Path2D("M -.65 .45 A .65 .65 0 0 1 .65 .45 Z"));
+  ctx.fillStyle = "#cbdde5";
+  ctx.fill(new Path2D("M 1.2 -.6 Q 2.4 -.6 2.4 .6 Q 1.2 .6 1.2 -.6 Z"));
+  ctx.restore();
   text(content.highlight, l.highlight, 0.034, 700, "center");
   text(content.note, l.note, 0.032, 400, "center");
   const [nx, ny, nw, nh] = l.note;
@@ -223,8 +246,9 @@ export function renderFlyer(
   ctx.fillText(content.contactPhone, (phoneX + 0.05) * w, (cy + ch * 0.69) * h);
   ctx.restore();
   ctx.save();
-  ctx.translate(phoneX * w, (cy + ch * 0.72) * h);
-  ctx.scale(w * 0.036, w * 0.036);
+  ctx.translate(phoneX * w, (cy + ch * 0.67) * h);
+  const phoneIconSize = Math.min(w * 0.036, ch * h * 0.21);
+  ctx.scale(phoneIconSize, phoneIconSize);
   ctx.fillStyle = "#fff";
   ctx.fill(
     new Path2D(
@@ -243,29 +267,30 @@ export function renderFlyer(
     ctx.roundRect(qx * w, qy * h, side, side, side * 0.08);
     ctx.fillStyle = "#fff";
     ctx.fill();
-    const module = Math.floor((side * 0.9) / qr.length);
+    const module = (side * 0.87) / qr.length;
     const offset = (side - module * qr.length) / 2;
     ctx.fillStyle = INK;
     qr.forEach((row, y) =>
       row.forEach((dark, x) => {
         if (dark)
           ctx.fillRect(
-            Math.round(qx * w + offset) + x * module,
-            Math.round(qy * h + offset) + y * module,
-            module,
-            module,
+            qx * w + offset + x * module,
+            qy * h + offset + y * module,
+            module + 0.25,
+            module + 0.25,
           );
       }),
     );
     text(content.qrLabel, l.qrLabel, 0.031);
+    const [ax, ay, aw, ah] = l.qrArrow;
     path(
-      `M ${qx + side / w + 0.16} ${qy + (side / h) * 0.68} Q ${qx + side / w + 0.11} ${qy + (side / h) * 0.9} ${qx + side / w + 0.025} ${qy + (side / h) * 0.78} l .016 -.009 M ${qx + side / w + 0.025} ${qy + (side / h) * 0.78} l .01 .016`,
+      `M ${ax} ${ay} Q ${ax - aw * 0.4} ${ay + ah} ${ax - aw} ${ay + ah * 0.5} l .016 -.009 M ${ax - aw} ${ay + ah * 0.5} l .01 .016`,
       INK,
       true,
       0.003,
     );
   }
-  const [fx, fy, fw, fh] = qr ? l.signature : [0.2, l.signature[1], 0.6, l.signature[3]];
+  const [fx, fy, fw, fh] = qr ? l.signature : l.signatureWithoutQr;
   const lx = fx + fw / 2,
     ly = fy - 0.022;
   ctx.save();
