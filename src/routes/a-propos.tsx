@@ -50,9 +50,9 @@ const commitments = [
 const commitmentBullets: ShapeBullet[] = [
   ["arch", "bg-ink"],
   ["leaf", "bg-mustard"],
-  ["petal", "bg-white"],
+  ["petal", "bg-lilac"],
   ["quarterCircle", "bg-mustard-light"],
-  ["pebble", "bg-lilac"],
+  ["pebble", "bg-ink"],
 ];
 
 // Most recent first; `ongoing` marks trainings still in progress.
