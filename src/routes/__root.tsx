@@ -34,8 +34,6 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Camille Paquot" },
       { property: "og:locale", content: "fr_BE" },
-      { property: "og:image", content: `${siteUrl}/images/cpaquot-1200.jpg` },
-      { property: "og:image:alt", content: "Portrait de Camille Paquot" },
       { "script:ld+json": structuredData },
     ],
     links: [

@@ -16,6 +16,7 @@ export const Route = createFileRoute("/a-propos")({
       title: "À propos - Camille Paquot",
       description:
         "Mon parcours, mon approche et mes formations : psychologue clinicienne agréée, diplômée de l’UCLouvain, en formation de professeure de yoga.",
+      ogImage: { title: "À propos", subtitle: "Mon parcours, mon approche et mes formations." },
       path: "/a-propos",
     }),
   component: Page,

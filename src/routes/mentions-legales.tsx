@@ -10,6 +10,10 @@ export const Route = createFileRoute("/mentions-legales")({
     pageHead({
       title: "Mentions légales - Camille Paquot",
       description: "Identification et coordonnées de l’éditrice du site de Camille Paquot.",
+      ogImage: {
+        title: "Mentions légales",
+        subtitle: "Identification et coordonnées de l’éditrice du site.",
+      },
       path: "/mentions-legales",
     }),
   component: Page,

@@ -11,6 +11,7 @@ export const Route = createFileRoute("/confidentialite")({
       title: "Confidentialité - Camille Paquot",
       description:
         "Informations sur les données personnelles liées au site et aux prises de contact.",
+      ogImage: { title: "Confidentialité", subtitle: "Données personnelles et prises de contact." },
       path: "/confidentialite",
     }),
   component: Page,

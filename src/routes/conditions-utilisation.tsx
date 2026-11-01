@@ -8,6 +8,10 @@ export const Route = createFileRoute("/conditions-utilisation")({
     pageHead({
       title: "Conditions d’utilisation - Camille Paquot",
       description: "Conditions d’utilisation du site de Camille Paquot, psychologue clinicienne.",
+      ogImage: {
+        title: "Conditions d’utilisation",
+        subtitle: "Consultations psychologiques, yoga et informations du site.",
+      },
       path: "/conditions-utilisation",
     }),
   component: Page,

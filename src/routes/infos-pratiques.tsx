@@ -23,6 +23,10 @@ export const Route = createFileRoute("/infos-pratiques")({
       title: "Infos pratiques - Camille Paquot",
       description:
         "Tarifs, paiement, prise de rendez-vous, annulation et contact pour les consultations et les cours de yoga.",
+      ogImage: {
+        title: "Infos pratiques",
+        subtitle: "Tarifs, paiement, prise de rendez-vous et contact.",
+      },
       path: "/infos-pratiques",
     }),
   component: Page,
