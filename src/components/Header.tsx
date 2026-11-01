@@ -49,9 +49,13 @@ export function Header() {
         key={path}
         {...link}
         aria-current={pathname === path ? "page" : active ? "true" : undefined}
-        className={`rounded-full px-4 py-2 font-medium transition-colors ${active ? "bg-mustard-light" : "hover:bg-lilac"}`}
+        className="group flex rounded-full"
       >
-        {label}
+        <span
+          className={`rounded-full px-4 py-2 font-medium transition-colors ${active ? "bg-mustard-light" : "group-hover:bg-lilac"}`}
+        >
+          {label}
+        </span>
       </Link>
     );
   });
@@ -93,8 +97,10 @@ export function Header() {
           className="h-[calc(100dvh-4.5rem)] overflow-auto border-t border-ink/10 bg-white lg:hidden"
         >
           <Container className="flex flex-col gap-2 py-8 text-2xl">
-            <Link to="/" className="rounded-full px-4 py-2 font-medium hover:bg-lilac">
-              Accueil
+            <Link to="/" className="group flex rounded-full">
+              <span className="rounded-full px-4 py-2 font-medium group-hover:bg-lilac">
+                Accueil
+              </span>
             </Link>
             {links}
             <div className="mt-6 flex flex-col gap-1 px-4 text-lg">
