@@ -7,6 +7,7 @@ import { EmailLink } from "@/components/EmailLink";
 import { Heading } from "@/components/Heading";
 import { Portrait } from "@/components/Portrait";
 import { Shape } from "@/components/Shape";
+import { ShapeList, type ShapeBullet } from "@/components/ShapeList";
 import { Strengths } from "@/components/Strengths";
 import { pageHead } from "@/seo";
 
@@ -44,6 +45,14 @@ const commitments = [
   "Respect du code de déontologie",
   "Respect du secret professionnel",
   "Expérience en centre médico-psychologique, en équipe mobile et en planning familial",
+];
+
+const commitmentBullets: ShapeBullet[] = [
+  ["arch", "bg-ink"],
+  ["leaf", "bg-mustard"],
+  ["petal", "bg-white"],
+  ["quarterCircle", "bg-mustard-light"],
+  ["pebble", "bg-lilac"],
 ];
 
 // Most recent first; `ongoing` marks trainings still in progress.
@@ -122,14 +131,12 @@ function Page() {
           <Heading level={3} as="h2" className="mt-8 mb-4 border-t-2 border-ink/15 pt-6">
             Mon cadre professionnel
           </Heading>
-          <ul className="space-y-2">
-            {commitments.map((item) => (
-              <li key={item} className="flex gap-3">
-                <Shape shape="circle" className="mt-2 w-2.5 flex-none self-start bg-ink" />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <ShapeList
+            items={commitments}
+            bullets={commitmentBullets}
+            className="space-y-2"
+            bulletClassName="w-4 flex-none self-start mt-1 [transform:translateY(calc((1rem_-_100%)/2))]"
+          />
         </aside>
       </Container>
       <Container as="section" id="formations" className="scroll-mt-24 py-16">
