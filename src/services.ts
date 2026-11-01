@@ -89,6 +89,8 @@ export const services = [
       "Si vous rencontrez des difficultés dans votre parentalité, si vous ne savez plus comment faire, si vous avez l’impression de crouler sous la charge mentale ou simplement besoin d’y voir plus clair, je vous propose un espace pour déposer ce que vous vivez, réfléchir ensemble et trouver vos propres repères. J’offre un espace sans jugement, pour vous accompagner dans ce chemin singulier qu’est la parentalité.",
     ],
     reasons: [
+      "Désir de parentalité",
+      "Difficultés de conception",
       "Burn-out parental",
       "Périodes de transition : post-partum, deuil périnatal, entrée dans l’adolescence, départ des grands enfants",
       "Épuisement face aux limites",
