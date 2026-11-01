@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-og-images.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint --deny-warnings .",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.63.0",
+    "@napi-rs/canvas": "^1.1.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.19.1",
     "@types/react": "^19.3.0",

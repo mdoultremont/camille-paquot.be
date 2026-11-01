@@ -12,6 +12,10 @@ export const Route = createFileRoute("/yoga")({
       title: "Cours de yoga - Camille Paquot",
       description:
         "Cours collectifs de Viniyoga à Bruxelles : postures, respiration et relaxation, accessibles sans prérequis.",
+      ogImage: {
+        title: "Cours de Viniyoga",
+        subtitle: "Postures, respiration et relaxation, sans prérequis.",
+      },
       path: "/yoga",
     }),
   component: Page,

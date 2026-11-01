@@ -13,6 +13,7 @@ export const Route = createFileRoute("/consultations/")({
       title: "Consultations - Camille Paquot",
       description:
         "Thérapie pour enfants, adolescents et adultes et soutien à la parentalité : découvrez les consultations proposées à Bruxelles.",
+      ogImage: { title: "Consultations", subtitle: "Ensemble, explorons le champ des possibles." },
       path: "/consultations",
     }),
   component: Page,

@@ -1,4 +1,4 @@
-import { phone } from "@/constants";
+import { phone } from "../../constants.ts";
 
 export type FlyerContent = {
   title: [string, string];

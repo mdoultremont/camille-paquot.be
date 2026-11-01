@@ -18,6 +18,7 @@ export const Route = createFileRoute("/consultations/$service")({
       ? pageHead({
           title: `${loaderData.title} - Camille Paquot`,
           description: loaderData.intro,
+          ogImage: { title: loaderData.title, subtitle: loaderData.summary },
           path: `/consultations/${loaderData.slug}`,
         })
       : {},

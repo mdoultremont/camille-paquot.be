@@ -20,6 +20,10 @@ export const Route = createFileRoute("/")({
       title: "Camille Paquot - Psychologue clinicienne",
       description:
         "Psychologue clinicienne agréée, j’accompagne les enfants, les adolescents, les adultes et les parents dans un cadre bienveillant. Cours de yoga.",
+      ogImage: {
+        title: "Écouter, comprendre, accompagner.",
+        subtitle: "Consultations pour enfants, adolescents, adultes et parents.",
+      },
       path: "/",
     }),
   component: Page,
