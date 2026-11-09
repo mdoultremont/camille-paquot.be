@@ -4,12 +4,11 @@ import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Heading } from "@/components/Heading";
-import { email, introduction, locations, phone, siteUrl } from "@/constants";
+import { consultationArea, email, introduction, locations, phone, siteUrl } from "@/constants";
 import { consultation, services } from "@/services";
 import stylesheet from "@/styles.css?url";
 
-const description =
-  "Consultations psychologiques à Bruxelles pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.";
+const description = `Consultations psychologiques ${consultationArea} pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.`;
 
 const structuredData = {
   "@context": "https://schema.org",

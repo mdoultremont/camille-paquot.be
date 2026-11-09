@@ -2,7 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EmailLink } from "@/components/EmailLink";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { TextAnchor } from "@/components/TextLink";
-import { commission, locations, phone, siteUrl, visa, websiteEmail } from "@/constants";
+import {
+  commission,
+  consultationArea,
+  locations,
+  phone,
+  siteUrl,
+  visa,
+  websiteEmail,
+} from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
@@ -23,7 +31,7 @@ function Page() {
   return (
     <LegalPage title="Mentions légales">
       <LegalSection title="Éditrice du site">
-        <p>Camille Paquot, psychologue clinicienne agréée à Bruxelles.</p>
+        <p>Camille Paquot, psychologue clinicienne agréée {consultationArea}.</p>
         <p>
           Site : <TextAnchor href={siteUrl}>{siteUrl}</TextAnchor>
         </p>

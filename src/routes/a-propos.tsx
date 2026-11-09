@@ -9,6 +9,7 @@ import { Portrait } from "@/components/Portrait";
 import { Shape } from "@/components/Shape";
 import { ShapeList, type ShapeBullet } from "@/components/ShapeList";
 import { Strengths } from "@/components/Strengths";
+import { consultationArea } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/a-propos")({
@@ -92,8 +93,9 @@ function Page() {
         <div>
           <Heading level={1}>À propos de moi</Heading>
           <p className="mt-6 max-w-prose text-lg leading-relaxed">
-            Psychologue clinicienne agréée à Bruxelles, j’accompagne toute personne souhaitant
-            entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.
+            Psychologue clinicienne agréée {consultationArea}, j’accompagne toute personne
+            souhaitant entreprendre un travail sur soi dans un cadre bienveillant, respectueux et
+            non-jugeant.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookingLink />
