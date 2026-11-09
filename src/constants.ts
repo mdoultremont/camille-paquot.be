@@ -16,3 +16,21 @@ export const cancellationPolicy =
   "Les rendez-vous qui ne sont pas annulés 48 h à l’avance seront facturés.";
 export const introduction =
   "J’accompagne toute personne souhaitant entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.";
+export const locations = [
+  {
+    name: "Centre Peps Périnat",
+    street: "Avenue de Tervuren 412",
+    postalCode: "1150",
+    city: "Woluwe-Saint-Pierre",
+    url: "https://www.centrepepsperinat.be/",
+    schedule: "Mardi toute la journée, jeudi matin",
+  },
+  {
+    name: "Centre périnatal du Brabant wallon",
+    street: "Rue Dernier Patard 1",
+    postalCode: "1470",
+    city: "Genappe",
+    url: "https://centreperinataldubw.com/",
+    schedule: "Lundi après-midi",
+  },
+];
