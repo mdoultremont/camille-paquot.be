@@ -4,12 +4,13 @@ type PageHead = {
   title: string;
   description: string;
   path: string;
+  structuredData?: Record<string, unknown>;
 } & (
   | { noindex?: false; ogImage: { title: string; subtitle: string } }
   | { noindex: true; ogImage?: never }
 );
 
-export function pageHead({ title, description, path, noindex, ogImage }: PageHead) {
+export function pageHead({ title, description, path, noindex, ogImage, structuredData }: PageHead) {
   const url = new URL(path, siteUrl).href;
   const imageUrl = new URL(
     `/og/${path.split("/").filter(Boolean).join("-") || "home"}.png`,
@@ -33,6 +34,7 @@ export function pageHead({ title, description, path, noindex, ogImage }: PageHea
             { name: "twitter:card", content: "summary_large_image" },
           ]
         : []),
+      ...(structuredData ? [{ "script:ld+json": structuredData }] : []),
     ],
     links: noindex ? [] : [{ rel: "canonical", href: url }],
   };

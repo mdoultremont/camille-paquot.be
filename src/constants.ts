@@ -14,6 +14,8 @@ export const financialHardship =
   "En cas de difficultés financières, les tarifs peuvent être discutés. N’hésitez pas à m’en parler.";
 export const cancellationPolicy =
   "Les rendez-vous qui ne sont pas annulés 48 h à l’avance seront facturés.";
+export const status = "Psychologue clinicienne agréée, non conventionnée.";
+export const languages = "Consultations en français et en anglais.";
 export const introduction =
   "J’accompagne toute personne souhaitant entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.";
 export const locations = [
@@ -22,6 +24,7 @@ export const locations = [
     street: "Avenue de Tervuren 412",
     postalCode: "1150",
     city: "Woluwe-Saint-Pierre",
+    region: "Bruxelles",
     url: "https://www.centrepepsperinat.be/",
     schedule: "Mardi toute la journée, jeudi matin",
   },
@@ -30,7 +33,11 @@ export const locations = [
     street: "Rue Dernier Patard 1",
     postalCode: "1470",
     city: "Genappe",
+    region: "Brabant wallon",
     url: "https://centreperinataldubw.com/",
     schedule: "Lundi après-midi",
   },
 ];
+export const consultationArea = locations
+  .map((location) => `à ${location.city} (${location.region})`)
+  .join(" et ");

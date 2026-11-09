@@ -8,12 +8,15 @@ import {
   cancellationPolicy,
   commission,
   financialHardship,
+  languages,
   locations,
   payment,
   phone,
   reimbursement,
+  status,
   visa,
 } from "@/constants";
+import { faq } from "@/faq";
 import { services } from "@/services";
 import { yoga } from "@/yoga";
 import { pageHead } from "@/seo";
@@ -29,9 +32,20 @@ export const Route = createFileRoute("/infos-pratiques")({
         subtitle: "Tarifs, lieux de consultation, paiement, prise de rendez-vous et contact.",
       },
       path: "/infos-pratiques",
+      structuredData: faqStructuredData,
     }),
   component: Page,
 });
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
 
 const panel = "rounded-3xl p-8";
 
@@ -149,7 +163,7 @@ function Page() {
           <Heading level={3} as="h2" className="mb-4">
             Statut
           </Heading>
-          <p className="text-lg">Psychologue clinicienne agréée, non conventionnée.</p>
+          <p className="text-lg">{status}</p>
           <p className="mt-2 text-lg">Numéro de visa : {visa}</p>
           <p className="text-lg">Commission des Psychologues : {commission}</p>
         </div>
@@ -157,7 +171,28 @@ function Page() {
           <Heading level={3} as="h2" className="mb-4">
             Langues
           </Heading>
-          <p className="text-lg">Consultations en français et en anglais.</p>
+          <p className="text-lg">{languages}</p>
+        </div>
+      </Container>
+      <Container as="section" className="pb-16">
+        <Heading level={2} className="mb-6">
+          Questions fréquentes
+        </Heading>
+        <div className="divide-y divide-ink/20 border-y border-ink/20">
+          {faq.map(({ question, answer }) => (
+            <details key={question} className="group">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg py-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+                {question}
+                <span
+                  aria-hidden="true"
+                  className="flex-none text-2xl leading-none transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="max-w-prose pb-5 text-lg text-ink-soft">{answer}</p>
+            </details>
+          ))}
         </div>
       </Container>
     </>
