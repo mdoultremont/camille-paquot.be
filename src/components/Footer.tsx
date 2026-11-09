@@ -1,12 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-  cancellationPolicy,
-  commission,
-  consultationArea,
-  locations,
-  phone,
-  visa,
-} from "@/constants";
+import { cancellationPolicy, commission, locations, phone, visa } from "@/constants";
 import { BookingLink } from "@/components/BookingLink";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
@@ -21,9 +14,16 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-xs">
-            Psychologue clinicienne agréée {consultationArea}. Consultations pour enfants,
-            adolescents, adultes et parents.
+            Psychologue clinicienne agréée. Consultations pour enfants, adolescents, adultes et
+            parents.
           </p>
+          <ul className="mt-2 text-sm text-ink-soft">
+            {locations.map((location) => (
+              <li key={location.name}>
+                {location.city} ({location.region})
+              </li>
+            ))}
+          </ul>
           <p className="mt-2 text-sm text-ink-soft">
             Visa {visa}, Commission des Psychologues {commission}
           </p>
