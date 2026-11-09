@@ -17,6 +17,8 @@ export default defineConfig({
         autoSubfolderIndex: false,
         failOnError: true,
       },
+      // Listing pages replaces the default crawl start at "/". No page links to llms.txt.
+      pages: [{ path: "/" }, { path: "/llms.txt", sitemap: { exclude: true } }],
       sitemap: { enabled: true, host: siteUrl },
     }),
     react(),
