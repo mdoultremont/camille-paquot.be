@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { cancellationPolicy, commission, phone, visa } from "@/constants";
+import { cancellationPolicy, commission, locations, phone, visa } from "@/constants";
 import { BookingLink } from "@/components/BookingLink";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
@@ -36,7 +36,15 @@ export function Footer() {
         </div>
         <div>
           <h2 className="mb-3 text-xl font-extrabold">Rendez-vous</h2>
-          <p>Adresse des cabinets : informations à venir.</p>
+          <ul className="space-y-3">
+            {locations.map((location) => (
+              <li key={location.name}>
+                <span className="font-semibold">{location.name}</span>, {location.city}
+                <br />
+                <span className="text-sm text-ink-soft">{location.schedule}</span>
+              </li>
+            ))}
+          </ul>
           <BookingLink className="mt-4" />
         </div>
       </Container>

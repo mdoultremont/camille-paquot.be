@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { TextLink } from "@/components/TextLink";
+import { locations } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/conditions-utilisation")({
@@ -46,6 +47,12 @@ function Page() {
           sont présentées dans les <TextLink to="/infos-pratiques">informations pratiques</TextLink>{" "}
           et précisées lors de la prise de rendez-vous. Ces conditions concernent l’utilisation du
           site et ne remplacent pas les accords relatifs à votre accompagnement.
+        </p>
+        <p>
+          Les consultations ont lieu au{" "}
+          {locations.map((location) => `${location.name} (${location.city})`).join(" et au ")}, dont
+          les horaires et les adresses figurent dans les{" "}
+          <TextLink to="/infos-pratiques">informations pratiques</TextLink>.
         </p>
       </LegalSection>
       <LegalSection title="Liens vers d’autres sites">

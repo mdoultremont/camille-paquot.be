@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EmailLink } from "@/components/EmailLink";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { TextAnchor } from "@/components/TextLink";
-import { commission, phone, siteUrl, visa, websiteEmail } from "@/constants";
+import { commission, locations, phone, siteUrl, visa, websiteEmail } from "@/constants";
 import { pageHead } from "@/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
@@ -33,7 +33,16 @@ function Page() {
           E-mail : <EmailLink />
         </p>
         <ul className="list-disc space-y-2 pl-6">
-          <li>Adresse professionnelle : à venir.</li>
+          <li>
+            Adresses professionnelles :
+            <ul className="mt-2 list-[circle] space-y-2 pl-6">
+              {locations.map((location) => (
+                <li key={location.name}>
+                  {location.name}, {location.street}, {location.postalCode} {location.city}
+                </li>
+              ))}
+            </ul>
+          </li>
           <li>Numéro d’entreprise (BCE) : 1006.262.558 (personne physique).</li>
         </ul>
       </LegalSection>

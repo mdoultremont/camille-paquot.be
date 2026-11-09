@@ -8,6 +8,7 @@ import {
   cancellationPolicy,
   commission,
   financialHardship,
+  locations,
   payment,
   phone,
   reimbursement,
@@ -22,10 +23,10 @@ export const Route = createFileRoute("/infos-pratiques")({
     pageHead({
       title: "Infos pratiques - Camille Paquot",
       description:
-        "Tarifs, paiement, prise de rendez-vous, annulation et contact pour les consultations et les cours de yoga.",
+        "Tarifs, lieux de consultation, paiement, prise de rendez-vous, annulation et contact pour les consultations et les cours de yoga.",
       ogImage: {
         title: "Infos pratiques",
-        subtitle: "Tarifs, paiement, prise de rendez-vous et contact.",
+        subtitle: "Tarifs, lieux de consultation, paiement, prise de rendez-vous et contact.",
       },
       path: "/infos-pratiques",
     }),
@@ -40,7 +41,7 @@ function Page() {
       <Container as="section" className="py-12 md:py-16">
         <Heading level={1}>Infos pratiques</Heading>
         <p className="mt-5 text-lg text-ink-soft md:text-xl">
-          Tarifs, paiement, prise de rendez-vous et contact.
+          Tarifs, lieux de consultation, paiement, prise de rendez-vous et contact.
         </p>
       </Container>
       <Container as="section" className="grid gap-5 pb-16 md:grid-cols-2">
@@ -126,9 +127,23 @@ function Page() {
         </div>
         <div className={`${panel} ring-2 ring-ink`}>
           <Heading level={3} as="h2" className="mb-4">
-            Cabinets
+            Lieux de consultation
           </Heading>
-          <p className="text-lg">Informations à venir.</p>
+          <ul className="space-y-5 text-lg">
+            {locations.map((location) => (
+              <li key={location.name}>
+                <p className="font-semibold">{location.schedule}</p>
+                <TextAnchor href={location.url} target="_blank" rel="noopener noreferrer">
+                  {location.name}
+                </TextAnchor>
+                <address className="not-italic">
+                  {location.street}
+                  <br />
+                  {location.postalCode} {location.city}
+                </address>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={`${panel} ring-2 ring-ink`}>
           <Heading level={3} as="h2" className="mb-4">

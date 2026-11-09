@@ -4,13 +4,12 @@ import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Heading } from "@/components/Heading";
-import { email, introduction, phone, siteUrl } from "@/constants";
+import { email, introduction, locations, phone, siteUrl } from "@/constants";
 import stylesheet from "@/styles.css?url";
 
 const description =
   "Consultations psychologiques à Bruxelles pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.";
 
-// Add `address` once the practice addresses are known.
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
@@ -21,6 +20,18 @@ const structuredData = {
   telephone: phone.href.replace("tel:", ""),
   email,
   knowsLanguage: ["fr", "en"],
+  location: locations.map((location) => ({
+    "@type": "Place",
+    name: location.name,
+    url: location.url,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: location.street,
+      postalCode: location.postalCode,
+      addressLocality: location.city,
+      addressCountry: "BE",
+    },
+  })),
   founder: { "@type": "Person", name: "Camille Paquot", jobTitle: "Psychologue clinicienne" },
 };
 export const Route = createRootRoute({
