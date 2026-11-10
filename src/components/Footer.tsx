@@ -39,6 +39,16 @@ export function Footer() {
             <li>
               <EmailLink />
             </li>
+            <li>
+              <Link
+                to="/infos-pratiques"
+                hash="faq"
+                resetScroll={false}
+                className="hover:underline"
+              >
+                Questions fréquentes
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

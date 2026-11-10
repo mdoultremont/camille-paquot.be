@@ -19,22 +19,11 @@ const navigation = [
     label: "Infos pratiques",
     link: linkOptions({ to: "/infos-pratiques" }),
   },
-  {
-    path: "/infos-pratiques",
-    hash: "faq",
-    label: "FAQ",
-    link: linkOptions({
-      to: "/infos-pratiques",
-      hash: "faq",
-      activeOptions: { includeHash: true },
-      resetScroll: false,
-    }),
-  },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
   useEffect(() => {
     // oxlint-disable-next-line react/set-state-in-effect -- Close the menu on route changes, including browser back/forward navigation.
     setOpen(false);
@@ -53,22 +42,17 @@ export function Header() {
       document.removeEventListener("keydown", close);
     };
   }, [open]);
-  // The FAQ entry shares its path with "Infos pratiques", so the last match wins.
-  const current = [...navigation]
-    .reverse()
-    .find((item) => pathname.startsWith(item.path) && (!item.hash || item.hash === hash));
-  const links = navigation.map((item) => {
-    const { label, link } = item;
+  const links = navigation.map(({ path, label, link }) => {
+    const active = pathname.startsWith(path);
     return (
       <Link
-        key={label}
+        key={path}
         {...link}
-        // The route-change effect misses links to the current page, such as FAQ from /infos-pratiques.
-        onClick={() => setOpen(false)}
+        aria-current={pathname === path ? "page" : active ? "true" : undefined}
         className="group flex rounded-full"
       >
         <span
-          className={`rounded-full px-4 py-2 font-medium transition-colors ${item === current ? "bg-mustard-light" : "group-hover:bg-lilac"}`}
+          className={`rounded-full px-4 py-2 font-medium transition-colors ${active ? "bg-mustard-light" : "group-hover:bg-lilac"}`}
         >
           {label}
         </span>

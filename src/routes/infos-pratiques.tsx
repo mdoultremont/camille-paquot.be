@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookingLink } from "@/components/BookingLink";
+import { ButtonLink } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
 import { Heading } from "@/components/Heading";
@@ -58,6 +59,16 @@ function Page() {
         <p className="mt-5 text-lg text-ink-soft md:text-xl">
           Tarifs, lieux de consultation, paiement, prise de rendez-vous et contact.
         </p>
+        <ButtonLink
+          to="/infos-pratiques"
+          hash="faq"
+          resetScroll={false}
+          variant="outline"
+          className="mt-6"
+        >
+          Questions fréquentes
+          <span aria-hidden="true">↓</span>
+        </ButtonLink>
       </Container>
       <Container as="section" className="grid gap-5 pb-16 md:grid-cols-2">
         <div className={`${panel} bg-mustard-light md:col-span-2`}>
