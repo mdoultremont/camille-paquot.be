@@ -17,13 +17,6 @@ export function Footer() {
             Psychologue clinicienne agréée. Consultations pour enfants, adolescents, adultes et
             parents.
           </p>
-          <ul className="mt-2 text-sm text-ink-soft">
-            {locations.map((location) => (
-              <li key={location.name}>
-                {location.city} ({location.region})
-              </li>
-            ))}
-          </ul>
           <p className="mt-2 text-sm text-ink-soft">
             Visa {visa}, Commission des Psychologues {commission}
           </p>
@@ -39,12 +32,12 @@ export function Footer() {
             <li>
               <EmailLink />
             </li>
-            <li>
+            <li className="pt-2">
               <Link
                 to="/infos-pratiques"
                 hash="faq"
                 resetScroll={false}
-                className="hover:underline"
+                className="underline decoration-mustard decoration-2 underline-offset-4 transition-colors hover:decoration-ink"
               >
                 Questions fréquentes
               </Link>
