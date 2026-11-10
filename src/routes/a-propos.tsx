@@ -25,10 +25,10 @@ export const Route = createFileRoute("/a-propos")({
 });
 
 const approachParagraphs = [
-  "À travers des entretiens individuels et familiaux, j’accompagne les enfants, les adolescents et les adultes qui traversent, ponctuellement ou plus durablement, des difficultés dans leur vie.",
-  "Je tiens à offrir un espace bienveillant, sécurisant, chaleureux et sans jugement, où chaque personne peut se sentir accueillie telle qu’elle est. Ensemble, nous prenons le temps de comprendre ce qui se joue, de démêler les nœuds auxquels vous faites face et de nous appuyer sur vos ressources pour avancer à votre rythme.",
-  "Je vous accompagne dans la mise en mots de vos émotions, l’exploration de votre vécu et l’ouverture vers de nouvelles possibilités. Mon rôle est de cheminer à vos côtés, dans le respect de votre singularité et de votre rythme.",
-  "En fonction de l’âge, des besoins et des demandes de chaque personne, je m’appuie sur différents médias et outils thérapeutiques : art-thérapie, livres et supports créatifs. Ces supports peuvent offrir d’autres chemins pour exprimer ce qui est parfois difficile à mettre en mots. De plus, lorsque cela est pertinent et souhaité, j’intègre également une dimension psycho-corporelle à l’accompagnement thérapeutique. Je peux vous proposer des postures de Yoga et des exercices de respiration en séance et des pratiques à réaliser chez vous.",
+  "Psychologue clinicienne, j’accompagne les enfants, les adolescent·e·s, les adultes, les parents et les futurs parents qui souhaitent prendre un temps pour eux, mieux comprendre leur vécu ou traverser une période de questionnements et de changements.",
+  "La grossesse, l’arrivée d’un enfant et la parentalité sont des bouleversements qui peuvent faire émerger des émotions, des questionnements et parfois des difficultés inattendues. La perte de repère, le déséquilibre familial peuvent être source de stress. Ces étapes, aussi riches soient-elles, ne sont pas toujours simples à traverser. Je vous propose un espace de parole bienveillant, chaleureux et sans jugement, où vous pourrez déposer ce que vous vivez, être accueilli·e dans vos ressentis et avancer à votre rythme.",
+  "Ensemble, nous prenons le temps de mettre des mots sur vos émotions, d’explorer votre histoire, de comprendre ce qui se joue et de nous appuyer sur vos ressources pour ouvrir de nouvelles perspectives.",
+  "Mon approche se veut attentive à la singularité de chacun·e. En fonction de votre âge, de vos besoins et de votre demande, je peux également m’appuyer sur différents médias thérapeutiques (art-thérapie, livre) et, lorsque cela fait sens pour vous, j’intègre aussi une dimension psycho-corporelle à l’accompagnement thérapeutique, à travers des exercices de respiration et des postures douces de Yoga.",
 ];
 
 const journeyParagraphs = [
