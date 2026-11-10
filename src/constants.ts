@@ -58,7 +58,7 @@ export const locations: Location[] = [
 ];
 
 function hour(time: string) {
-  return `${Number(time.slice(0, 2))} h${time.slice(3) === "00" ? "" : time.slice(3)}`;
+  return `${Number(time.slice(0, 2))}\u00a0h${time.slice(3) === "00" ? "" : time.slice(3)}`;
 }
 
 // "Mardi de 9 h à 18 h, jeudi de 9 h à 12 h"
