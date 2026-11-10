@@ -2,8 +2,15 @@
 // and the practical info page. `theme` keeps the same colour and shape everywhere.
 // Yoga classes live in `yoga.ts`.
 
-const noFixedRhythm =
+export const noFixedRhythm =
   "Il n’y a pas de rythme ni de durée type, cela dépend de vous et de vos envies. Nous en discuterons dès notre première rencontre.";
+// Every consultation shares the same length, price and cancellation notice.
+export const consultation = {
+  duration: "1 h",
+  price: "65 €",
+  cancellation: "48 h à l’avance",
+  bookOnline: true,
+} as const;
 
 export const services = [
   {
@@ -38,10 +45,7 @@ export const services = [
     closing: noFixedRhythm,
     mediaTitle: "Ce qu’on utilise en séance",
     media: ["Livres", "Art-thérapie", "Jeu", "Yoga", "Respiration"],
-    duration: "1 h",
-    price: "65 €",
-    cancellation: "48 h à l’avance",
-    bookOnline: true,
+    ...consultation,
   },
   {
     slug: "adultes",
@@ -70,10 +74,7 @@ export const services = [
     closing: noFixedRhythm,
     mediaTitle: "",
     media: [],
-    duration: "1 h",
-    price: "65 €",
-    cancellation: "48 h à l’avance",
-    bookOnline: true,
+    ...consultation,
   },
   {
     slug: "parentalite",
@@ -102,10 +103,7 @@ export const services = [
     closing: noFixedRhythm,
     mediaTitle: "",
     media: [],
-    duration: "1 h",
-    price: "65 €",
-    cancellation: "48 h à l’avance",
-    bookOnline: true,
+    ...consultation,
   },
 ] as const;
 

@@ -20,7 +20,7 @@
   :is(a, button) {
     -webkit-tap-highlight-color: transparent;
   }
-  :is(a, button):focus-visible {
+  :is(a, button, summary):focus-visible {
     outline: 3px solid var(--color-mustard);
     outline-offset: 2px;
   }

@@ -4,11 +4,11 @@ import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Heading } from "@/components/Heading";
-import { email, introduction, locations, phone, siteUrl } from "@/constants";
+import { consultationArea, email, introduction, locations, phone, siteUrl } from "@/constants";
+import { consultation, services } from "@/services";
 import stylesheet from "@/styles.css?url";
 
-const description =
-  "Consultations psychologiques à Bruxelles pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.";
+const description = `Consultations psychologiques ${consultationArea} pour enfants, adolescents, adultes et parents. Camille Paquot, psychologue clinicienne agréée.`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -20,6 +20,21 @@ const structuredData = {
   telephone: phone.href.replace("tel:", ""),
   email,
   knowsLanguage: ["fr", "en"],
+  priceRange: consultation.price,
+  areaServed: locations.map((location) => ({
+    "@type": "AdministrativeArea",
+    name: location.region,
+  })),
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    price: Number.parseInt(service.price),
+    priceCurrency: "EUR",
+    itemOffered: {
+      "@type": "Service",
+      name: service.title,
+      url: `${siteUrl}/consultations/${service.slug}`,
+    },
+  })),
   location: locations.map((location) => ({
     "@type": "Place",
     name: location.name,
@@ -31,6 +46,12 @@ const structuredData = {
       addressLocality: location.city,
       addressCountry: "BE",
     },
+    openingHoursSpecification: location.hours.map(({ day, opens, closes }) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: `https://schema.org/${day}`,
+      opens,
+      closes,
+    })),
   })),
   founder: { "@type": "Person", name: "Camille Paquot", jobTitle: "Psychologue clinicienne" },
 };
@@ -58,6 +79,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: stylesheet },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "alternate", type: "text/plain", href: "/llms.txt" },
     ],
   }),
   component: Page,

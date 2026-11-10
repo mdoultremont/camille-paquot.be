@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Strengths } from "@/components/Strengths";
+import { consultationArea } from "@/constants";
 import { services } from "@/services";
 import { pageHead } from "@/seo";
 
@@ -11,8 +12,7 @@ export const Route = createFileRoute("/consultations/")({
   head: () =>
     pageHead({
       title: "Consultations - Camille Paquot",
-      description:
-        "Thérapie pour enfants, adolescents et adultes et soutien à la parentalité : découvrez les consultations proposées à Bruxelles.",
+      description: `Thérapie pour enfants, adolescents et adultes et soutien à la parentalité : découvrez les consultations proposées ${consultationArea}.`,
       ogImage: { title: "Consultations", subtitle: "Ensemble, explorons le champ des possibles." },
       path: "/consultations",
     }),

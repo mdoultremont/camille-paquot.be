@@ -14,6 +14,7 @@ import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as ConditionsUtilisationRouteImport } from './routes/conditions-utilisation'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as InfosPratiquesRouteImport } from './routes/infos-pratiques'
+import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as AccompagnementSplatRouteImport } from './routes/accompagnement.$'
@@ -45,6 +46,11 @@ const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
 const InfosPratiquesRoute = InfosPratiquesRouteImport.update({
   id: '/infos-pratiques',
   path: '/infos-pratiques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
+  id: '/llms.txt',
+  path: '/llms.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/conditions-utilisation': typeof ConditionsUtilisationRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/llms.txt': typeof LlmsDottxtRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/conditions-utilisation': typeof ConditionsUtilisationRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/llms.txt': typeof LlmsDottxtRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/conditions-utilisation': typeof ConditionsUtilisationRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/infos-pratiques': typeof InfosPratiquesRoute
+  '/llms.txt': typeof LlmsDottxtRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/yoga': typeof YogaRoute
   '/accompagnement/$': typeof AccompagnementSplatRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/conditions-utilisation'
     | '/confidentialite'
     | '/infos-pratiques'
+    | '/llms.txt'
     | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/conditions-utilisation'
     | '/confidentialite'
     | '/infos-pratiques'
+    | '/llms.txt'
     | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/conditions-utilisation'
     | '/confidentialite'
     | '/infos-pratiques'
+    | '/llms.txt'
     | '/mentions-legales'
     | '/yoga'
     | '/accompagnement/$'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   ConditionsUtilisationRoute: typeof ConditionsUtilisationRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   InfosPratiquesRoute: typeof InfosPratiquesRoute
+  LlmsDottxtRoute: typeof LlmsDottxtRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   YogaRoute: typeof YogaRoute
   AccompagnementSplatRoute: typeof AccompagnementSplatRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/infos-pratiques'
       fullPath: '/infos-pratiques'
       preLoaderRoute: typeof InfosPratiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/llms.txt': {
+      id: '/llms.txt'
+      path: '/llms.txt'
+      fullPath: '/llms.txt'
+      preLoaderRoute: typeof LlmsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentions-legales': {
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConditionsUtilisationRoute: ConditionsUtilisationRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   InfosPratiquesRoute: InfosPratiquesRoute,
+  LlmsDottxtRoute: LlmsDottxtRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   YogaRoute: YogaRoute,
   AccompagnementSplatRoute: AccompagnementSplatRoute,
