@@ -175,7 +175,7 @@ function Page() {
           <p className="text-lg">{languages}</p>
         </div>
       </Container>
-      <Container as="section" className="pb-16">
+      <Container as="section" id="faq" className="scroll-mt-24 pb-16">
         <Heading level={2} className="mb-6">
           Questions fréquentes
         </Heading>
