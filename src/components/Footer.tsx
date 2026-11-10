@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { cancellationPolicy, commission, locations, phone, visa } from "@/constants";
+import { cancellationPolicy, commission, locations, phone, schedule, visa } from "@/constants";
 import { BookingLink } from "@/components/BookingLink";
 import { Container } from "@/components/Container";
 import { EmailLink } from "@/components/EmailLink";
@@ -48,7 +48,7 @@ export function Footer() {
               <li key={location.name}>
                 <span className="font-semibold">{location.name}</span>, {location.city}
                 <br />
-                <span className="text-sm text-ink-soft">{location.schedule}</span>
+                <span className="text-sm text-ink-soft">{schedule(location.hours)}</span>
               </li>
             ))}
           </ul>

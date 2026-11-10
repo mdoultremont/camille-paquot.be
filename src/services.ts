@@ -4,10 +4,6 @@
 
 export const noFixedRhythm =
   "Il n’y a pas de rythme ni de durée type, cela dépend de vous et de vos envies. Nous en discuterons dès notre première rencontre.";
-export const parentsFirst =
-  "Dans un premier temps, je rencontre les parents pour comprendre la situation et définir ensemble les objectifs thérapeutiques.";
-export const adultFirstSession =
-  "Lors de la première consultation, nous prenons le temps de voir ce qui vous amène et d’établir les objectifs du travail thérapeutique.";
 // Every consultation shares the same length, price and cancellation notice.
 export const consultation = {
   duration: "1 h",
@@ -28,7 +24,7 @@ export const services = [
     paragraphs: [
       "L’accompagnement psychologique des enfants et des adolescents vise à les aider à retrouver davantage d’apaisement dans le quotidien, en collaboration avec leurs parents.",
       "Je propose aux enfants et aux adolescents un espace sécurisant pour déposer, à leur rythme, leur vécu et mettre des mots sur leurs émotions, leurs inquiétudes ou leurs difficultés. La parole peut s’accompagner de différents supports, choisis et adaptés à l’âge, aux besoins et à la sensibilité de chaque enfant.",
-      `L’accompagnement se construit également avec les parents, qui occupent une place essentielle dans le processus thérapeutique. ${parentsFirst}`,
+      "L’accompagnement se construit également avec les parents, qui occupent une place essentielle dans le processus thérapeutique. Dans un premier temps, je rencontre les parents pour comprendre la situation et définir ensemble les objectifs thérapeutiques.",
       "Au fil des rencontres, l’objectif est d’aider les enfants et les adolescents à mieux comprendre leur vécu, à trouver leurs propres ressources et à retrouver progressivement un quotidien plus serein.",
     ],
     reasons: [
@@ -63,7 +59,7 @@ export const services = [
       "Le travail thérapeutique offre un espace pour prendre du recul, mettre des mots sur ce qui est vécu et mieux comprendre ce qui se joue dans une période de vie parfois difficile ou questionnante.",
       "Les séances peuvent s’articuler autour de questions personnelles, professionnelles, conjugales, parentales, familiales ou relationnelles, mais aussi autour de questionnements plus existentiels.",
       "Un espace pour déposer ce qui vous préoccupe, retrouver vos repères et avancer à votre rythme.",
-      adultFirstSession,
+      "Lors de la première consultation, nous prenons le temps de voir ce qui vous amène et d’établir les objectifs du travail thérapeutique.",
     ],
     reasons: [
       "Difficultés de sommeil",

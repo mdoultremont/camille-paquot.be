@@ -46,6 +46,12 @@ const structuredData = {
       addressLocality: location.city,
       addressCountry: "BE",
     },
+    openingHoursSpecification: location.hours.map(({ day, opens, closes }) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: `https://schema.org/${day}`,
+      opens,
+      closes,
+    })),
   })),
   founder: { "@type": "Person", name: "Camille Paquot", jobTitle: "Psychologue clinicienne" },
 };

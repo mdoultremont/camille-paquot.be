@@ -13,6 +13,7 @@ import {
   payment,
   phone,
   reimbursement,
+  schedule,
   status,
   visa,
 } from "@/constants";
@@ -146,7 +147,7 @@ function Page() {
           <ul className="space-y-5 text-lg">
             {locations.map((location) => (
               <li key={location.name}>
-                <p className="font-semibold">{location.schedule}</p>
+                <p className="font-semibold">{schedule(location.hours)}</p>
                 <TextAnchor href={location.url} target="_blank" rel="noopener noreferrer">
                   {location.name}
                 </TextAnchor>

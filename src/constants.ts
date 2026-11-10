@@ -18,26 +18,56 @@ export const status = "Psychologue clinicienne agréée, non conventionnée.";
 export const languages = "Consultations en français et en anglais.";
 export const introduction =
   "J’accompagne toute personne souhaitant entreprendre un travail sur soi dans un cadre bienveillant, respectueux et non-jugeant.";
-export const locations = [
+// The hours of the offices she rents. Her free slots are on Rosa.
+type OpeningHours = { day: Day; opens: string; closes: string };
+type Day = keyof typeof dayNames;
+const dayNames = { Monday: "lundi", Tuesday: "mardi", Thursday: "jeudi" } as const;
+
+type Location = {
+  name: string;
+  street: string;
+  postalCode: string;
+  city: string;
+  region: string;
+  url: string;
+  hours: OpeningHours[];
+};
+
+export const locations: Location[] = [
   {
-    name: "Centre Peps Périnat",
+    name: "Centre Pep’s Périnat",
     street: "Avenue de Tervuren 412",
     postalCode: "1150",
     city: "Woluwe-Saint-Pierre",
     region: "Bruxelles",
     url: "https://www.centrepepsperinat.be/",
-    schedule: "Mardi toute la journée, jeudi matin",
+    hours: [
+      { day: "Tuesday", opens: "09:00", closes: "18:00" },
+      { day: "Thursday", opens: "09:00", closes: "12:00" },
+    ],
   },
   {
-    name: "Centre périnatal du Brabant wallon",
+    name: "Centre Périnatal du Brabant Wallon",
     street: "Rue Dernier Patard 1",
     postalCode: "1470",
     city: "Genappe",
-    region: "Brabant wallon",
+    region: "Brabant Wallon",
     url: "https://centreperinataldubw.com/",
-    schedule: "Lundi après-midi",
+    hours: [{ day: "Monday", opens: "13:00", closes: "18:00" }],
   },
 ];
+
+function hour(time: string) {
+  return `${Number(time.slice(0, 2))} h${time.slice(3) === "00" ? "" : time.slice(3)}`;
+}
+
+// "Mardi de 9 h à 18 h, jeudi de 9 h à 12 h"
+export function schedule(hours: readonly OpeningHours[]) {
+  const text = hours
+    .map(({ day, opens, closes }) => `${dayNames[day]} de ${hour(opens)} à ${hour(closes)}`)
+    .join(", ");
+  return text[0].toUpperCase() + text.slice(1);
+}
 export const consultationArea = locations
   .map((location) => `à ${location.city} (${location.region})`)
   .join(" et ");

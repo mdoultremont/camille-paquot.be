@@ -12,6 +12,7 @@ import {
   payment,
   phone,
   reimbursement,
+  schedule,
   siteUrl,
   status,
   visa,
@@ -42,7 +43,7 @@ function llmsTxt() {
 - Consultation : ${consultation.duration}, ${consultation.price}. ${payment}
 - Remboursement : ${reimbursement}
 - ${financialHardship}
-${locations.map((location) => `- ${location.name}, ${location.street}, ${location.postalCode} ${location.city} (${location.region}) : ${location.schedule.toLowerCase()}.`).join("\n")}
+${locations.map((location) => `- ${location.name}, ${location.street}, ${location.postalCode} ${location.city} (${location.region}) : ${schedule(location.hours).toLowerCase()}.`).join("\n")}
 - ${languages}
 - Rendez-vous : en ligne sur ${booking} ou par téléphone au ${phone.display}.
 - Annulation : ${cancellationPolicy}
