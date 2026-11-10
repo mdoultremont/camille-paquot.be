@@ -67,7 +67,6 @@ function Page() {
           className="mt-6"
         >
           Questions fréquentes
-          <span aria-hidden="true">↓</span>
         </ButtonLink>
       </Container>
       <Container as="section" className="grid gap-5 pb-16 md:grid-cols-2">
