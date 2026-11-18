@@ -31,9 +31,11 @@ type Location = {
   region: string;
   url: string;
   hours: OpeningHours[];
+  published: boolean;
 };
 
-export const locations: Location[] = [
+// A centre stays unpublished until Camille confirms she consults there.
+const allLocations: Location[] = [
   {
     name: "Centre Pep’s Périnat",
     street: "Avenue de Tervuren 412",
@@ -45,6 +47,7 @@ export const locations: Location[] = [
       { day: "Tuesday", opens: "09:00", closes: "18:00" },
       { day: "Thursday", opens: "09:00", closes: "12:00" },
     ],
+    published: true,
   },
   {
     name: "Centre Périnatal du Brabant Wallon",
@@ -54,8 +57,11 @@ export const locations: Location[] = [
     region: "Brabant Wallon",
     url: "https://centreperinataldubw.com/",
     hours: [{ day: "Monday", opens: "13:00", closes: "18:00" }],
+    published: false,
   },
 ];
+
+export const locations = allLocations.filter((location) => location.published);
 
 function hour(time: string) {
   return `${Number(time.slice(0, 2))}\u00a0h${time.slice(3) === "00" ? "" : time.slice(3)}`;
